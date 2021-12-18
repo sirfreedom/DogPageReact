@@ -1,6 +1,8 @@
 import React, {useState, Fragment} from 'react'
 import {ListAll_Breeds} from './Helpers'
-
+import Modal from 'react-bootstrap/Modal';
+import { Button } from 'reactstrap';
+import { If, Then, Else, When, Unless, Switch, Case, Default } from 'react-if';
 
 const GrillaCompleta = () => {
 
@@ -18,35 +20,18 @@ const GrillaCompleta = () => {
         ]
     ]
 
-const [Breeds,setBreeds] = useState(oBreed)
+    var oPopUpState = [
+        [
+            {
+                "Show": false,
+                "Id": 0
+            }
+        ]
+    ]
 
-/*
-https://docs.thedogapi.com/api-reference/breeds/breeds-list
-    const ListTarjetas = ()=>{
-        var json_ale =  {"Record":[{"id":1,"Tipo":"Capacitacion","Valor":-4400,"Fecha":"2/2021",
-                      "Descripcion":null,"IdTipo":0},
-                      {"id":2,"Tipo":"Pelotudo","Valor":-4400,
-                      "Fecha":"3/2021","Descripcion":null,"IdTipo":0},
-                      {"id":3,"Tipo":"OTRAS COSA","Valor":-5000,"Fecha":"4/2021","Descripcion":null,"IdTipo":0},
-                      {"id":4,"Tipo":"Capacitacion","Valor":-5150,"Fecha":"5/2021","Descripcion":null,"IdTipo":0}]};
-                 debugger;
-                      actualizar_lista_tarjetas(json_ale.Record)
-      }
 
-    const get_group_rows = (flat_array, cols)=>{
-        var arrays = []
-        var row_size = cols
-        for (let i = 0; i < flat_array.length; i += row_size)
-        arrays.push(flat_array.slice(i, i + row_size));
-        return arrays
-    }
-    
-    const actualizar_lista_tarjetas = (array_tarjetas)=>{
-        const tarjetasRows = get_group_rows(array_tarjetas,2)
-        console.log(tarjetasRows)
-        setLista(tarjetasRows)
-    }
-    */
+const [Breeds,setBreeds] = useState(oBreed);
+const [modalShow, setModalShow] = useState(false);
 
     const ListAll = ()=> 
     {
@@ -62,7 +47,31 @@ https://docs.thedogapi.com/api-reference/breeds/breeds-list
     } 
 
 
-   
+    function ModalShow()
+    {
+
+    }
+
+
+    function MydModalWithGrid(props) {
+        return (
+          <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+            <Modal.Header closeButton>
+              <Modal.Title id="contained-modal-title-vcenter">
+                Row Edit
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="show-grid">
+       
+                <a>hola</a>
+
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        );
+      }
 
 
     const CreateTable = () =>
@@ -70,32 +79,37 @@ https://docs.thedogapi.com/api-reference/breeds/breeds-list
         return <table key="tBreeds" className="table" >
         <thead key="thead">
           <tr>
-            <th></th>
-            <th scope="col">Comando </th>
+            <th scope="col">Sel </th>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Temperament</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
         {Breeds.map((row,idx) =>{
                     return <tr key={idx} >
                             <td>
-                                <button onClick={() => GrillaEvent(row.id) } > seleccionar </button>
+
+                            <If condition={row.id == undefined }>
+                             <Then>
+                                <a> Empty </a>
+                            </Then>
+                            <Else>
+                            <Button onClick={() => GrillaEvent(row.id) } > Sel </Button>
+                                <div>
+                                    <Button variant="primary" onClick={() => setModalShow(true)}>
+                                    Edit
+                                    </Button>
+                                    <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
+                                </div>
+                            </Else>
+                            </If>
+                            
                             </td>
                             <td>
                               {row.id}
                             </td>
                             <td>
                               {row.name}  
-                            </td>
-                            <td>
-                              {row.temperament} 
-                            </td>
-                            <td>
-                            </td>
-                            <td>
                             </td>
                         </tr>
                     } )
@@ -113,11 +127,6 @@ https://docs.thedogapi.com/api-reference/breeds/breeds-list
         {
              CreateTable()
         }
-
-
-
-
-
 
 
         </div>

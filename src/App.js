@@ -20,9 +20,8 @@ const InitialDog = {
 
 function App() {
 
-  const [dog,setDog] = useState(InitialDog);
-  const [modalShow, setModalShow] = React.useState(false);
-
+ const [dog,setDog] = useState(InitialDog);
+  
  const updateDogs = (Id) => {
   //console.log(Id);
 
@@ -31,28 +30,6 @@ function App() {
     //console.log(g);
   })
  }
-
- function MyVerticallyCenteredModal(props) {
-  return (
-    <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered  >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          prueba de Pop up
-        </p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
-
 
 
   return (
@@ -82,15 +59,6 @@ function App() {
       <Select key="ddlBreeds" updateDogs={updateDogs} ></Select>
       <GrillaCompleta key="gBreeds" ></GrillaCompleta> 
       <Card dog={dog} > </Card>
-
-      <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Show de PopUP
-      </Button>
-      <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
-      </>
-   
-
 
 
 
