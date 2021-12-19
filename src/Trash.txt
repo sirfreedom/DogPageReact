@@ -1,0 +1,15 @@
+//import { If, Then, Else, When, Unless, Switch, Case, Default } from 'react-if';
+import React, { useState } from 'react'
+//import React, {useState, Fragment, useEffect} from 'react'
+//import Select from './Components/Select';
+//import Card from './Components/Card';
+//import { GetDog } from './Components/Helpers';
+
+/*
+<Row className="mx-0">
+  <Button variant="primary">Button #1</Button>
+  <Button variant="secondary" className="mx-2">Button #2</Button>
+  <Button variant="success">Button #3</Button>
+</Row>
+  
+*/

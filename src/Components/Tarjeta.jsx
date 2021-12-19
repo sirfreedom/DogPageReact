@@ -1,9 +1,6 @@
 import React,{useState} from 'react'
 
 
-
-
-
 const Tarjeta = (props) => {
     const [titulo,setTitulo]= useState(props.obj.descripcion)
 

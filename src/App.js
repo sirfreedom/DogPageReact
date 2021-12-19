@@ -1,15 +1,8 @@
-import React, {Fragment, useState } from 'react';
+
 import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
-import Select from './Components/Select';
-import Card from './Components/Card';
-import { GetDog } from './Components/Helpers';
-import Modal from 'react-bootstrap/Modal';
-//import ModalTitle from 'react-bootstrap/ModalTitle'
-//import ModalBody from 'react-bootstrap/ModalBody'
-//import ModalFooter from 'react-bootstrap/ModalFooter'
-import { Button } from 'reactstrap';
+import { BrowserRouter as Router, Switch, Route,  Link, useRouteMatch, useParams } from "react-router-dom";
 
 
 const InitialDog = {
@@ -20,56 +13,72 @@ const InitialDog = {
 
 function App() {
 
- const [dog,setDog] = useState(InitialDog);
+ //const [dog,setDog] = useState(InitialDog);
   
+ /*
  const updateDogs = (Id) => {
-  //console.log(Id);
+ console.log(Id);
 
   GetDog(Id).then((g) => {
-    setDog(g);
-    //console.log(g);
+     setDog(g);
+    console.log(g);
   })
- }
+  }
+*/
 
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Topics() {
+  let match = useRouteMatch();
 
   return (
-    <Fragment>
-    <div className="App">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled">Disabled</a>
-      </div>
+    <h2>Topic</h2>
+  );
+}
+
+/*
+function Topic() {
+  let { topicId } = useParams();
+  return <h1> Seccion: {topicId}</h1>;
+}
+*/
+
+return (
+    <Router>
+    <div>
+
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
+        </li>
+        <li>
+          <Link to="/topics">Topics</Link>
+        </li>
+      </ul>
+
+      <Switch>
+        <Route path="/GrillaCompletaPrueba">
+          <GrillaCompleta></GrillaCompleta>
+        </Route>
+        <Route path="/topics">
+          <Topics />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
-  </div>
-</nav>
+  </Router>
 
-      <div>
-
-
-
-      <Select key="ddlBreeds" updateDogs={updateDogs} ></Select>
-      <GrillaCompleta key="gBreeds" ></GrillaCompleta> 
-      <Card dog={dog} > </Card>
-
-
-
-      </div>
-</div>
-
-
-
-
-
-</Fragment>
   );
 }
 

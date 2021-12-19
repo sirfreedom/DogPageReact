@@ -1,59 +1,49 @@
-import React, {useState, Fragment} from 'react'
-import {ListAll_Breeds} from './Helpers'
+import React, {useState} from 'react';
+import {ListAll_Breeds} from './Helpers';
+import { GetDog } from './Helpers';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'reactstrap';
-import { If, Then, Else, When, Unless, Switch, Case, Default } from 'react-if';
+import { If, Then, Else } from 'react-if';
+import Card from './Card';
 
 const GrillaCompleta = () => {
 
-    var oBreed = [
-        [
-            {
-                "id":1,
-                "name": "",
-                "temperament": "Tarjeta Visa1",
-                "life_span": "",
-                "origen": "",
-                "weight":0,
-                "height":0
-            }
-        ]
+  var oDog = [
+    [
+        {
+            "id":0,
+            "name": "",
+            "temperament": "",
+            "life_span": "",
+            "origen": "",
+            "weight":0,
+            "height":0
+        }
     ]
+]
 
-    var oPopUpState = [
-        [
-            {
-                "Show": false,
-                "Id": 0
-            }
-        ]
-    ]
-
-
-const [Breeds,setBreeds] = useState(oBreed);
-const [modalShow, setModalShow] = useState(false);
+  const [dogs,setDogs] = useState(oDog);
+  const [modalEdit, setModalEdit] = useState(false);
+  const [dog,setDog] = useState(oDog);
 
     const ListAll = ()=> 
     {
         ListAll_Breeds()
         .then((data) => {
-            setBreeds(data)
+            setDogs(data)
         })
     }
 
-    const GrillaEvent = (vId) => {
-        console.log(vId);
-        
+    const GridEdit = (vId) => {
+      GetDog(vId)
+      .then((g) => {
+        console.log(g);
+        setDog(g);
+        setModalEdit(true);
+      })
     } 
 
-
-    function ModalShow()
-    {
-
-    }
-
-
-    function MydModalWithGrid(props) {
+    function ModalEdicion(props) {
         return (
           <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
             <Modal.Header closeButton>
@@ -63,7 +53,26 @@ const [modalShow, setModalShow] = useState(false);
             </Modal.Header>
             <Modal.Body className="show-grid">
        
-                <a>hola</a>
+                <a>Test edit</a>
+
+                  <table>
+                  <thead>
+                   </thead>
+                   <tbody>
+                      <tr>
+                        <td>
+                          Nombre : 
+                        </td>
+                        <td>
+                          <input id="txtNombre" type="text" className="form-control" onChange={(event)=>this.inputChangedHandler(event)}  value={dog.name} ></input>
+                        </td>
+                      </tr>
+                      </tbody>
+                      <tfoot></tfoot>
+                  </table>
+                  <div>
+                      <Card dog={dog} > </Card>
+                  </div>
 
             </Modal.Body>
             <Modal.Footer>
@@ -76,37 +85,29 @@ const [modalShow, setModalShow] = useState(false);
 
     const CreateTable = () =>
     {
-        return <table key="tBreeds" className="table" >
+        return <table key="tDogs" className="table" >
         <thead key="thead">
           <tr>
             <th scope="col">Sel </th>
-            <th scope="col">Id</th>
             <th scope="col">Name</th>
           </tr>
         </thead>
         <tbody>
-        {Breeds.map((row,idx) =>{
+        {dogs.map((row,idx) =>{
                     return <tr key={idx} >
                             <td>
-
                             <If condition={row.id == undefined }>
                              <Then>
                                 <a> Empty </a>
                             </Then>
                             <Else>
-                            <Button onClick={() => GrillaEvent(row.id) } > Sel </Button>
+                            <Button onClick={() => GridEdit(row.id) } > Edit </Button>
                                 <div>
-                                    <Button variant="primary" onClick={() => setModalShow(true)}>
-                                    Edit
-                                    </Button>
-                                    <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
+                                    <ModalEdicion show={modalEdit} onHide={() => setModalEdit(false)} />
                                 </div>
                             </Else>
                             </If>
                             
-                            </td>
-                            <td>
-                              {row.id}
                             </td>
                             <td>
                               {row.name}  
@@ -123,7 +124,7 @@ const [modalShow, setModalShow] = useState(false);
     return (
         
         <div key="div1" > 
-        <button className="p-3 mb-2 bg-primary text-white" key="btnList" onClick={e => {ListAll()}} > TRAER TARJETAS </button>
+        <Button className="p-3 mb-2 bg-primary text-white" key="btnList" onClick={e => {ListAll()}} > Listar </Button>
         {
              CreateTable()
         }
@@ -132,7 +133,6 @@ const [modalShow, setModalShow] = useState(false);
         </div>
     )
 }
-
 
 
 export default GrillaCompleta

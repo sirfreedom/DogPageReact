@@ -1,4 +1,5 @@
-import React, {useState, Fragment, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
+
 import { ListAll_Breeds } from './Helpers';
 
 const initialBreeds = [
@@ -24,7 +25,6 @@ const Select = ({updateDogs}) => {
     const List = () => {
         ListAll_Breeds()
         .then((lb) => {
-            //console.log(lb);
             setBreeds(lb);
         })
 
@@ -32,10 +32,6 @@ const Select = ({updateDogs}) => {
 
     return (
         <div>
-
-
-
-
 
             <h1>
                 Select

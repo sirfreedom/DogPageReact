@@ -1,17 +1,16 @@
-import React, { useState, Fragment } from 'react'
-import { If, Then, Else, When, Unless, Switch, Case, Default } from 'react-if';
+import { If, Then, Else } from 'react-if';
 
 const Card = ({dog}) => {
     return (
         <div>
        
-            <If condition={dog.reference_image_id == undefined }>
+            <If condition={dog.reference_image_id === undefined }>
               <Then>
              <a> Empty </a>
              </Then>
                 <Else>
 
-             <img width="80" height="200"  src={"https://cdn2.thedogapi.com/images/" + dog.reference_image_id + ".jpg" }  alt="Dogs"></img>
+             <img width="80%" height="80%"  src={"https://cdn2.thedogapi.com/images/" + dog.reference_image_id + ".jpg" }  alt="Dogs"></img>
 
                </Else>
              </If>
