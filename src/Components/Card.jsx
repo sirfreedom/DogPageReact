@@ -4,7 +4,7 @@ const Card = ({dog}) => {
     return (
         <div>
        
-            <If condition={dog === 'undefined' }>
+            <If condition={dog.id === undefined }>
               <Then>
                 Empty 
              </Then>

@@ -56,8 +56,6 @@ const GrillaCompleta = () => {
       setDog ( tdog );
     }
 
-
-
     function ModalEdicion(props) {
         return (
           <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
@@ -79,7 +77,7 @@ const GrillaCompleta = () => {
                           Nombre : 
                         </td>
                         <td>
-                          <input id="txtNombre" type="text" className="form-control" onChange={(event)=>SaveDogName(event)} value={dog.name} ></input>
+                          <input key="txtNombre" type="text" className="form-control" onChange={(event)=>SaveDogName(event)} value={dog.name} ></input>
                         </td>
                       </tr>
                       </tbody>
@@ -112,18 +110,17 @@ const GrillaCompleta = () => {
         {dogs.map((row,idx) =>{
                     return <tr key={idx} >
                             <td>
-                            <If condition={row === 'undefined' }>
+                            <If condition= {row.id === undefined }>
                              <Then>
                                 Empty 
                               </Then>
                             <Else>
-                            <Button onClick={() => GridEdit(row.id) } > Edit </Button>
+                               <Button onClick={() => GridEdit(row.id) } > Edit </Button>
                                 <div>
                                     <ModalEdicion show={modalEdit} onHide={() => setModalEdit(false)} />
                                 </div>
                             </Else>
                             </If>
-                            
                             </td>
                             <td>
                               {row.name}  
