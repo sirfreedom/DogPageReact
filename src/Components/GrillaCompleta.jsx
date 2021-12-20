@@ -112,7 +112,7 @@ const GrillaCompleta = () => {
         {dogs.map((row,idx) =>{
                     return <tr key={idx} >
                             <td>
-                            <If condition={row.id == undefined }>
+                            <If condition={row === 'undefined' }>
                              <Then>
                                 Empty 
                               </Then>

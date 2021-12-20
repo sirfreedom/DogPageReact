@@ -4,7 +4,7 @@ const Card = ({dog}) => {
     return (
         <div>
        
-            <If condition={dog.reference_image_id === undefined }>
+            <If condition={dog === 'undefined' }>
               <Then>
                 Empty 
              </Then>
