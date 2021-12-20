@@ -2,14 +2,8 @@
 import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
-import { BrowserRouter as Router, Switch, Route,  Link, useRouteMatch, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,  Link } from "react-router-dom";
 
-
-const InitialDog = {
-  id : 0,
-  name : "ssss",
-  life_span: ""
-}
 
 function App() {
 
@@ -30,12 +24,9 @@ function Home() {
   return <h2>Home</h2>;
 }
 
-function About() {
-  return <h2>About</h2>;
-}
 
 function Topics() {
-  let match = useRouteMatch();
+  //let match = useRouteMatch();
 
   return (
     <h2>Topic</h2>

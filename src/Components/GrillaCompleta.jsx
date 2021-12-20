@@ -68,7 +68,7 @@ const GrillaCompleta = () => {
             </Modal.Header>
             <Modal.Body className="show-grid">
        
-                <a>Test edit</a>
+                <div>Test edit</div>
 
                   <table>
                   <thead>
@@ -86,7 +86,7 @@ const GrillaCompleta = () => {
                       <tfoot></tfoot>
                   </table>
                   <div>
-                      <Card dog={dog} > </Card>
+                      <Card dog={dog} href="#" > </Card>
                   </div>
 
             </Modal.Body>
@@ -114,8 +114,8 @@ const GrillaCompleta = () => {
                             <td>
                             <If condition={row.id == undefined }>
                              <Then>
-                                <a> Empty </a>
-                            </Then>
+                                Empty 
+                              </Then>
                             <Else>
                             <Button onClick={() => GridEdit(row.id) } > Edit </Button>
                                 <div>

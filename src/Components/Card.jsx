@@ -6,11 +6,11 @@ const Card = ({dog}) => {
        
             <If condition={dog.reference_image_id === undefined }>
               <Then>
-             <a> Empty </a>
+                Empty 
              </Then>
                 <Else>
 
-             <img width="80%" height="80%"  src={"https://cdn2.thedogapi.com/images/" + dog.reference_image_id + ".jpg" }  alt="Dogs"></img>
+             <img width="80%" height="80%" src={"https://cdn2.thedogapi.com/images/" + dog.reference_image_id + ".jpg" }  alt="Dogs"></img>
 
                </Else>
              </If>
