@@ -29,19 +29,34 @@ const GrillaCompleta = () => {
     const ListAll = ()=> 
     {
         ListAll_Breeds()
-        .then((data) => {
-            setDogs(data)
+        .then((g) => {
+            setDogs(g)
         })
     }
 
     const GridEdit = (vId) => {
       GetDog(vId)
       .then((g) => {
-        console.log(g);
         setDog(g);
         setModalEdit(true);
       })
     } 
+
+    const Save = () => 
+    {
+      setModalEdit(false);
+      console.log(dog); 
+    }
+
+    const SaveDogName = (e) => 
+    {
+      e.preventDefault();
+      //debugger;
+      let tdog = {...dog,name: e.target.value};
+      setDog ( tdog );
+    }
+
+
 
     function ModalEdicion(props) {
         return (
@@ -64,7 +79,7 @@ const GrillaCompleta = () => {
                           Nombre : 
                         </td>
                         <td>
-                          <input id="txtNombre" type="text" className="form-control" onChange={(event)=>this.inputChangedHandler(event)}  value={dog.name} ></input>
+                          <input id="txtNombre" type="text" className="form-control" onChange={(event)=>SaveDogName(event)} value={dog.name} ></input>
                         </td>
                       </tr>
                       </tbody>
@@ -77,6 +92,7 @@ const GrillaCompleta = () => {
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={props.onHide}>Close</Button>
+              <Button onClick={Save()}>Save</Button>
             </Modal.Footer>
           </Modal>
         );
