@@ -7,45 +7,35 @@ import { If, Then, Else } from 'react-if';
 import Card from './Card';
 
 const GrillaCompleta = () => {
+var oDog = [ [ { "id":0, "name": "", "temperament": "", "life_span": "", "origen": "", "weight":0, "height":0 } ] ];
 
-  var oDog = [
-    [
-        {
-            "id":0,
-            "name": "",
-            "temperament": "",
-            "life_span": "",
-            "origen": "",
-            "weight":0,
-            "height":0
-        }
-    ]
-]
+const [dogs,setDogs] = useState(oDog);
+const [modalEdit, setModalEdit] = useState(false);
+const [dog,setDog] = useState(oDog);
 
-  const [dogs,setDogs] = useState(oDog);
-  const [modalEdit, setModalEdit] = useState(false);
-  const [dog,setDog] = useState(oDog);
 
-    const ListAll = ()=> 
+const ListAll = ()=> 
     {
         ListAll_Breeds()
-        .then((g) => {
-            setDogs(g)
+        .then((lg) => {
+            setDogs(lg)
         })
     }
 
     const GridEdit = (vId) => {
+      
       GetDog(vId)
       .then((g) => {
         setDog(g);
         setModalEdit(true);
+        console.log(modalEdit);
       })
     } 
 
-    const Save = () => 
-    {
-      setModalEdit(false);
-      console.log(dog); 
+    const Save = () => {
+      //setModalEdit(false);
+      console.log("Pasa por el puto Save")
+      //console.log(dog); 
     }
 
     const SaveDogName = (e) => 
@@ -65,11 +55,9 @@ const GrillaCompleta = () => {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="show-grid">
-       
-                <div>Test edit</div>
-
-                  <table>
+            <table>
                   <thead>
+                      <div>Test edit</div>
                    </thead>
                    <tbody>
                       <tr>
@@ -86,18 +74,16 @@ const GrillaCompleta = () => {
                   <div>
                       <Card dog={dog} href="#" > </Card>
                   </div>
-
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={props.onHide}>Close</Button>
-              <Button onClick={Save()}>Save</Button>
+              <Button onClick={() => Save() }>Save</Button>
             </Modal.Footer>
           </Modal>
         );
-      }
+     }
 
-
-    const CreateTable = () =>
+    function CreateTable ()
     {
         return <table key="tDogs" className="table" >
         <thead key="thead">
@@ -107,18 +93,15 @@ const GrillaCompleta = () => {
           </tr>
         </thead>
         <tbody>
-        {dogs.map((row,idx) =>{
+        {dogs.map((row,idx) => {
                     return <tr key={idx} >
                             <td>
                             <If condition= {row.id === undefined }>
                              <Then>
-                                Empty 
-                              </Then>
+                                Empty
+                             </Then>
                             <Else>
                                <Button onClick={() => GridEdit(row.id) } > Edit </Button>
-                                <div>
-                                    <ModalEdicion show={modalEdit} onHide={() => setModalEdit(false)} />
-                                </div>
                             </Else>
                             </If>
                             </td>
@@ -135,17 +118,19 @@ const GrillaCompleta = () => {
     }
 
     return (
-        
-        <div key="div1" > 
+      <React.Fragment>
+
         <Button className="p-3 mb-2 bg-primary text-white" key="btnList" onClick={e => {ListAll()}} > Listar </Button>
         {
              CreateTable()
         }
 
-
+        <div>
+          <ModalEdicion show={modalEdit} onHide={() => setModalEdit(false)} />
         </div>
+
+    </React.Fragment>
     )
 }
-
 
 export default GrillaCompleta
