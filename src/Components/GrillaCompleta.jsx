@@ -33,7 +33,7 @@ const ListAll = ()=>
     } 
 
     const Save = () => {
-      //setModalEdit(false);
+      setModalEdit(false);
       console.log("Pasa por el puto Save")
       //console.log(dog); 
     }
