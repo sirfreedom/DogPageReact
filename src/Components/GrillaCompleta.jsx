@@ -1,91 +1,105 @@
 import React, {useState} from 'react';
 import {ListAll_Breeds} from './Helpers';
-import { GetDog } from './Helpers';
-import Modal from 'react-bootstrap/Modal';
-import { Button } from 'reactstrap';
-import { If, Then, Else } from 'react-if';
+import {GetDog} from './Helpers';
+import {Modal, Button} from 'react-bootstrap/';
+import {If, Then, Else} from 'react-if';
 import Card from './Card';
+import {useEffect} from 'react';
 
 const GrillaCompleta = () => {
-var oDog = [ [ { "id":0, "name": "", "temperament": "", "life_span": "", "origen": "", "weight":0, "height":0 } ] ];
+  const [dogs, setDogs] = useState([]);
+  const [modalEdit, setModalEdit] = useState(false);
+  const [dog, setDog] = useState([]);
+  const [query, setQuery] = useState('');
 
-const [dogs,setDogs] = useState(oDog);
-const [modalEdit, setModalEdit] = useState(false);
-const [dog,setDog] = useState(oDog);
+  const ListAll = () => {
+    setDogs(dogs.filter(dog => dog.name === query));
+  };
 
+  const GridEdit = vId => {
+    GetDog(vId).then(g => {
+      setDog(g);
+      setModalEdit(true);
+      console.log(modalEdit);
+    });
+  };
 
-const ListAll = ()=> 
-    {
-        ListAll_Breeds()
-        .then((lg) => {
-            setDogs(lg)
-        })
-    }
+  const Save = () => {
+    setModalEdit(false);
+    console.log('Pasa por el puto Save');
+    //console.log(dog);
+  };
 
-    const GridEdit = (vId) => {
-      
-      GetDog(vId)
-      .then((g) => {
-        setDog(g);
-        setModalEdit(true);
-        console.log(modalEdit);
-      })
-    } 
+  const SaveDogName = e => {
+    e.preventDefault();
+    //debugger;
+    setDog({...dog, name: e.target.value});
+  };
 
-    const Save = () => {
-      setModalEdit(false);
-      console.log("Pasa por el puto Save")
-      //console.log(dog); 
-    }
+  function ModalEdicion(props) {
+    return (
+      <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">Row Edit</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="show-grid">
+          <table>
+            <thead>
+              <div>Test edit</div>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nombre :</td>
+                <td>
+                  <input
+                    key="txtNombre"
+                    type="text"
+                    className="form-control"
+                    onChange={event => SaveDogName(event)}
+                    value={dog.name}
+                  ></input>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot></tfoot>
+          </table>
+          <div>
+            <Card dog={dog} href="#">
+              {' '}
+            </Card>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+          <Button onClick={() => Save()}>Save</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
 
-    const SaveDogName = (e) => 
-    {
-      e.preventDefault();
-      //debugger;
-      let tdog = {...dog,name: e.target.value};
-      setDog ( tdog );
-    }
+  const handleBuscador = e => {
+    setQuery(e.target.value);
+  };
 
-    function ModalEdicion(props) {
-        return (
-          <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Row Edit
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="show-grid">
-            <table>
-                  <thead>
-                      <div>Test edit</div>
-                   </thead>
-                   <tbody>
-                      <tr>
-                        <td>
-                          Nombre : 
-                        </td>
-                        <td>
-                          <input key="txtNombre" type="text" className="form-control" onChange={(event)=>SaveDogName(event)} value={dog.name} ></input>
-                        </td>
-                      </tr>
-                      </tbody>
-                      <tfoot></tfoot>
-                  </table>
-                  <div>
-                      <Card dog={dog} href="#" > </Card>
-                  </div>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={props.onHide}>Close</Button>
-              <Button onClick={() => Save() }>Save</Button>
-            </Modal.Footer>
-          </Modal>
-        );
-     }
+  useEffect(() => {
+    ListAll_Breeds().then(listaPerros => {
+      setDogs(listaPerros);
+    });
+  }, []);
 
-    function CreateTable ()
-    {
-        return <table key="tDogs" className="table" >
+  return (
+    <React.Fragment>
+      <input type="text" onChange={e => handleBuscador(e)} />
+      <Button
+        className="p-3 mb-2 bg-primary text-white"
+        key="btnList"
+        onClick={e => {
+          ListAll();
+        }}
+      >
+        Buscar
+      </Button>
+      <table key="tDogs" className="table">
         <thead key="thead">
           <tr>
             <th scope="col">Sel </th>
@@ -93,44 +107,30 @@ const ListAll = ()=>
           </tr>
         </thead>
         <tbody>
-        {dogs.map((row,idx) => {
-                    return <tr key={idx} >
-                            <td>
-                            <If condition= {row.id === undefined }>
-                             <Then>
-                                Empty
-                             </Then>
-                            <Else>
-                               <Button onClick={() => GridEdit(row.id) } > Edit </Button>
-                            </Else>
-                            </If>
-                            </td>
-                            <td>
-                              {row.name}  
-                            </td>
-                        </tr>
-                    } )
-                }
+          {dogs.map((row, idx) => {
+            return (
+              <tr key={idx}>
+                <td>
+                  <If condition={row.id === undefined}>
+                    <Then>Empty</Then>
+                    <Else>
+                      <Button onClick={() => GridEdit(row.id)}> Edit </Button>
+                    </Else>
+                  </If>
+                </td>
+                <td>{row.name}</td>
+              </tr>
+            );
+          })}
         </tbody>
-        <tfoot key="tfoot">
-        </tfoot>
-        </table>
-    }
+        <tfoot key="tfoot"></tfoot>
+      </table>
 
-    return (
-      <React.Fragment>
-
-        <Button className="p-3 mb-2 bg-primary text-white" key="btnList" onClick={e => {ListAll()}} > Listar </Button>
-        {
-             CreateTable()
-        }
-
-        <div>
-          <ModalEdicion show={modalEdit} onHide={() => setModalEdit(false)} />
-        </div>
-
+      <div>
+        <ModalEdicion show={modalEdit} onHide={() => setModalEdit(false)} />
+      </div>
     </React.Fragment>
-    )
-}
+  );
+};
 
-export default GrillaCompleta
+export default GrillaCompleta;
