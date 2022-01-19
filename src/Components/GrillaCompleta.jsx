@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {FindDogs} from './Helpers';
 import {ListAll_Breeds} from './Helpers';
 import {GetDog} from './Helpers';
 import {Modal, Button} from 'react-bootstrap/';
@@ -13,7 +14,11 @@ const GrillaCompleta = () => {
   const [query, setQuery] = useState('');
 
   const ListAll = () => {
-    setDogs(dogs.filter(dog => dog.name === query));
+    //setDogs(dogs.filter(dog => dog.name === query));
+    FindDogs(query).then(lg => {
+        console.log(lg);
+        setDogs(lg);
+    }); 
   };
 
   const GridEdit = vId => {
