@@ -17,11 +17,6 @@ function App() {
   }
 */
 
-  function Home() {
-    //Funcion que retorna unicamente un h2???
-    return <h2>Home</h2>;
-  }
-
   function Topics() {
     //let match = useRouteMatch();
 
