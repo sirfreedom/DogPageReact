@@ -3,10 +3,16 @@ import {Modal, Button} from 'react-bootstrap/';
 import Card from './Card';
 
 function ModalEdicion(props) {
+
+
+
+
   const Save = () => {
-    const input = document.getElementById('nombre-perro');
-    props.cbGuardarPerro({...props.dog, name: input.value}); //lodash.clone(dog)
+    const tnombre = document.getElementById('tnombre');
+    props.cbGuardarPerro({...props.dog, name: tnombre.value}); //lodash.clone(dog)
   };
+
+
 
   return (
     <Modal show={props.show} aria-labelledby="contained-modal-title-vcenter">
@@ -25,7 +31,7 @@ function ModalEdicion(props) {
               <td>Nombre :</td>
               <td>
                 <input
-                  id="nombre-perro"
+                  id="tnombre"
                   key="txtNombre"
                   type="text"
                   className="form-control"

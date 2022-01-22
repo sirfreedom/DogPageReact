@@ -30,7 +30,7 @@ const GrillaCompleta = () => {
     setQuery(e.target.value);
   };
 
-  const guardarPerro = perro => {
+  const SaveDog = perro => {
     setModalEdit(false); //cierra la modal
     //funcion map: por cada elemento del array pregunta si algun id coincide con el id del perro recibido por argumento
     //si es asi, el callback del map retorna al perro agregandolo a la copia del array dogs, de lo contrario devuelve el perro que ya existia en dogs
@@ -83,7 +83,7 @@ const GrillaCompleta = () => {
           show={modalEdit}
           onHide={() => setModalEdit(false)}
           dog={dog}
-          cbGuardarPerro={guardarPerro}
+          cbGuardarPerro={SaveDog}
         />
       </div>
     </React.Fragment>
