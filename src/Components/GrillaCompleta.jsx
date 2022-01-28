@@ -88,6 +88,9 @@ const GrillaCompleta = () => {
       </div>
     </React.Fragment>
   );
+
+
+  
 };
 
 export default GrillaCompleta;

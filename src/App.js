@@ -2,6 +2,7 @@ import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import RGrid from './Components/RGrid';
 
 function App() {
   //const [dog,setDog] = useState(InitialDog);
@@ -43,9 +44,15 @@ function Topic() {
           <li>
             <Link to="/topics">Topics</Link>
           </li>
+          <li>
+            <Link to="/RGrilla">RGrilla</Link>
+          </li>
         </ul>
 
         <Switch>
+         <Route path="/rGrilla">
+            <RGrid Tittle="Manzana" > </RGrid>
+          </Route>
           <Route path="/GrillaCompletaPrueba">
             <GrillaCompleta></GrillaCompleta>
           </Route>
