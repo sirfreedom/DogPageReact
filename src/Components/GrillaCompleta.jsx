@@ -39,8 +39,8 @@ const GrillaCompleta = () => {
   };
 
   useEffect(() => {
-    ListAll_Breeds().then(listaPerros => {
-      setDogs(listaPerros);
+    ListAll_Breeds().then(lDog => {
+      setDogs(lDog);
     });
   }, []);
 
@@ -88,9 +88,6 @@ const GrillaCompleta = () => {
       </div>
     </React.Fragment>
   );
-
-
-  
 };
 
 export default GrillaCompleta;

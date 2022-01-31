@@ -50,14 +50,14 @@ function Topic() {
         </ul>
 
         <Switch>
-         <Route path="/rGrilla">
-            <RGrid Tittle="Manzana" > </RGrid>
+          <Route path="/rGrilla">
+            <RGrid Tittle="Manzana"> </RGrid>
           </Route>
           <Route path="/GrillaCompletaPrueba">
             <GrillaCompleta></GrillaCompleta>
           </Route>
           <Route path="/topics">
-            <Topics /> {/*<h2>Topics</h2>*/}
+            <Topics />
           </Route>
           <Route path="/">
             <h2>Home</h2>;
