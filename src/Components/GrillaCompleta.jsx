@@ -14,14 +14,14 @@ const GrillaCompleta = () => {
 
   const ListAll = () => {
     //setDogs(dogs.filter(dog => dog.name === query));
-    FindDogs(query).then(listaPerros => {
-      setDogs(listaPerros);
+    FindDogs(query).then(lDog => {
+      setDogs(lDog);
     });
   };
 
-  const GridEdit = idPerro => {
-    GetDog(idPerro).then(perro => {
-      setDog(perro);
+  const GridEdit = id => {
+    GetDog(id).then(oDog => {
+      setDog(oDog);
       setModalEdit(true);
     });
   };

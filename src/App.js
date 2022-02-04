@@ -3,33 +3,52 @@ import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import RGrid from './Components/RGrid';
+import {FindDogs} from './Helpers';
 
 function App() {
-  //const [dog,setDog] = useState(InitialDog);
-
-  /*
- const updateDogs = (Id) => {
- console.log(Id);
-
-  GetDog(Id).then((g) => {
-     setDog(g);
-    console.log(g);
-  })
-  }
-*/
-
+  
+  
   function Topics() {
     //let match = useRouteMatch();
-
     return <h2>Topic</h2>;
   }
 
-  /*
-function Topic() {
-  let { topicId } = useParams();
-  return <h1> Seccion: {topicId}</h1>;
-}
-*/
+  const ListAll = () => {
+    FindDogs(query).then(lDog => {
+      setDogs(lDog);
+    });
+  };
+
+  const GrillaConfiguracion = [
+    {
+      Titulo: 'Nombre',
+      Selector: fila => fila.Nombre,
+      WidthColumn: '20px',
+    },
+    {
+      Titulo: 'Apellido',
+      Selector: fila => fila.Apellido,
+      WidthColumn: '30%',
+    },
+  ];
+
+  const Data = [
+    {
+      Id: 1,
+      Nombre: 'pepe',
+      Apellido: 'rodriguez',
+    },
+    {
+      Id: 2,
+      Nombre: 'natalia',
+      Apellido: 'gomez',
+    },
+    {
+      Id: 3,
+      Nombre: 'pepita',
+      Apellido: 'perez',
+    },
+  ];
 
   return (
     <Router>
@@ -51,7 +70,13 @@ function Topic() {
 
         <Switch>
           <Route path="/rGrilla">
-            <RGrid Tittle="Manzana" mostrarBotonEliminar devolverId={id => console.log(id)} />
+            <RGrid
+              Tittle="Manzana"
+              rows={Data}
+              columns={GrillaConfiguracion}
+              ShowDelete
+              DeleteId={id => console.log(id)}
+            />
           </Route>
           <Route path="/GrillaCompletaPrueba">
             <GrillaCompleta></GrillaCompleta>
