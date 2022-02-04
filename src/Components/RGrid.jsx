@@ -3,8 +3,9 @@ import React, {useState} from 'react';
 import {useEffect} from 'react';
 
 const RGrid = props => {
-  const [Columns, setColumns] = useState(Array.isArray(props?.columns) ? [...props.columns] : []);
-  const [Rows, setRows] = useState(Array.isArray(props?.rows) ? [...props.rows] : []);
+  //const [Columns, setColumns] //= useState(Array.isArray(props?.columns) ? [...props.columns] : []);
+  //const [Rows, setRows] = useState(Array.isArray(props?.rows) ? [...props.rows] : []);
+
   const [Page, setPage] = useState([]);
   //const [ActualPage, setActualPage] = useState([]);
 
@@ -17,7 +18,7 @@ const RGrid = props => {
   return (
     <div>
       {props.estaCargando ? (
-        <h1>Carganod</h1>
+        <h1>Cargando</h1>
       ) : (
         <>
           <a>{props.Tittle}</a>
@@ -34,18 +35,18 @@ const RGrid = props => {
           <table key="tgrid" width="98%" align="center" border="1">
             <thead>
               <tr>
-                {Columns.map((column, idx) => {
+                {props.columns.map((column, idx) => {
                   return <th width={column.WidthColumn}>{column.Titulo}</th>;
                 })}
                 {props.ShowDelete && <th>Action</th>}
               </tr>
             </thead>
             <tbody>
-              {Rows.map((row, idx) => {
+              {props.rows.map((row, idx) => {
                 if (idx <= Page) {
                   return (
                     <tr>
-                      {Columns.map((column, colx) => {
+                      {props.columns.map((column, colx) => {
                         return <td width={column.WidthColumn}>{column.Selector(row)}</td>;
                       })}
                       {props.ShowDelete && (
@@ -60,7 +61,7 @@ const RGrid = props => {
             </tbody>
             <tfoot>
               <tr>
-                <td colSpan={Columns.length - 1}></td>
+                <td colSpan={props.columns.length - 1}></td>
               </tr>
             </tfoot>
           </table>
