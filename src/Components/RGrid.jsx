@@ -56,31 +56,31 @@ const RGrid = props => {
       <table width="100%" align="center" border="1">
         <thead>
           <tr>
-            <th width="5%"></th>
             {Columns.map((column, idx) => {
               return <th width={column.WidthColumn}>{column.Titulo}</th>;
             })}
-            <th width="5%"></th>
+            {props.mostrarBotonEliminar && <th>Acciones</th>}
           </tr>
         </thead>
         <tbody>
-          <td width="5%"></td>
           {Rows.map((row, idx) => {
             return (
               <tr>
                 {Columns.map((column, colx) => {
                   return <td width={column.WidthColumn}>{column.Selector(row)}</td>;
                 })}
+                {props.mostrarBotonEliminar && (
+                  <td>
+                    <button onClick={() => props.devolverId(row.Id)}>Eliminar</button>
+                  </td>
+                )}
               </tr>
             );
           })}
-          <td width="5%"></td>
         </tbody>
         <tfoot>
           <tr>
-            <td width="5%"></td>
             <td colSpan={Columns.length - 1}></td>
-            <td width="5%"></td>
           </tr>
         </tfoot>
       </table>

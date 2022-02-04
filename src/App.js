@@ -51,7 +51,7 @@ function Topic() {
 
         <Switch>
           <Route path="/rGrilla">
-            <RGrid Tittle="Manzana"> </RGrid>
+            <RGrid Tittle="Manzana" mostrarBotonEliminar devolverId={id => console.log(id)} />
           </Route>
           <Route path="/GrillaCompletaPrueba">
             <GrillaCompleta></GrillaCompleta>
