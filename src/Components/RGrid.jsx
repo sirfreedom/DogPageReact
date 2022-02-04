@@ -3,16 +3,16 @@ import React, {useState} from 'react';
 import {useEffect} from 'react';
 
 const RGrid = props => {
-  //const [Columns, setColumns] //= useState(Array.isArray(props?.columns) ? [...props.columns] : []);
-  //const [Rows, setRows] = useState(Array.isArray(props?.rows) ? [...props.rows] : []);
+  //const [Columns, setColumns] = useState([...props.columns]);
+  const [Rows, setRows] = useState([...props.rows]);
 
-  const [Page, setPage] = useState([]);
+  const [Page, setPage] = useState(9999);
   //const [ActualPage, setActualPage] = useState([]);
 
   useEffect(() => {}, []);
 
-  function ddlPages_OnChange() {
-    setPage(document.getElementById('ddlPages').value);
+  function ddlPages_OnChange(value) {
+    setPage(value);
   }
 
   return (
@@ -23,7 +23,12 @@ const RGrid = props => {
         <>
           <a>{props.Tittle}</a>
           <span>
-            <select name="ddlPages" id="ddlPages" key="ddlPages" onChange={ddlPages_OnChange}>
+            <select
+              name="ddlPages"
+              id="ddlPages"
+              key="ddlPages"
+              onChange={e => ddlPages_OnChange(e.target.value)}
+            >
               <option value="9999"> All </option>
               <option value="10"> 10 </option>
               <option value="25"> 25 </option>
