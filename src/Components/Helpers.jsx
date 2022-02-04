@@ -1,4 +1,4 @@
-export const ListAll_Breeds = async () => {
+export const ListAll = async () => {
   const url = 'https://api.thedogapi.com/v1/breeds';
   const res = await fetch(url);
   const data = await res.json();

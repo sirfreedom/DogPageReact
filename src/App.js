@@ -3,50 +3,40 @@ import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import RGrid from './Components/RGrid';
-import {FindDogs} from './Helpers';
+import {ListAll} from './Components/Helpers';
+import React, {useState} from 'react';
 
 function App() {
-  
-  
+  const [Dogs, setDogs] = useState([]);
+
+  function FindDogs() {
+    ListAll().then(lDog => {
+      setDogs(lDog);
+      console.log(lDog);
+    });
+  }
+
+  /*
+  useEffect(() => {
+
+  }, []);
+  */
+
   function Topics() {
     //let match = useRouteMatch();
     return <h2>Topic</h2>;
   }
 
-  const ListAll = () => {
-    FindDogs(query).then(lDog => {
-      setDogs(lDog);
-    });
-  };
-
   const GrillaConfiguracion = [
     {
       Titulo: 'Nombre',
-      Selector: fila => fila.Nombre,
-      WidthColumn: '20px',
-    },
-    {
-      Titulo: 'Apellido',
-      Selector: fila => fila.Apellido,
+      Selector: fila => fila.name,
       WidthColumn: '30%',
     },
-  ];
-
-  const Data = [
     {
-      Id: 1,
-      Nombre: 'pepe',
-      Apellido: 'rodriguez',
-    },
-    {
-      Id: 2,
-      Nombre: 'natalia',
-      Apellido: 'gomez',
-    },
-    {
-      Id: 3,
-      Nombre: 'pepita',
-      Apellido: 'perez',
+      Titulo: 'Tamaño',
+      Selector: fila => fila.breed_group,
+      WidthColumn: '30%',
     },
   ];
 
@@ -70,9 +60,15 @@ function App() {
 
         <Switch>
           <Route path="/rGrilla">
+            <button id="btnFind" onClick={FindDogs}>
+              {' '}
+              Ver Perros{' '}
+            </button>
+            <br></br>
             <RGrid
+              key="RGrid1"
               Tittle="Manzana"
-              rows={Data}
+              rows={Dogs}
               columns={GrillaConfiguracion}
               ShowDelete
               DeleteId={id => console.log(id)}

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {FindDogs} from './Helpers';
-import {ListAll_Breeds} from './Helpers';
 import {GetDog} from './Helpers';
 import {Button} from 'react-bootstrap/';
 import {useEffect} from 'react';
@@ -39,7 +38,7 @@ const GrillaCompleta = () => {
   };
 
   useEffect(() => {
-    ListAll_Breeds().then(lDog => {
+    ListAll().then(lDog => {
       setDogs(lDog);
     });
   }, []);

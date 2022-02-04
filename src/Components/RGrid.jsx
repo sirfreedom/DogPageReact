@@ -5,30 +5,29 @@ import {useEffect} from 'react';
 const RGrid = props => {
   const [Columns, setColumns] = useState(Array.isArray(props?.columns) ? [...props.columns] : []);
   const [Rows, setRows] = useState(Array.isArray(props?.rows) ? [...props.rows] : []);
-  const [Pages, setPages] = useState([]);
-  const [ActualPage, setActualPage] = useState([]);
+  const [Page, setPage] = useState([]);
+  //const [ActualPage, setActualPage] = useState([]);
 
-  ///useEffect(() => {}, []);
+  useEffect(() => {}, []);
 
-
+  function ddlPages_OnChange() {
+    setPage(document.getElementById('ddlPages').value);
+  }
 
   return (
     <div>
       <a>{props.Tittle}</a>
       <span>
-        <select name="ddlPages" id="ddlPages" key="ddlPages">
+        <select name="ddlPages" id="ddlPages" key="ddlPages" onChange={ddlPages_OnChange}>
+          <option value="9999"> All </option>
           <option value="10"> 10 </option>
           <option value="25"> 25 </option>
           <option value="50"> 50 </option>
           <option value="100"> 100 </option>
         </select>
-
-
-
       </span>
 
-
-      <table width="100%" align="center" border="1">
+      <table key="tgrid" width="98%" align="center" border="1">
         <thead>
           <tr>
             {Columns.map((column, idx) => {
@@ -39,18 +38,20 @@ const RGrid = props => {
         </thead>
         <tbody>
           {Rows.map((row, idx) => {
-            return (
-              <tr>
-                {Columns.map((column, colx) => {
-                  return <td width={column.WidthColumn}>{column.Selector(row)}</td>;
-                })}
-                {props.ShowDelete && (
-                  <td>
-                    <button onClick={() => props.DeleteId(row.Id)}>Delete</button>
-                  </td>
-                )}
-              </tr>
-            );
+            if (idx <= Page) {
+              return (
+                <tr>
+                  {Columns.map((column, colx) => {
+                    return <td width={column.WidthColumn}>{column.Selector(row)}</td>;
+                  })}
+                  {props.ShowDelete && (
+                    <td>
+                      <button onClick={() => props.DeleteId(row.id)}>Delete</button>
+                    </td>
+                  )}
+                </tr>
+              );
+            }
           })}
         </tbody>
         <tfoot>
