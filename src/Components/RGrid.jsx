@@ -9,7 +9,9 @@ const RGrid = props => {
   const [Page, setPage] = useState(9999);
   //const [ActualPage, setActualPage] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log('Se ejecuto');
+  }, [Page]);
 
   function ddlPages_OnChange(value) {
     setPage(value);
