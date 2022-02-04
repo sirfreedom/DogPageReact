@@ -8,10 +8,12 @@ import React, {useState} from 'react';
 
 function App() {
   const [Dogs, setDogs] = useState([]);
-
+  const [isCargando, setIsCargando] = useState(false);
   function FindDogs() {
+    setIsCargando(true);
     ListAll().then(lDog => {
       setDogs(lDog);
+      setIsCargando(false);
       console.log(lDog);
     });
   }
@@ -72,6 +74,7 @@ function App() {
               columns={GrillaConfiguracion}
               ShowDelete
               DeleteId={id => console.log(id)}
+              estaCargando={isCargando}
             />
           </Route>
           <Route path="/GrillaCompletaPrueba">
