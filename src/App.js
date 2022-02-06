@@ -9,6 +9,7 @@ import React, {useState} from 'react';
 function App() {
   const [Dogs, setDogs] = useState([]);
   const [isCargando, setIsCargando] = useState(false);
+
   function FindDogs() {
     setIsCargando(true);
     ListAll().then(lDog => {
@@ -34,6 +35,7 @@ function App() {
       Titulo: 'Nombre',
       Selector: fila => fila.name,
       WidthColumn: '30%',
+      Ordenable: true
     },
     {
       Titulo: 'Tamaño',
@@ -63,18 +65,18 @@ function App() {
         <Switch>
           <Route path="/rGrilla">
             <button id="btnFind" onClick={FindDogs}>
-              {' '}
-              Ver Perros{' '}
+              Ver Perros
             </button>
             <br></br>
             <RGrid
               key="RGrid1"
-              Tittle="Manzana"
+              Tittle="Grilla Dogs"
               rows={Dogs}
               columns={GrillaConfiguracion}
               ShowDelete
+              Export
               DeleteId={id => console.log(id)}
-              estaCargando={isCargando}
+              isLoading={isCargando}
             />
           </Route>
           <Route path="/GrillaCompletaPrueba">

@@ -1,0 +1,95 @@
+.TableHeader {
+  padding-right: 4px;
+  padding-left: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 4px;
+  color: black;
+  padding-top: 4px;
+  font-family: Arial, Verdana;
+  font-size: 14px;
+  background-color: #f3f3f4;
+  text-align: center;
+}
+
+.TableCellBold {
+  font-size: 11px;
+  font-weight: bold;
+  color: black;
+  font-family: Arial, Verdana;
+  background-color: #f3f3f4;
+  padding-left: 4px;
+  padding-right: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.TableCell {
+  padding-right: 4px;
+  padding-left: 4px;
+  font-size: 11px;
+  padding-bottom: 1px;
+  color: black;
+  padding-top: 1px;
+  font-family: Arial, Verdana;
+  background-color: #f3f3f4;
+}
+
+.TableCellRed {
+  font-weight: bold;
+  font-size: 8pt;
+  color: white;
+  font-family: Verdana;
+  background-color: #00502f;
+}
+
+.Table {
+  border-right: black 2px solid;
+  border-left: black 2px solid;
+  border-color: #f3f3f4;
+}
+
+.TdTittle {
+  height: 15px;
+}
+
+.TrTittle {
+  font-weight: bold;
+  font-size: 8pt;
+  color: white;
+  font-family: Verdana;
+  background-color: #af1a27;
+}
+
+.TextBox {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.Select {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.btn-1 {
+  background-color: #00502f;
+  color: #ffffff;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  border: 1px solid Silver;
+}
+
+.btn-2 {
+  background-color: #ffffff;
+  color: #336699;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  border: 1px solid Silver;
+}

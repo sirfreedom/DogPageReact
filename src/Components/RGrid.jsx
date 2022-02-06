@@ -1,31 +1,65 @@
 //import React, {useCallback,useEffect,useState} from 'react';
 import React, {useState} from 'react';
 import {useEffect} from 'react';
+import '../Css/RGrid.css';
 
 const RGrid = props => {
-  //const [Columns, setColumns] = useState([...props.columns]);
   const [Rows, setRows] = useState([...props.rows]);
-
   const [Page, setPage] = useState(9999);
   //const [ActualPage, setActualPage] = useState([]);
+  //const [Columns, setColumns] = useState([...props.columns]);
 
   useEffect(() => {
     console.log('Se ejecuto');
   }, [Page]);
 
-  function ddlPages_OnChange(value) {
+  const ddlPages_OnChange = value => {
     setPage(value);
-  }
+  };
+
+  const Export = value => {
+    console.log(value);
+  };
+
+  const ChangeId = (jsonvalue,nameid) => {
+
+  };
+
+  const ordenPorDefecto = (datos = [], selector = () => {}, ordenAscendente = false) => {
+    const localCompareOptions = {
+      sensitivity: 'base',
+      ignorePunctuation: true,
+    };
+    let comparacion = 0;
+    return [...datos].sort((a, b) => {
+      const claveA = selector(a);
+      const claveB = selector(b);
+  
+      if (typeof claveA !== 'string' && typeof claveA !== 'number') {
+        comparacion = 0;
+      }
+  
+      if (typeof claveA === 'string') {
+        comparacion = claveA.localeCompare(claveB, undefined, localCompareOptions);
+      } else {
+        comparacion = claveA - claveB;
+      }
+  
+      return ordenAscendente ? comparacion : comparacion * -1;
+    });
+  };
+
+
 
   return (
     <div>
-      {props.estaCargando ? (
-        <h1>Cargando</h1>
+      {props.isLoading ? (
+        <h2>Loading ...</h2>
       ) : (
-        <>
-          <a>{props.Tittle}</a>
+        <React.Fragment>
           <span>
             <select
+              className="Select"
               name="ddlPages"
               id="ddlPages"
               key="ddlPages"
@@ -38,14 +72,42 @@ const RGrid = props => {
               <option value="100"> 100 </option>
             </select>
           </span>
+          {props?.Export && (
+            <span>
+              <button value="csv" className="btn-2" onClick={e => Export(e.target.value)}>
+                CSV
+              </button>
+              <button value="xls" className="btn-2" onClick={e => Export(e.target.value)}>
+                Excel
+              </button>
+              <button value="pdf" className="btn-2" onClick={e => Export(e.target.value)}>
+                PDF
+              </button>
+            </span>
+          )}
+          <table cellspacing="0" cellpadding="10" width="99%" border="0" align="center">
+            <tr className="TrTittle">
+              <td className="TdTittle" align="center">
+                <a>{props.Tittle}</a>
+              </td>
+            </tr>
+          </table>
 
-          <table key="tgrid" width="98%" align="center" border="1">
+          <table className="Table" key="tgrid" width="99%" align="center">
             <thead>
               <tr>
                 {props.columns.map((column, idx) => {
-                  return <th width={column.WidthColumn}>{column.Titulo}</th>;
+                  return (
+                    <th className="TableCellBold" width={column.WidthColumn}>
+                      {column.Titulo}
+                    </th>
+                  );
                 })}
-                {props.ShowDelete && <th>Action</th>}
+                {props.ShowDelete && (
+                  <th width="5%" className="TableCellBold">
+                    Action
+                  </th>
+                )}
               </tr>
             </thead>
             <tbody>
@@ -54,10 +116,14 @@ const RGrid = props => {
                   return (
                     <tr>
                       {props.columns.map((column, colx) => {
-                        return <td width={column.WidthColumn}>{column.Selector(row)}</td>;
+                        return (
+                          <td className="TableCell" width={column.WidthColumn}>
+                            {column.Selector(row)}
+                          </td>
+                        );
                       })}
                       {props.ShowDelete && (
-                        <td>
+                        <td className="TableCellBold">
                           <button onClick={() => props.DeleteId(row.id)}>Delete</button>
                         </td>
                       )}
@@ -72,7 +138,7 @@ const RGrid = props => {
               </tr>
             </tfoot>
           </table>
-        </>
+        </React.Fragment>
       )}
     </div>
   );
