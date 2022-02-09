@@ -24,6 +24,7 @@ const RGridTest = props => {
     let oComplete;
     try {
       if (props.rows.length == 0) {
+        console.log('para la ejecucion por no tener registros.');
         return;
       }
       sText = JSON.stringify(props.rows);
@@ -38,7 +39,7 @@ const RGridTest = props => {
   useEffect(() => {
     ChangeId();
     console.log('UseEffect');
-  }, [Rows, rowsPerPage]);
+  }, [Rows]); // no puedo poner rowPageIndex porque cambia y loopea
 
   useLayoutEffect(() => {
     //console.log('Se ejecutó el useLayoutEffect');
