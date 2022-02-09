@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import RGrid from './Components/RGrid';
+import RGridTest from './Components/RGridTest';
 import {ListAll} from './Components/Helpers';
 import React, {useState} from 'react';
 
@@ -15,7 +16,6 @@ function App() {
     ListAll().then(lDog => {
       setDogs(lDog);
       setIsCargando(false);
-      console.log(lDog);
     });
   }
 
@@ -35,7 +35,7 @@ function App() {
       Titulo: 'Nombre',
       Selector: fila => fila.name,
       WidthColumn: '30%',
-      Ordenable: true
+      Ordenable: true,
     },
     {
       Titulo: 'Tamaño',
@@ -60,11 +60,15 @@ function App() {
           <li>
             <Link to="/RGrilla">RGrilla</Link>
           </li>
+
+          <li>
+            <Link to="/RGrillaTest">RGrillaTest</Link>
+          </li>
         </ul>
 
         <Switch>
           <Route path="/rGrilla">
-            <button id="btnFind" onClick={FindDogs}>
+            <button key="btnFind" id="btnFind" onClick={FindDogs}>
               Ver Perros
             </button>
             <br></br>
@@ -79,6 +83,24 @@ function App() {
               isLoading={isCargando}
             />
           </Route>
+          <Route path="/rGrillaTest">
+            <button key="btnFindTest" id="btnFindTest" onClick={FindDogs}>
+              Ver Perros Test
+            </button>
+            <br></br>
+            <RGridTest
+              key="RGridTest"
+              Tittle="Grilla Dogs Test"
+              rows={Dogs}
+              columns={GrillaConfiguracion}
+              ShowDelete="true"
+              Export="true"
+              DeleteId={id => console.log(id)}
+              isLoading={isCargando}
+              ConfigurationId="id"
+            />
+          </Route>
+
           <Route path="/GrillaCompletaPrueba">
             <GrillaCompleta></GrillaCompleta>
           </Route>
@@ -86,7 +108,7 @@ function App() {
             <Topics />
           </Route>
           <Route path="/">
-            <h2>Home</h2>;
+            <h2>Home</h2>
           </Route>
         </Switch>
       </div>

@@ -1,17 +1,15 @@
 //import React, {useCallback,useEffect,useState} from 'react';
 import React, {useState} from 'react';
-//import {useLayoutEffect} from 'react';
-//import {useEffect} from 'react';
+import {useLayoutEffect} from 'react';
+import {useEffect} from 'react';
 //import {Row} from 'react-bootstrap';
 //import {act} from 'react-dom/cjs/react-dom-test-utils.production.min';
 import '../Css/RGrid.css';
 
-const RGrid = props => {
-  const [Rows, setRows] = useState([...props.rows]);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-  //const [actualPageIndex, setActualPageIndex] = useState(0);
-  //const [actualPage, setActualPage] = useState([]);
-  //const [Columns, setColumns] = useState([...props.columns]);
+const RGridTest = props => {
+  const [Rows, setRows] = useState([]);
+  const [rowsPerPage, setRowsPerPage] = useState(9999);
+  const [actualPageIndex, setActualPageIndex] = useState(0);
 
   const ddlPages_OnChange = value => {
     setRowsPerPage(value);
@@ -21,68 +19,30 @@ const RGrid = props => {
     console.log(value);
   };
 
-  /*
-  const ChangeId = (jsonvalue, nameid) => {};
-
-  const ordenPorDefecto = (datos = [], selector = () => {}, ordenAscendente = false) => {
-    const localCompareOptions = {
-      sensitivity: 'base',
-      ignorePunctuation: true,
-    };
-    let comparacion = 0;
-    return [...datos].sort((a, b) => {
-      const claveA = selector(a);
-      const claveB = selector(b);
-
-      if (typeof claveA !== 'string' && typeof claveA !== 'number') {
-        comparacion = 0;
+  const ChangeId = () => {
+    let sText;
+    let oComplete;
+    try {
+      if (props.rows.length == 0) {
+        return;
       }
-
-      if (typeof claveA === 'string') {
-        comparacion = claveA.localeCompare(claveB, undefined, localCompareOptions);
-      } else {
-        comparacion = claveA - claveB;
-      }
-
-      return ordenAscendente ? comparacion : comparacion * -1;
-    });
-  };
-
-  
-  const backward = () => {
-    const page = [];
-    for (let i = actualPageIndex - 1; (i = actualPageIndex - rowsPerPage); i--) {
-      page.push(Row[i]);
+      sText = JSON.stringify(props.rows);
+      sText = sText.replace('"' + props.ConfigurationId + '":', '"RowId":');
+      oComplete = JSON.parse(sText);
+      setRows(oComplete);
+    } catch (e) {
+      console.log(e.message);
     }
-    setActualPage(page);
   };
-
-
-  const handleNex = () => {
-    setActualPage(actualPageIndex + rowsPerPage);
-  };
-
-  const fordward = () => {
-    const page = [];
-    for (let i = actualPageIndex + 1; (i = actualPageIndex + rowsPerPage); i++) {
-      console.log(Row[i]);
-    }
-    setActualPage(page);
-  };
-
-
 
   useEffect(() => {
-    //fordward();
-    //console.log(actualPage);
-  }, [actualPage]);
-
-
+    ChangeId();
+    console.log('UseEffect');
+  }, [Rows, rowsPerPage]);
 
   useLayoutEffect(() => {
     //console.log('Se ejecutó el useLayoutEffect');
-  }, []);
-  */
+  }, [actualPageIndex, rowsPerPage]);
 
   return (
     <div>
@@ -127,8 +87,8 @@ const RGrid = props => {
           </table>
 
           <table className="Table" key="tgrid" width="99%" align="center">
-            <thead>
-              <tr>
+            <thead key="thead">
+              <tr key="trHead">
                 {props.columns.map((column, idx) => {
                   return (
                     <th className="TableCellBold" width={column.WidthColumn}>
@@ -144,10 +104,10 @@ const RGrid = props => {
               </tr>
             </thead>
             <tbody>
-              {props.rows.map((row, idx) => {
+              {Rows.map((row, idx) => {
                 if (idx <= rowsPerPage) {
                   return (
-                    <tr>
+                    <tr key={'tr' + idx}>
                       {props.columns.map((column, colx) => {
                         return (
                           <td className="TableCell" width={column.WidthColumn}>
@@ -157,7 +117,7 @@ const RGrid = props => {
                       })}
                       {props.ShowDelete && (
                         <td className="TableCellBold">
-                          <button onClick={() => props.DeleteId(row.id)}>Delete</button>
+                          <button onClick={() => props.DeleteId(row.RowId)}>Delete</button>
                         </td>
                       )}
                     </tr>
@@ -178,4 +138,4 @@ const RGrid = props => {
   );
 };
 
-export default RGrid;
+export default RGridTest;

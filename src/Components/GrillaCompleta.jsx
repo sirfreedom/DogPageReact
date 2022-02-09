@@ -12,7 +12,6 @@ const GrillaCompleta = () => {
   const [dog, setDog] = useState([]);
 
   const ListAll = () => {
-    //setDogs(dogs.filter(dog => dog.name === query));
     FindDogs(query).then(lDog => {
       setDogs(lDog);
     });
