@@ -1,29 +1,27 @@
 //import React, {useCallback,useEffect,useState} from 'react';
 import React, {useState} from 'react';
+import {useLayoutEffect} from 'react';
 import {useEffect} from 'react';
+import {Row} from 'react-bootstrap';
+import {act} from 'react-dom/cjs/react-dom-test-utils.production.min';
 import '../Css/RGrid.css';
 
 const RGrid = props => {
   const [Rows, setRows] = useState([...props.rows]);
-  const [Page, setPage] = useState(9999);
-  //const [ActualPage, setActualPage] = useState([]);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [actualPageIndex, setActualPageIndex] = useState(0);
+  const [actualPage, setActualPage] = useState([]);
   //const [Columns, setColumns] = useState([...props.columns]);
 
-  useEffect(() => {
-    console.log('Se ejecuto');
-  }, [Page]);
-
   const ddlPages_OnChange = value => {
-    setPage(value);
+    setRowsPerPage(value);
   };
 
   const Export = value => {
     console.log(value);
   };
 
-  const ChangeId = (jsonvalue,nameid) => {
-
-  };
+  const ChangeId = (jsonvalue, nameid) => {};
 
   const ordenPorDefecto = (datos = [], selector = () => {}, ordenAscendente = false) => {
     const localCompareOptions = {
@@ -34,22 +32,49 @@ const RGrid = props => {
     return [...datos].sort((a, b) => {
       const claveA = selector(a);
       const claveB = selector(b);
-  
+
       if (typeof claveA !== 'string' && typeof claveA !== 'number') {
         comparacion = 0;
       }
-  
+
       if (typeof claveA === 'string') {
         comparacion = claveA.localeCompare(claveB, undefined, localCompareOptions);
       } else {
         comparacion = claveA - claveB;
       }
-  
+
       return ordenAscendente ? comparacion : comparacion * -1;
     });
   };
 
+  const backward = () => {
+    const page = [];
+    for (let i = actualPageIndex - 1; (i = actualPageIndex - rowsPerPage); i--) {
+      page.push(Row[i]);
+    }
+    setActualPage(page);
+  };
 
+  const handleNex = () => {
+    setActualPage(actualPageIndex + rowsPerPage);
+  };
+
+  const fordward = () => {
+    const page = [];
+    for (let i = actualPageIndex + 1; (i = actualPageIndex + rowsPerPage); i++) {
+      console(Row[i]);
+    }
+    setActualPage(page);
+  };
+
+  useEffect(() => {
+    fordward();
+    console.log(actualPage);
+  }, [actualPage]);
+
+  useLayoutEffect(() => {
+    //console.log('Se ejecutó el useLayoutEffect');
+  }, []);
 
   return (
     <div>
@@ -112,7 +137,7 @@ const RGrid = props => {
             </thead>
             <tbody>
               {props.rows.map((row, idx) => {
-                if (idx <= Page) {
+                if (idx <= rowsPerPage) {
                   return (
                     <tr>
                       {props.columns.map((column, colx) => {
@@ -140,6 +165,9 @@ const RGrid = props => {
           </table>
         </React.Fragment>
       )}
+      <div>
+        <button onClick={handleNex}>Next</button>
+      </div>
     </div>
   );
 };
