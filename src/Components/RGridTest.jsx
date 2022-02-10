@@ -31,6 +31,7 @@ const RGridTest = props => {
       sText = sText.replace('"' + props.ConfigurationId + '":', '"RowId":');
       oComplete = JSON.parse(sText);
       setRows(oComplete);
+      console.log('En change id');
     } catch (e) {
       console.log(e.message);
     }
@@ -38,12 +39,11 @@ const RGridTest = props => {
 
   useEffect(() => {
     ChangeId();
-    console.log('UseEffect');
-  }, [Rows]); // no puedo poner rowPageIndex porque cambia y loopea
+  }, [props.isLoading]); // no puedo poner rowPageIndex porque cambia y loopea
 
-  useLayoutEffect(() => {
-    //console.log('Se ejecutó el useLayoutEffect');
-  }, [actualPageIndex, rowsPerPage]);
+  // useLayoutEffect(() => {
+  //   //console.log('Se ejecutó el useLayoutEffect');
+  // }, [actualPageIndex, rowsPerPage]);
 
   return (
     <div>
