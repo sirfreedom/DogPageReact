@@ -93,3 +93,17 @@
   font-size: 11px;
   border: 1px solid Silver;
 }
+
+.DivFooter {
+  text-align: center;
+}
+
+.TextBoxPage {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight:100;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
