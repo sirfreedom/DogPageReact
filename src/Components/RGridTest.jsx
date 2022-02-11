@@ -1,6 +1,6 @@
 import '../Css/RGrid.css';
 //import {useLayoutEffect} from 'react';
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
 
 //import {useLayoutEffect} from 'react';
@@ -13,6 +13,7 @@ const RGridTest = props => {
   const [TotalRows, setTotalRows] = useState(0);
   const [actualPageIndex, setActualPageIndex] = useState(0);
   const [TotalPages, setTotalPages] = useState(0);
+  const [counter, setCounter] = useState(0);
 
   const ddlPages_OnChange = value => {
     try {
@@ -56,33 +57,53 @@ const RGridTest = props => {
     }
   };
 
-  const CreateTotalPages = () => {
-    let iTotal = 0;
-    try {
-      if (TotalRows % rowsPerPage === 0) {
-        console.log('primer if');
-        console.log('rowperpage');
-        console.log(rowsPerPage);
-        console.log('total rows');
-        console.log(TotalRows);
-        console.log('rows leng');
-        console.log(Rows.length);
+  // const CreateTotalPages = useCallback(() => {
+  //   let iTotal = 0;
+  //   console.log('TotalRows:', TotalRows);
+  //   try {
+  //     if (TotalRows > 0 && TotalRows % rowsPerPage === 0) {
+  //       console.log('primer if');
+  //       console.log('rowperpage');
+  //       console.log(rowsPerPage);
+  //       console.log('total rows');
+  //       console.log(TotalRows);
+  //       console.log('rows leng');
+  //       console.log(Rows.length);
 
-        iTotal = TotalRows / rowsPerPage;
-      }
-      if (TotalRows % rowsPerPage > 0) {
-        console.log('segundo if');
-        iTotal = Math.ceil(Rows.length / rowsPerPage) + 1;
-      }
+  //       iTotal = TotalRows / rowsPerPage;
+  //     }
+  //     if (TotalRows > 0 && TotalRows % rowsPerPage > 0) {
+  //       console.log('segundo if');
+  //       iTotal = Math.ceil(Rows.length / rowsPerPage);
+  //     }
 
-      setTotalPages(iTotal);
+  //     setTotalPages(iTotal);
 
-      console.log('CreateTotalPages Total Pages');
-      console.log(iTotal);
-    } catch (e) {
-      console.log(e.message);
-      // 
+  //     console.log('CreateTotalPages Total Pages');
+  //     console.log(iTotal);
+  //   } catch (e) {
+  //     console.log(e.message);
+  //     //
+  //   }
+  // }, [TotalRows]);
+
+  const calcularPaginas = () => {
+    if (props.rows.length === 0) {
+      return false;
     }
+
+    const cantidadFlias = props.rows.length;
+    let iTotal = 0;
+
+    console.log(cantidadFlias);
+    if (cantidadFlias % rowsPerPage === 0) {
+      console.log('Division perfecta');
+      iTotal = Math.ceil(cantidadFlias / rowsPerPage);
+    }
+    console.log('Division imperfecta');
+    iTotal = Math.ceil(cantidadFlias / rowsPerPage);
+    console.log(iTotal);
+    return iTotal;
   };
 
   const ChangeId = () => {
@@ -96,7 +117,6 @@ const RGridTest = props => {
       sText = sText.replace('"' + props.ConfigurationId + '":', '"RowId":');
       oComplete = JSON.parse(sText);
       setRows(oComplete);
-      setTotalRows(oComplete.length);
 
       console.log('ChangeId Rows');
       console.log(oComplete.length);
@@ -107,9 +127,8 @@ const RGridTest = props => {
 
   useEffect(() => {
     ChangeId();
-    CreateTotalPages();
-  }, [props.isLoading]);
-
+    setTotalPages(calcularPaginas());
+  }, [props.isLoading, TotalPages]);
   /*
   useLayoutEffect(() => {
     //CreateTotalPages();
@@ -246,7 +265,9 @@ const RGridTest = props => {
           </table>
         </React.Fragment>
       )}
-      <div></div>
+      <div>
+        <button onClick={() => setCounter(prev => prev + 1)}>Mostrar totalRows</button>
+      </div>
     </div>
   );
 };

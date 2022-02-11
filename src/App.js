@@ -113,11 +113,11 @@ function App() {
           <Route path="/topics">
             <Topics />
           </Route>
-          <Route path="/">
-            <h2>Home</h2>
-          </Route>
           <Route path="/TestSocialReducer">
             <TestSocialReducer></TestSocialReducer>
+          </Route>
+          <Route path="/">
+            <h2>Home</h2>
           </Route>
         </Switch>
       </div>
