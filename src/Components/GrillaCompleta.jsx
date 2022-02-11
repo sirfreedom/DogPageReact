@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {FindDogs} from './Helpers';
+import {ListAll} from './Helpers';
 import {GetDog} from './Helpers';
 import {Button} from 'react-bootstrap/';
 import {useEffect} from 'react';
@@ -11,7 +12,7 @@ const GrillaCompleta = () => {
   const [query, setQuery] = useState('');
   const [dog, setDog] = useState([]);
 
-  const ListAll = () => {
+  const Find = () => {
     FindDogs(query).then(lDog => {
       setDogs(lDog);
     });

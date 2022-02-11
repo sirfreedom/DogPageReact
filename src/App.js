@@ -6,6 +6,7 @@ import RGrid from './Components/RGrid';
 import RGridTest from './Components/RGridTest';
 import {ListAll} from './Components/Helpers';
 import React, {useState} from 'react';
+import TestSocialReducer from './Components/TestSocialReducer';
 
 function App() {
   const [Dogs, setDogs] = useState([]);
@@ -26,8 +27,11 @@ function App() {
   */
 
   function Topics() {
-    //let match = useRouteMatch();
-    return <h2>Topic</h2>;
+    return (
+      <div>
+        <h2>Topic</h2>
+      </div>
+    );
   }
 
   const GrillaConfiguracion = [
@@ -48,21 +52,23 @@ function App() {
     <Router>
       <div>
         <ul>
-          <li>
+          <li key="home">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li key="GrillaCompleta">
             <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
           </li>
-          <li>
+          <li key="Topic">
             <Link to="/topics">Topics</Link>
           </li>
-          <li>
+          <li key="RGrilla">
             <Link to="/RGrilla">RGrilla</Link>
           </li>
-
-          <li>
+          <li key="GrillaTest">
             <Link to="/RGrillaTest">RGrillaTest</Link>
+          </li>
+          <li key="Reducer Test">
+            <Link to="/TestSocialReducer">TestSocialReducer</Link>
           </li>
         </ul>
 
@@ -109,6 +115,9 @@ function App() {
           </Route>
           <Route path="/">
             <h2>Home</h2>
+          </Route>
+          <Route path="/TestSocialReducer">
+            <TestSocialReducer></TestSocialReducer>
           </Route>
         </Switch>
       </div>

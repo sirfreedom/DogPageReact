@@ -118,7 +118,7 @@ const RGrid = props => {
               </button>
             </span>
           )}
-          <table width="99%" border="0" align="center">
+          <table key="tTittle" width="99%" border="0" align="center">
             <tr className="TrTittle">
               <td className="TdTittle" align="center">
                 <a>{props.Tittle}</a>
@@ -127,8 +127,8 @@ const RGrid = props => {
           </table>
 
           <table className="Table" key="tgrid" width="99%" align="center">
-            <thead>
-              <tr>
+            <thead key="tHead">
+              <tr key="trColumns">
                 {props.columns.map((column, idx) => {
                   return (
                     <th className="TableCellBold" width={column.WidthColumn}>
@@ -143,7 +143,7 @@ const RGrid = props => {
                 )}
               </tr>
             </thead>
-            <tbody>
+            <tbody key="tBody">
               {props.rows.map((row, idx) => {
                 if (idx <= rowsPerPage) {
                   return (
