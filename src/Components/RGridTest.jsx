@@ -2,6 +2,7 @@ import '../Css/RGrid.css';
 //import {useLayoutEffect} from 'react';
 import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
+//import {useLayoutEffect} from 'react';
 
 //import {useLayoutEffect} from 'react';
 //import {Row} from 'react-bootstrap';
@@ -57,66 +58,41 @@ const RGridTest = props => {
     }
   };
 
-  // const CreateTotalPages = useCallback(() => {
-  //   let iTotal = 0;
-  //   console.log('TotalRows:', TotalRows);
-  //   try {
-  //     if (TotalRows > 0 && TotalRows % rowsPerPage === 0) {
-  //       console.log('primer if');
-  //       console.log('rowperpage');
-  //       console.log(rowsPerPage);
-  //       console.log('total rows');
-  //       console.log(TotalRows);
-  //       console.log('rows leng');
-  //       console.log(Rows.length);
-
-  //       iTotal = TotalRows / rowsPerPage;
-  //     }
-  //     if (TotalRows > 0 && TotalRows % rowsPerPage > 0) {
-  //       console.log('segundo if');
-  //       iTotal = Math.ceil(Rows.length / rowsPerPage);
-  //     }
-
-  //     setTotalPages(iTotal);
-
-  //     console.log('CreateTotalPages Total Pages');
-  //     console.log(iTotal);
-  //   } catch (e) {
-  //     console.log(e.message);
-  //     //
-  //   }
-  // }, [TotalRows]);
-
-  const calcularPaginas = () => {
-    if (props.rows.length === 0) {
+  const calcularPaginas = useCallback(() => {
+    if (Rows.length === 0) {
+      console.log('Sin filas');
       return false;
     }
 
-    const cantidadFlias = props.rows.length;
+    console.log('llegaron las filas');
+    const cantidadFilas = Rows.length;
     let iTotal = 0;
 
-    console.log(cantidadFlias);
-    if (cantidadFlias % rowsPerPage === 0) {
+    console.log(cantidadFilas);
+    if (cantidadFilas % rowsPerPage === 0) {
       console.log('Division perfecta');
-      iTotal = Math.ceil(cantidadFlias / rowsPerPage);
+      iTotal = Math.ceil(cantidadFilas / rowsPerPage);
     }
     console.log('Division imperfecta');
-    iTotal = Math.ceil(cantidadFlias / rowsPerPage);
+    iTotal = Math.ceil(cantidadFilas / rowsPerPage);
+    console.log(cantidadFilas, rowsPerPage);
     console.log(iTotal);
-    return iTotal;
-  };
+    setTotalPages(iTotal);
+  }, [Rows]);
 
   const ChangeId = () => {
     let sText;
     let oComplete;
     try {
       if (props.rows.length === 0) {
+        console.log('No change id');
         return;
       }
       sText = JSON.stringify(props.rows);
       sText = sText.replace('"' + props.ConfigurationId + '":', '"RowId":');
       oComplete = JSON.parse(sText);
       setRows(oComplete);
+      setTotalRows(oComplete.length);
 
       console.log('ChangeId Rows');
       console.log(oComplete.length);
@@ -127,13 +103,11 @@ const RGridTest = props => {
 
   useEffect(() => {
     ChangeId();
-    setTotalPages(calcularPaginas());
-  }, [props.isLoading, TotalPages]);
-  /*
-  useLayoutEffect(() => {
-    //CreateTotalPages();
-  }, [actualPageIndex, rowsPerPage]);
-*/
+  }, [props.rows]);
+
+  useEffect(() => {
+    calcularPaginas();
+  }, [Rows, calcularPaginas]);
 
   return (
     <div>
@@ -233,7 +207,7 @@ const RGridTest = props => {
                 >
                   {EnabledPaging() && (
                     <div className="DivFooter">
-                      <a href="#" onClick={PrevPage()}>
+                      <a href="#" onClick={PrevPage}>
                         <img
                           className="imgPrev"
                           title="Next"
@@ -248,7 +222,7 @@ const RGridTest = props => {
                         Page {actualPageIndex + 1} / {TotalPages}{' '}
                       </a>
 
-                      <a href="#" onClick={NextPage()}>
+                      <a href="#" onClick={NextPage}>
                         <img
                           className="imgNext"
                           title="Next"
