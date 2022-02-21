@@ -3,7 +3,6 @@ import '../Css/RGrid.css';
 import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
 //import {useLayoutEffect} from 'react';
-
 //import {useLayoutEffect} from 'react';
 //import {Row} from 'react-bootstrap';
 //import {act} from 'react-dom/cjs/react-dom-test-utils.production.min';
@@ -39,14 +38,37 @@ const RGridTest = props => {
   };
 
   const PrevPage = () => {
+    let iPage = actualPageIndex;
     try {
       if (actualPageIndex > 1) {
-        setActualPageIndex(actualPageIndex - 1);
+        iPage = iPage - 1;
       }
+      setActualPageIndex(iPage);
     } catch (e) {
       console.log(e.message);
     }
   };
+
+  /* 
+    obtener desde donde hasta donde va a paginar.
+    
+    pagina 1 = del registro 0 al 10
+    pagina 2 = del registro 11 al 21
+    pagina 3 = del registro 21 al 31
+    
+
+    pagina 1 = (idx * rowsPerPage) = (0 * 10) = 0
+    pagina 1 = (actualPageIndex * rowsPerPage) = (1 * 10 ) = 10
+
+    pagina 2 = (idx * rowsPerPage) = (0 * 10) = 0
+    pagina 2 = (actualPageIndex * rowsPerPage) = (1 * 10 ) = 10
+
+    (idx * rowsPerPage) = inicial 
+    (actualPageIndex * rowsPerPage) = final
+
+    if (idx * rowsPerPage)  (actualPageIndex * rowsPerPage)
+
+  */
 
   const NextPage = () => {
     try {
@@ -169,7 +191,7 @@ const RGridTest = props => {
             </thead>
             <tbody>
               {Rows.map((row, idx) => {
-                if (idx <= rowsPerPage) {
+                if (idx <= actualPageIndex * rowsPerPage) {
                   return (
                     <tr key={'tr' + idx}>
                       {props.columns.map((column, colx) => {
@@ -216,12 +238,10 @@ const RGridTest = props => {
                           height="18px"
                         ></img>
                       </a>
-
                       <a>
                         {' '}
-                        Page {actualPageIndex + 1} / {TotalPages}{' '}
+                        Page {actualPageIndex} / {TotalPages}{' '}
                       </a>
-
                       <a href="#" onClick={NextPage}>
                         <img
                           className="imgNext"
