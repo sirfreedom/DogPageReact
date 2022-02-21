@@ -11,7 +11,7 @@ const RGridTest = props => {
   const [Rows, setRows] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [TotalRows, setTotalRows] = useState(0);
-  const [actualPageIndex, setActualPageIndex] = useState(0);
+  const [actualPageIndex, setActualPageIndex] = useState(1);
   const [TotalPages, setTotalPages] = useState(0);
   const [counter, setCounter] = useState(0);
 
@@ -48,27 +48,6 @@ const RGridTest = props => {
       console.log(e.message);
     }
   };
-
-  /* 
-    obtener desde donde hasta donde va a paginar.
-    
-    pagina 1 = del registro 0 al 10
-    pagina 2 = del registro 11 al 21
-    pagina 3 = del registro 21 al 31
-    
-
-    pagina 1 = (idx * rowsPerPage) = (0 * 10) = 0
-    pagina 1 = (actualPageIndex * rowsPerPage) = (1 * 10 ) = 10
-
-    pagina 2 = (idx * rowsPerPage) = (0 * 10) = 0
-    pagina 2 = (actualPageIndex * rowsPerPage) = (1 * 10 ) = 10
-
-    (idx * rowsPerPage) = inicial 
-    (actualPageIndex * rowsPerPage) = final
-
-    if (idx * rowsPerPage)  (actualPageIndex * rowsPerPage)
-
-  */
 
   const NextPage = () => {
     try {
@@ -191,7 +170,10 @@ const RGridTest = props => {
             </thead>
             <tbody>
               {Rows.map((row, idx) => {
-                if (idx <= actualPageIndex * rowsPerPage) {
+                if (
+                  idx < actualPageIndex * rowsPerPage + 1 &&
+                  idx > actualPageIndex * rowsPerPage - rowsPerPage
+                ) {
                   return (
                     <tr key={'tr' + idx}>
                       {props.columns.map((column, colx) => {
