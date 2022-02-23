@@ -9,7 +9,6 @@ const RGridTest = props => {
   const [TotalRows, setTotalRows] = useState(0);
   const [actualPageIndex, setActualPageIndex] = useState(1);
   const [TotalPages, setTotalPages] = useState(0);
-  const [counter, setCounter] = useState(0);
 
   const ddlPages_OnChange = value => {
     try {
@@ -58,6 +57,7 @@ const RGridTest = props => {
   const CalculatePages = useCallback(() => {
     let cantidadFilas = 0;
     let iTotal = 0;
+
     if (Rows.length === 0) {
       return false;
     }
@@ -74,7 +74,6 @@ const RGridTest = props => {
     let oComplete;
     try {
       if (props.rows.length === 0) {
-        console.log('No change id');
         return;
       }
       sText = JSON.stringify(props.rows);
@@ -82,8 +81,6 @@ const RGridTest = props => {
       oComplete = JSON.parse(sText);
       setRows(oComplete);
       setTotalRows(oComplete.length);
-      console.log('ChangeId Rows');
-      console.log(oComplete.length);
     } catch (e) {
       console.log(e.message);
     }
@@ -101,7 +98,13 @@ const RGridTest = props => {
     <div>
       {props.isLoading ? (
         <h2>
-          <img className="imgLoading" title="Next" border="0" width="18px" height="18px"></img>
+          <img
+            className="imgLoading"
+            title="Loading..."
+            border="0"
+            width="30px"
+            height="30px"
+          ></img>
         </h2>
       ) : (
         <React.Fragment>
@@ -161,7 +164,7 @@ const RGridTest = props => {
               {Rows.map((row, idx) => {
                 if (
                   idx < actualPageIndex * rowsPerPage + 1 &&
-                  idx > actualPageIndex * rowsPerPage - rowsPerPage
+                  idx >= actualPageIndex * rowsPerPage - rowsPerPage
                 ) {
                   return (
                     <tr key={'tr' + idx}>
