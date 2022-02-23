@@ -2,10 +2,6 @@ import '../Css/RGrid.css';
 //import {useLayoutEffect} from 'react';
 import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
-//import {useLayoutEffect} from 'react';
-//import {useLayoutEffect} from 'react';
-//import {Row} from 'react-bootstrap';
-//import {act} from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const RGridTest = props => {
   const [Rows, setRows] = useState([]);
@@ -59,25 +55,17 @@ const RGridTest = props => {
     }
   };
 
-  const calcularPaginas = useCallback(() => {
+  const CalculatePages = useCallback(() => {
+    let cantidadFilas = 0;
+    let iTotal = 0;
     if (Rows.length === 0) {
-      console.log('Sin filas');
       return false;
     }
+    cantidadFilas = Rows.length;
 
-    console.log('llegaron las filas');
-    const cantidadFilas = Rows.length;
-    let iTotal = 0;
-
-    console.log(cantidadFilas);
-    if (cantidadFilas % rowsPerPage === 0) {
-      console.log('Division perfecta');
-      iTotal = Math.ceil(cantidadFilas / rowsPerPage);
-    }
-    console.log('Division imperfecta');
+    //siempre redondea agregando uno, si sobra.
     iTotal = Math.ceil(cantidadFilas / rowsPerPage);
-    console.log(cantidadFilas, rowsPerPage);
-    console.log(iTotal);
+
     setTotalPages(iTotal);
   }, [Rows]);
 
@@ -94,7 +82,6 @@ const RGridTest = props => {
       oComplete = JSON.parse(sText);
       setRows(oComplete);
       setTotalRows(oComplete.length);
-
       console.log('ChangeId Rows');
       console.log(oComplete.length);
     } catch (e) {
@@ -107,13 +94,15 @@ const RGridTest = props => {
   }, [props.rows]);
 
   useEffect(() => {
-    calcularPaginas();
-  }, [Rows, calcularPaginas]);
+    CalculatePages();
+  }, [Rows, CalculatePages]);
 
   return (
     <div>
       {props.isLoading ? (
-        <h2>Loading ...</h2>
+        <h2>
+          <img className="imgLoading" title="Next" border="0" width="18px" height="18px"></img>
+        </h2>
       ) : (
         <React.Fragment>
           <span>
@@ -241,9 +230,6 @@ const RGridTest = props => {
           </table>
         </React.Fragment>
       )}
-      <div>
-        <button onClick={() => setCounter(prev => prev + 1)}>Mostrar totalRows</button>
-      </div>
     </div>
   );
 };
