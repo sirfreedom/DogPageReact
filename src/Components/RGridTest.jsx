@@ -2,6 +2,8 @@ import '../Css/RGrid.css';
 //import {useLayoutEffect} from 'react';
 import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
+import exportFromJSON from 'export-from-json';
+import jsPDF from 'jspdf';
 
 const RGridTest = props => {
   const [Rows, setRows] = useState([]);
@@ -9,6 +11,48 @@ const RGridTest = props => {
   const [TotalRows, setTotalRows] = useState(0);
   const [actualPageIndex, setActualPageIndex] = useState(1);
   const [TotalPages, setTotalPages] = useState(0);
+
+  const handleExportar = e => {
+    const data = Rows.map(fila =>
+      props.columns.reduce((prev, columna) => {
+        return {...prev, [columna.Titulo]: columna.Selector(fila)};
+      }, {})
+    );
+    const doc = new jsPDF();
+
+    const fileName = (props.title + '_' + new Date().toLocaleString('es-AR'))
+      .replace(/[/]/gi, '')
+      .replace(/[: ]/g, '');
+
+    switch (e.target.value) {
+      case 'csv':
+        exportFromJSON({data, fileName, exportType: exportFromJSON.types.csv});
+        break;
+
+      case 'xls':
+        exportFromJSON({data, fileName, exportType: exportFromJSON.types.xls});
+        break;
+
+      case 'pdf':
+        // doc.autoTable({
+        //   head: [columnas.map(columna => columna.titulo)],
+        //   body: paginaActual.map(fila =>
+        //     columnas.reduce((prev, columna) => {
+        //       const dato = columna.selector(fila);
+        //       if (typeof dato !== 'string' && typeof dato !== 'number') {
+        //         return [...prev, ''];
+        //       }
+        //       return [...prev, dato];
+        //     }, [])
+        //   ),
+        // });
+
+        // doc.save(fileName + '.pdf');
+        break;
+      default:
+        break;
+    }
+  };
 
   const ddlPages_OnChange = value => {
     try {
@@ -45,6 +89,7 @@ const RGridTest = props => {
   };
 
   const NextPage = () => {
+    console.log('NextPage');
     try {
       if (actualPageIndex < TotalPages) {
         setActualPageIndex(actualPageIndex + 1);
@@ -67,7 +112,7 @@ const RGridTest = props => {
     iTotal = Math.ceil(cantidadFilas / rowsPerPage);
 
     setTotalPages(iTotal);
-  }, [Rows]);
+  }, [Rows, rowsPerPage]);
 
   const ChangeId = () => {
     let sText;
@@ -92,7 +137,7 @@ const RGridTest = props => {
 
   useEffect(() => {
     CalculatePages();
-  }, [Rows, CalculatePages]);
+  }, [Rows, rowsPerPage, CalculatePages]);
 
   return (
     <div>
@@ -125,13 +170,13 @@ const RGridTest = props => {
           </span>
           {props?.Export && (
             <span>
-              <button value="csv" className="btn-2" onClick={e => Export(e.target.value)}>
+              <button value="csv" className="btn-2" onClick={handleExportar}>
                 CSV
               </button>
-              <button value="xls" className="btn-2" onClick={e => Export(e.target.value)}>
+              <button value="xls" className="btn-2" onClick={handleExportar}>
                 Excel
               </button>
-              <button value="pdf" className="btn-2" onClick={e => Export(e.target.value)}>
+              <button value="pdf" className="btn-2" onClick={handleExportar}>
                 PDF
               </button>
             </span>
