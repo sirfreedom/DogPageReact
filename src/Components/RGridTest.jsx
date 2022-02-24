@@ -4,6 +4,7 @@ import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
 import exportFromJSON from 'export-from-json';
 import jsPDF from 'jspdf';
+import 'jspdf-autotable'
 
 const RGridTest = props => {
   const [Rows, setRows] = useState([]);
@@ -15,12 +16,12 @@ const RGridTest = props => {
   const handleExportar = e => {
     const data = Rows.map(fila =>
       props.columns.reduce((prev, columna) => {
-        return {...prev, [columna.Titulo]: columna.Selector(fila)};
+        return {...prev, [columna.Tittle]: columna.Selector(fila)};
       }, {})
     );
     const doc = new jsPDF();
 
-    const fileName = (props.title + '_' + new Date().toLocaleString('es-AR'))
+    const fileName = (props.Tittle + '_' + new Date().toLocaleString('es-AR'))
       .replace(/[/]/gi, '')
       .replace(/[: ]/g, '');
 
@@ -28,26 +29,23 @@ const RGridTest = props => {
       case 'csv':
         exportFromJSON({data, fileName, exportType: exportFromJSON.types.csv});
         break;
-
       case 'xls':
         exportFromJSON({data, fileName, exportType: exportFromJSON.types.xls});
         break;
-
       case 'pdf':
-        // doc.autoTable({
-        //   head: [columnas.map(columna => columna.titulo)],
-        //   body: paginaActual.map(fila =>
-        //     columnas.reduce((prev, columna) => {
-        //       const dato = columna.selector(fila);
-        //       if (typeof dato !== 'string' && typeof dato !== 'number') {
-        //         return [...prev, ''];
-        //       }
-        //       return [...prev, dato];
-        //     }, [])
-        //   ),
-        // });
-
-        // doc.save(fileName + '.pdf');
+        doc.autoTable({
+          head: [props.columns.map(columna => columna.Tittle)],
+          body: Rows.map(fila =>
+            props.columns.reduce((prev, columna) => {
+              const dato = columna.Selector(fila);
+              if (typeof dato !== 'string' && typeof dato !== 'number') {
+                return [...prev, ''];
+              }
+              return [...prev, dato];
+            }, [])
+          ),
+        });
+        doc.save(fileName + '.pdf');
         break;
       default:
         break;

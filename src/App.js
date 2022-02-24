@@ -36,13 +36,13 @@ function App() {
 
   const GrillaConfiguracion = [
     {
-      Titulo: 'Nombre',
+      Tittle: 'Nombre',
       Selector: fila => fila.name,
       WidthColumn: '30%',
       Ordenable: true,
     },
     {
-      Titulo: 'Tamaño',
+      Tittle: 'Tamaño',
       Selector: fila => fila.breed_group,
       WidthColumn: '30%',
     },
