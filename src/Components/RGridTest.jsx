@@ -4,27 +4,24 @@ import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
 import exportFromJSON from 'export-from-json';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable'
+import 'jspdf-autotable';
 
 const RGridTest = props => {
   const [Rows, setRows] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [TotalRows, setTotalRows] = useState(0);
   const [actualPageIndex, setActualPageIndex] = useState(1);
   const [TotalPages, setTotalPages] = useState(0);
 
   const handleExportar = e => {
+    const doc = new jsPDF();
+    const fileName = (props.Tittle + '_' + new Date().toLocaleString('es-AR'))
+      .replace(/[/]/gi, '')
+      .replace(/[: ]/g, '');
     const data = Rows.map(fila =>
       props.columns.reduce((prev, columna) => {
         return {...prev, [columna.Tittle]: columna.Selector(fila)};
       }, {})
     );
-    const doc = new jsPDF();
-
-    const fileName = (props.Tittle + '_' + new Date().toLocaleString('es-AR'))
-      .replace(/[/]/gi, '')
-      .replace(/[: ]/g, '');
-
     switch (e.target.value) {
       case 'csv':
         exportFromJSON({data, fileName, exportType: exportFromJSON.types.csv});
@@ -53,47 +50,26 @@ const RGridTest = props => {
   };
 
   const ddlPages_OnChange = value => {
-    try {
-      setRowsPerPage(value);
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
-
-  const Export = value => {
-    console.log(value);
+    setRowsPerPage(value);
   };
 
   const EnabledPaging = () => {
     let b = false;
-    try {
-      b = Rows.length > 0 && Rows.length < 9999 && rowsPerPage < 9999;
-    } catch (e) {
-      console.log(e);
-    }
+    b = Rows.length > 0 && Rows.length < 9999 && rowsPerPage < 9999;
     return b;
   };
 
   const PrevPage = () => {
     let iPage = actualPageIndex;
-    try {
-      if (actualPageIndex > 1) {
-        iPage = iPage - 1;
-      }
-      setActualPageIndex(iPage);
-    } catch (e) {
-      console.log(e.message);
+    if (actualPageIndex > 1) {
+      iPage = iPage - 1;
     }
+    setActualPageIndex(iPage);
   };
 
   const NextPage = () => {
-    console.log('NextPage');
-    try {
-      if (actualPageIndex < TotalPages) {
-        setActualPageIndex(actualPageIndex + 1);
-      }
-    } catch (e) {
-      console.log(e.message);
+    if (actualPageIndex < TotalPages) {
+      setActualPageIndex(actualPageIndex + 1);
     }
   };
 
@@ -123,7 +99,6 @@ const RGridTest = props => {
       sText = sText.replace('"' + props.ConfigurationId + '":', '"RowId":');
       oComplete = JSON.parse(sText);
       setRows(oComplete);
-      setTotalRows(oComplete.length);
     } catch (e) {
       console.log(e.message);
     }
@@ -151,7 +126,20 @@ const RGridTest = props => {
         </h2>
       ) : (
         <React.Fragment>
-          <span>
+          {props?.Export && (
+            <span>
+              <button value="csv" className="btn-2" onClick={handleExportar}>
+                CSV
+              </button>
+              <button value="xls" className="btn-2" onClick={handleExportar}>
+                Excel
+              </button>
+              <button value="pdf" className="btn-2" onClick={handleExportar}>
+                PDF
+              </button>
+            </span>
+          )}
+          <span align="right">
             <select
               className="Select"
               name="ddlPages"
@@ -166,33 +154,20 @@ const RGridTest = props => {
               <option value="9999"> All </option>
             </select>
           </span>
-          {props?.Export && (
-            <span>
-              <button value="csv" className="btn-2" onClick={handleExportar}>
-                CSV
-              </button>
-              <button value="xls" className="btn-2" onClick={handleExportar}>
-                Excel
-              </button>
-              <button value="pdf" className="btn-2" onClick={handleExportar}>
-                PDF
-              </button>
-            </span>
-          )}
-          <table width="99%" border="0" align="center">
+          <table width="100%" border="0" align="center">
             <tr className="TrTittle">
               <td className="TdTittle" align="center">
                 <a>{props.Tittle}</a>
               </td>
             </tr>
           </table>
-          <table className="Table" key="tgrid" width="99%" align="center">
+          <table className="Table" key="tgrid" width="100%" align="center">
             <thead key="thead">
               <tr key="trHead">
                 {props.columns.map((column, idx) => {
                   return (
                     <th className="TableCellBold" width={column.WidthColumn}>
-                      {column.Titulo}
+                      {column.Tittle}
                     </th>
                   );
                 })}
@@ -244,7 +219,7 @@ const RGridTest = props => {
                   colSpan={props.columns.length + 1}
                   className="TableCellBold"
                 >
-                  {EnabledPaging() && (
+                  {EnabledPaging && (
                     <div className="DivFooter">
                       <a href="#" onClick={PrevPage}>
                         <img

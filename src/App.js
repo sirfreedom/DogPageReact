@@ -2,7 +2,6 @@ import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import RGrid from './Components/RGrid';
 import RGridTest from './Components/RGridTest';
 import {ListAll} from './Components/Helpers';
 import React, {useState} from 'react';
@@ -61,9 +60,6 @@ function App() {
           <li key="Topic">
             <Link to="/topics">Topics</Link>
           </li>
-          <li key="RGrilla">
-            <Link to="/RGrilla">RGrilla</Link>
-          </li>
           <li key="GrillaTest">
             <Link to="/RGrillaTest">RGrillaTest</Link>
           </li>
@@ -73,22 +69,6 @@ function App() {
         </ul>
 
         <Switch>
-          <Route path="/rGrilla">
-            <button key="btnFind" id="btnFind" onClick={FindDogs}>
-              Ver Perros
-            </button>
-            <br></br>
-            <RGrid
-              key="RGrid1"
-              Tittle="Grilla Dogs"
-              rows={Dogs}
-              columns={GrillaConfiguracion}
-              ShowDelete
-              Export
-              DeleteId={id => console.log(id)}
-              isLoading={isCargando}
-            />
-          </Route>
           <Route path="/rGrillaTest">
             <button key="btnFindTest" id="btnFindTest" onClick={FindDogs}>
               Ver Perros Test
