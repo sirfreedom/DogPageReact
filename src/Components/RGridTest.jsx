@@ -5,12 +5,14 @@ import {useEffect} from 'react';
 import exportFromJSON from 'export-from-json';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import * as lodash from 'lodash';
 
 const RGridTest = props => {
   const [Rows, setRows] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [actualPageIndex, setActualPageIndex] = useState(1);
   const [TotalPages, setTotalPages] = useState(0);
+  const [OrderBy, setOrderBy] = useState('RowId');
 
   const handleExportar = e => {
     const doc = new jsPDF();
@@ -98,10 +100,14 @@ const RGridTest = props => {
       sText = JSON.stringify(props.rows);
       sText = sText.replace('"' + props.ConfigurationId + '":', '"RowId":');
       oComplete = JSON.parse(sText);
-      setRows(oComplete);
+      setRows(lodash.sortBy(oComplete, 'RowId'));
     } catch (e) {
       console.log(e.message);
     }
+  };
+
+  const HandlerOrderby = (value, order) => {
+    setRows(lodash.sortBy(Rows, value), order);
   };
 
   useEffect(() => {
@@ -167,7 +173,17 @@ const RGridTest = props => {
                 {props.columns.map((column, idx) => {
                   return (
                     <th className="TableCellBold" width={column.WidthColumn}>
-                      {column.Tittle}
+                      {column.Tittle}{' '}
+                      {column.Ordenable && (
+                          <img
+                            className="imgSortingAsc"
+                            title="Sort Asc"
+                            border="0"
+                            width="14px"
+                            height="14px"
+                            onClick={e => HandlerOrderby(column.ColumnOrdenable, 'asc')}
+                          ></img>
+                      )}
                     </th>
                   );
                 })}

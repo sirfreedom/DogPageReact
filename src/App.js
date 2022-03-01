@@ -13,8 +13,10 @@ function App() {
 
   function FindDogs() {
     setIsCargando(true);
+
     ListAll().then(lDog => {
       setDogs(lDog);
+
       setIsCargando(false);
     });
   }
@@ -35,15 +37,23 @@ function App() {
 
   const GrillaConfiguracion = [
     {
+      Tittle: 'Id',
+      Selector: fila => fila.id,
+      WidthColumn: '30%',
+    },
+    {
       Tittle: 'Nombre',
       Selector: fila => fila.name,
       WidthColumn: '30%',
       Ordenable: true,
+      ColumnOrdenable: 'name',
     },
     {
       Tittle: 'Tamaño',
       Selector: fila => fila.breed_group,
       WidthColumn: '30%',
+      Ordenable: true,
+      ColumnOrdenable: 'breed_group',
     },
   ];
 

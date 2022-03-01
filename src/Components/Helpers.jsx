@@ -9,6 +9,7 @@ export const ListAll = async () => {
   return data;
 };
 
+
 export const Prueba = async () => {
   const url = 'https://api.thedogapi.com/v1/breeds';
   const res = await fetch(url);
