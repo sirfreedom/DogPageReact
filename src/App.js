@@ -6,6 +6,10 @@ import RGridTest from './Components/RGridTest';
 import {ListAll} from './Components/Helpers';
 import React, {useState} from 'react';
 import TestSocialReducer from './Components/TestSocialReducer';
+import CountryCapitalGame from './Components/CountryCapitalGame';
+import Saludar from './Components/Saludar';
+import TestReducer1 from './Components/TestReduce1';
+import TestReducer2 from './Components/TestReducer2';
 
 function App() {
   const [Dogs, setDogs] = useState([]);
@@ -63,6 +67,9 @@ function App() {
           <li key="home">
             <Link to="/">Home</Link>
           </li>
+          <li key="Saludar">
+            <Link to="/Saludar">Saludar</Link>
+          </li>
           <li key="GrillaCompleta">
             <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
           </li>
@@ -74,6 +81,17 @@ function App() {
           </li>
           <li key="Reducer Test">
             <Link to="/TestSocialReducer">TestSocialReducer</Link>
+          </li>
+          <li key="CountryCapitalGame">
+            <Link to="/CountryCapitalGame">CountryCapitalGame</Link>
+          </li>
+
+          <li key="TestReducer1">
+            <Link to="/TestReducer1">TestReducer1</Link>
+          </li>
+
+          <li key="TestReducer2">
+            <Link to="/TestReducer2">TestReducer2</Link>
           </li>
         </ul>
 
@@ -102,11 +120,25 @@ function App() {
           <Route path="/topics">
             <Topics />
           </Route>
+          <Route path="/Saludar">
+            <Saludar nombre="Ale" edad="20"></Saludar>
+          </Route>
           <Route path="/TestSocialReducer">
             <TestSocialReducer></TestSocialReducer>
           </Route>
-          <Route path="/">
-            <h2>Home</h2>
+          <Route path="/CountryCapitalGame">
+            <h2>Capital Game</h2>
+            <CountryCapitalGame data={{Germany: 'Berlin', Azerbaijan: 'Baku'}}></CountryCapitalGame>
+          </Route>
+
+          <Route path="/TestReducer1">
+            <h2>TestReducer1</h2>
+            <TestReducer1></TestReducer1>
+          </Route>
+
+          <Route path="/TestReducer2">
+            <h2>TestReducer2</h2>
+            <TestReducer2></TestReducer2>
           </Route>
         </Switch>
       </div>

@@ -11,12 +11,14 @@ const GrillaCompleta = () => {
   const [modalEdit, setModalEdit] = useState(false);
   const [query, setQuery] = useState('');
   const [dog, setDog] = useState([]);
-
+  
+/*
   const Find = () => {
     FindDogs(query).then(lDog => {
       setDogs(lDog);
     });
   };
+*/
 
   const GridEdit = id => {
     GetDog(id).then(oDog => {
