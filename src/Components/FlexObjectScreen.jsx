@@ -1,17 +1,4 @@
-import React, {Fragment} from 'react';
-import {Provider} from 'react-redux';
-//import {store} from './store';
-//import {saveState} from './localStorage';
-
-/*
-store.subscribe(() => {
-  saveState({
-    cart: store.getState().cart,
-    total: store.getState().total,
-    amount: store.getState().amount,
-  });
-});
-*/
+import React, {useState, Fragment} from 'react';
 
 const cartItems = [
   {
@@ -37,11 +24,13 @@ const cartItems = [
   },
 ];
 
-const TestReducer1 = props => {
+const FlexObjectScreen = () => {
+
+
+  
   return (
     <Fragment>
       <p> hola mundo </p>
-
       <div className="container">
         <div className="child"></div>
         <div className="child"></div>
@@ -57,4 +46,4 @@ const TestReducer1 = props => {
   );
 };
 
-export default TestReducer1;
+export default FlexObjectScreen;

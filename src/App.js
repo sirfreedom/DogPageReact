@@ -8,7 +8,7 @@ import React, {useState} from 'react';
 import TestSocialReducer from './Components/TestSocialReducer';
 import CountryCapitalGame from './Components/CountryCapitalGame';
 import Saludar from './Components/Saludar';
-import TestReducer1 from './Components/TestReduce1';
+import FlexObjectScreen from './Components/FlexObjectScreen';
 import TestReducer2 from './Components/TestReducer2';
 
 function App() {
@@ -86,8 +86,8 @@ function App() {
             <Link to="/CountryCapitalGame">CountryCapitalGame</Link>
           </li>
 
-          <li key="TestReducer1">
-            <Link to="/TestReducer1">TestReducer1</Link>
+          <li key="FlexObjectScreen">
+            <Link to="/FlexObjectScreen">FlexObjectScreen</Link>
           </li>
 
           <li key="TestReducer2">
@@ -126,14 +126,15 @@ function App() {
           <Route path="/TestSocialReducer">
             <TestSocialReducer></TestSocialReducer>
           </Route>
+
           <Route path="/CountryCapitalGame">
             <h2>Capital Game</h2>
             <CountryCapitalGame data={{Germany: 'Berlin', Azerbaijan: 'Baku'}}></CountryCapitalGame>
           </Route>
 
-          <Route path="/TestReducer1">
-            <h2>TestReducer1</h2>
-            <TestReducer1></TestReducer1>
+          <Route path="/FlexObjectScreen">
+            <h2>FlexObjectScreen</h2>
+            <FlexObjectScreen></FlexObjectScreen>
           </Route>
 
           <Route path="/TestReducer2">
