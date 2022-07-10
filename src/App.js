@@ -5,11 +5,11 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import RGridTest from './Components/RGridTest';
 import {ListAll} from './Components/Helpers';
 import React, {useState} from 'react';
-import TestSocialReducer from './Components/TestSocialReducer';
 import CountryCapitalGame from './Components/CountryCapitalGame';
 import Saludar from './Components/Saludar';
 import FlexObjectScreen from './Components/FlexObjectScreen';
-import TestReducer2 from './Components/TestReducer2';
+import ListaProductos from './Components/ListaProductos';
+import CarritoCompra from './Components/CarritoCompra';
 
 function App() {
   const [Dogs, setDogs] = useState([]);
@@ -64,24 +64,31 @@ function App() {
     <Router>
       <div>
         <ul>
+
           <li key="home">
             <Link to="/">Home</Link>
           </li>
+
           <li key="Saludar">
             <Link to="/Saludar">Saludar</Link>
           </li>
+
           <li key="GrillaCompleta">
             <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
           </li>
+
           <li key="Topic">
             <Link to="/topics">Topics</Link>
           </li>
+
           <li key="GrillaTest">
             <Link to="/RGrillaTest">RGrillaTest</Link>
           </li>
+
           <li key="Reducer Test">
             <Link to="/TestSocialReducer">TestSocialReducer</Link>
           </li>
+
           <li key="CountryCapitalGame">
             <Link to="/CountryCapitalGame">CountryCapitalGame</Link>
           </li>
@@ -90,9 +97,10 @@ function App() {
             <Link to="/FlexObjectScreen">FlexObjectScreen</Link>
           </li>
 
-          <li key="TestReducer2">
-            <Link to="/TestReducer2">TestReducer2</Link>
+          <li key="ListaProductos">
+            <Link to="/ListaProductos">ListaProductos</Link>
           </li>
+
         </ul>
 
         <Switch>
@@ -117,14 +125,28 @@ function App() {
           <Route path="/GrillaCompletaPrueba">
             <GrillaCompleta></GrillaCompleta>
           </Route>
+
           <Route path="/topics">
             <Topics />
           </Route>
+
           <Route path="/Saludar">
             <Saludar nombre="Ale" edad="20"></Saludar>
           </Route>
-          <Route path="/TestSocialReducer">
-            <TestSocialReducer></TestSocialReducer>
+
+          <Route path="/ListaProductos">
+
+            <table>
+              <tr>
+                <td>
+                    <ListaProductos></ListaProductos>
+                </td>
+                <td>
+                    <CarritoCompra  ></CarritoCompra>
+                </td>
+              </tr>
+            </table>
+
           </Route>
 
           <Route path="/CountryCapitalGame">
@@ -137,10 +159,7 @@ function App() {
             <FlexObjectScreen></FlexObjectScreen>
           </Route>
 
-          <Route path="/TestReducer2">
-            <h2>TestReducer2</h2>
-            <TestReducer2></TestReducer2>
-          </Route>
+
         </Switch>
       </div>
     </Router>
