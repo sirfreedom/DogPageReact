@@ -30,9 +30,9 @@ export const getUsuario = (sUser, sPass) => {
   let jsonuser = JSON.stringify(
     '[{"id":1,"user":"a","pass":"a"},{"id":2,"user":"b","pass":"b"},{"id":3,"user":"c","pass":"c" }]"'
   );
-  let lUser = jsonuser.find(x => x.user == sUser && x.pass == sPass);
+  let lUser = jsonuser.find(x => x.user === sUser && x.pass === sPass);
   let b = false;
-  b = lUser.count() == 1;
+  b = lUser.count() === 1;
   return b;
 };
 

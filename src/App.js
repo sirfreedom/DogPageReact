@@ -2,14 +2,15 @@ import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import RGridTest from './Components/RGridTest';
 import {ListAll} from './Components/Helpers';
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import CountryCapitalGame from './Components/CountryCapitalGame';
 import Saludar from './Components/Saludar';
 import FlexObjectScreen from './Components/FlexObjectScreen';
 import ListaProductos from './Components/ListaProductos';
 import CarritoCompra from './Components/CarritoCompra';
+import RGrid from './Components/RGrid';
+
 
 function App() {
   const [Dogs, setDogs] = useState([]);
@@ -20,15 +21,18 @@ function App() {
 
     ListAll().then(lDog => {
       setDogs(lDog);
-
       setIsCargando(false);
     });
   }
-
-  /*
+  
   useEffect(() => {
+
+    ListAll().then(lDog => {
+      setDogs(lDog);
+    });
+
   }, []);
-  */
+  
 
   function Topics() {
     return (
@@ -56,61 +60,65 @@ function App() {
       Selector: fila => fila.breed_group,
       WidthColumn: '30%',
       Ordenable: true,
-      ColumnOrdenable: 'breed_group',
-    },
+      ColumnOrdenable: 'breed_group'
+    }
   ];
 
+  //list-group-item active
+
   return (
+    <>
+
     <Router>
       <div>
-        <ul>
+        <ul class="list-group">
 
-          <li key="home">
+          <li key="home" class="list-group-item" > 
             <Link to="/">Home</Link>
           </li>
 
-          <li key="Saludar">
+          <li key="Saludar" class="list-group-item">
             <Link to="/Saludar">Saludar</Link>
           </li>
 
-          <li key="GrillaCompleta">
+          <li key="GrillaCompleta" class="list-group-item">
             <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
           </li>
 
-          <li key="Topic">
+          <li key="Topic" class="list-group-item">
             <Link to="/topics">Topics</Link>
           </li>
 
-          <li key="GrillaTest">
-            <Link to="/RGrillaTest">RGrillaTest</Link>
+          <li key="Grilla" class="list-group-item">
+            <Link to="/RGrilla">RGrilla</Link>
           </li>
 
-          <li key="Reducer Test">
+          <li key="Reducer Test" class="list-group-item">
             <Link to="/TestSocialReducer">TestSocialReducer</Link>
           </li>
 
-          <li key="CountryCapitalGame">
+          <li key="CountryCapitalGame" class="list-group-item">
             <Link to="/CountryCapitalGame">CountryCapitalGame</Link>
           </li>
 
-          <li key="FlexObjectScreen">
+          <li key="FlexObjectScreen" class="list-group-item">
             <Link to="/FlexObjectScreen">FlexObjectScreen</Link>
           </li>
 
-          <li key="ListaProductos">
+          <li key="ListaProductos" class="list-group-item">
             <Link to="/ListaProductos">ListaProductos</Link>
           </li>
 
         </ul>
 
         <Switch>
-          <Route path="/rGrillaTest">
+          <Route path="/rGrilla">
             <button key="btnFindTest" id="btnFindTest" onClick={FindDogs}>
               Ver Perros Test
             </button>
             <br></br>
-            <RGridTest
-              key="RGridTest"
+            <RGrid
+              key="RGrid"
               Tittle="Grilla Dogs Test"
               rows={Dogs}
               columns={GrillaConfiguracion}
@@ -139,10 +147,10 @@ function App() {
             <table>
               <tr>
                 <td>
-                    <ListaProductos></ListaProductos>
+                  <ListaProductos></ListaProductos>
                 </td>
                 <td>
-                    <CarritoCompra  ></CarritoCompra>
+                    <CarritoCompra ></CarritoCompra>
                 </td>
               </tr>
             </table>
@@ -163,6 +171,8 @@ function App() {
         </Switch>
       </div>
     </Router>
+
+    </>
   );
 }
 

@@ -1,11 +1,7 @@
-import React, {Fragment, useState} from 'react';
+import React from 'react';
 
 const CarritoCompra = props => {
   
-
-
-
-
 
 
 

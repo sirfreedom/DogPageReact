@@ -1,5 +1,4 @@
 import '../Css/RGrid.css';
-//import {useLayoutEffect} from 'react';
 import React, {useCallback, useState} from 'react';
 import {useEffect} from 'react';
 import exportFromJSON from 'export-from-json';
@@ -7,12 +6,12 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as lodash from 'lodash';
 
-const RGridTest = props => {
+const RGrid = props => {
   const [Rows, setRows] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [actualPageIndex, setActualPageIndex] = useState(1);
   const [TotalPages, setTotalPages] = useState(0);
-  const [OrderBy, setOrderBy] = useState('RowId');
+  
 
   const handleExportar = e => {
     const doc = new jsPDF();
@@ -271,4 +270,4 @@ const RGridTest = props => {
   );
 };
 
-export default RGridTest;
+export default RGrid;

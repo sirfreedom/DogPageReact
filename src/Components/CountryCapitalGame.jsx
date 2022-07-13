@@ -1,5 +1,5 @@
-import React, {useEffect, useState, Fragment} from 'react';
-import {If, Then, Else, Switch, Case, Default} from 'react-if';
+import React, { useState} from 'react';
+
 
 const InitialPreguntas = [
   {aswer: '1+1', response: '2'},
@@ -7,7 +7,7 @@ const InitialPreguntas = [
 ];
 
 const CountryCapitalGame = props => {
-  const [Lista, setLista] = useState(InitialPreguntas);
+  const [Lista] = useState(InitialPreguntas);
 
   return (
     <div>
@@ -37,13 +37,3 @@ const CountryCapitalGame = props => {
 
 export default CountryCapitalGame;
 
-// You can also use class components
-// export default class CountryCapitalGame extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
-//
-//     render() {
-//         return <div>Your game component</div>;
-//     }
-// }

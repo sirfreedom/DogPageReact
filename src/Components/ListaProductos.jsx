@@ -7,7 +7,7 @@ import {Button} from 'react-bootstrap/';
 export const ListaProductos = () => {
   const [dogs, setDogs] = useState([]);
   const [dogFilter,setDogFilter] = useState([]);
-  const [filterName, setFilterName] = useState('');
+  //const [filterName, setFilterName] = useState('');
 
   useEffect(() => {
 
@@ -26,21 +26,10 @@ export const ListaProductos = () => {
 */
 
 
-
   const Filter = (text) => 
   {
-    //setFilterName(text);
-    //console.log(dogs.filter(item => item.name.includes(text)));
-    if(dogs.filter(x => x.name.includes(text)).length > 0 )
-    {
-      setDogFilter(dogs.filter(x => x.name.includes(text)));
-    }
-    
+     setDogFilter(dogs.filter(d => d.name.toLowerCase().includes(text.toLowerCase())));
   } 
-
-
-  
-
 
   return (
     <>
@@ -48,32 +37,29 @@ export const ListaProductos = () => {
     Choice your Product 
     <input type="text" onChange={e => Filter(e.target.value)} />
 
-    {dogFilter.length > 0 &&
-          <table >
-            <thead>
-              <tr>
-                <td> 
+    <select name="pets" id="pet-select">
+    <option value="">--Please choose an option--</option>
 
-                 </td>
-              </tr>
-            </thead>
-            <tbody>
-              {dogFilter.map((dog) => (
-                <tr key={dog.id}>
-                  <td>
-                    <Button id={dog.id} key={dog.id} > {dog.name} </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-      }
+    {dogFilter.map((row, rox) => {
+                        return (
+                          <option value={row.id} > {row.name} </option>
+                        );
+                      })}
+
+    </select>
+
+    <Button id="btnSelect" key="btnSelect" > Select </Button>
 
     </>
-);
-};
+
+  )}
+
 
 export default ListaProductos
+
+
+
+
 
 /*
 const categorias = useSelector((state) => state.categorias);

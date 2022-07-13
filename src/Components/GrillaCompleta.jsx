@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-//import {FindDogs} from './Helpers';
 import {ListAll} from './Helpers';
 import {GetDog} from './Helpers';
 import {Button} from 'react-bootstrap/';
 import {useEffect} from 'react';
 import ModalEdicion from './ModalEdicion';
+
 
 const GrillaCompleta = () => {
   const [dogs, setDogs] = useState([]);
@@ -12,13 +12,7 @@ const GrillaCompleta = () => {
   const [query, setQuery] = useState('');
   const [dog, setDog] = useState([]);
   
-/*
-  const Find = () => {
-    FindDogs(query).then(lDog => {
-      setDogs(lDog);
-    });
-  };
-*/
+
 
   const GridEdit = id => {
     GetDog(id).then(oDog => {
