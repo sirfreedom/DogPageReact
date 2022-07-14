@@ -1,39 +1,51 @@
 import React, { useState,useEffect } from "react";
 import {ListAll} from './Helpers';
 import {Button} from 'react-bootstrap/';
-//import { useSelector } from "react-redux";
-//import { ProductoHelper } from "./StoreHelper";
+import Alert from 'react-bootstrap/Alert';
+
 
 export const ListaProductos = () => {
   const [dogs, setDogs] = useState([]);
   const [dogFilter,setDogFilter] = useState([]);
-  //const [filterName, setFilterName] = useState('');
+  const [Wait,setWait] = useState(false);
+
 
   useEffect(() => {
 
     ListAll().then(lDog => {
       setDogs(lDog);
       setDogFilter(lDog);
+      setWait(true);
     });
 
   }, []);
 
-/*
-  useEffect(() => {
-    console.log('paso');
-
-  }, [dogFilter]);
-*/
-
-
   const Filter = (text) => 
   {
-     setDogFilter(dogs.filter(d => d.name.toLowerCase().includes(text.toLowerCase())));
+      (text.lenght > 1) &&
+      setDogFilter(dogs.filter(d => d.name.toLowerCase().includes(text.toLowerCase())));
   } 
 
   return (
     <>
     <h1> Productos de seleccion </h1>
+
+    {!Wait &&
+    <div>
+   <Alert variant="success">
+      <Alert.Heading>Wait</Alert.Heading>
+      <p>
+       Waiting...
+      </p>
+      <hr />
+      <p className="mb-0">
+      </p>
+    </Alert>
+    </div>
+    }
+
+    {Wait && 
+    <div   > 
     Choice your Product 
     <input type="text" onChange={e => Filter(e.target.value)} />
 
@@ -49,7 +61,8 @@ export const ListaProductos = () => {
     </select>
 
     <Button id="btnSelect" key="btnSelect" > Select </Button>
-
+    </div>
+    }
     </>
 
   )}

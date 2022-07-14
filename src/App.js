@@ -10,6 +10,7 @@ import FlexObjectScreen from './Components/FlexObjectScreen';
 import ListaProductos from './Components/ListaProductos';
 import CarritoCompra from './Components/CarritoCompra';
 import RGrid from './Components/RGrid';
+import MenuApp from './Components/MenuApp';
 
 
 function App() {
@@ -68,6 +69,12 @@ function App() {
 
   return (
     <>
+
+     
+    <MenuApp></MenuApp>
+
+
+
 
     <Router>
       <div>
