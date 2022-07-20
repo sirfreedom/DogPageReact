@@ -37,3 +37,28 @@
     transform: rotate(360deg);
   }
 }
+
+
+ul {
+  background-color: #8a6d3b;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  display: block;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #985f0d;
+}

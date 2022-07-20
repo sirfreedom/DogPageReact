@@ -10,7 +10,6 @@ import FlexObjectScreen from './Components/FlexObjectScreen';
 import ListaProductos from './Components/ListaProductos';
 import CarritoCompra from './Components/CarritoCompra';
 import RGrid from './Components/RGrid';
-import MenuApp from './Components/MenuApp';
 
 
 function App() {
@@ -35,10 +34,10 @@ function App() {
   }, []);
   
 
-  function Topics() {
+  function Home() {
     return (
       <div>
-        <h2>Topic</h2>
+        <h2>Home</h2>
       </div>
     );
   }
@@ -65,61 +64,67 @@ function App() {
     }
   ];
 
-  //list-group-item active
-
   return (
     <>
 
-     
-    <MenuApp></MenuApp>
-
-
-
-
     <Router>
-      <div>
-        <ul class="list-group">
 
-          <li key="home" class="list-group-item" > 
+      <div>
+        <ul >
+
+          <li key="home"  > 
             <Link to="/">Home</Link>
           </li>
 
-          <li key="Saludar" class="list-group-item">
+          <li key="Saludar" >
             <Link to="/Saludar">Saludar</Link>
           </li>
 
-          <li key="GrillaCompleta" class="list-group-item">
+          <li key="GrillaCompleta" >
             <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
           </li>
 
-          <li key="Topic" class="list-group-item">
-            <Link to="/topics">Topics</Link>
-          </li>
-
-          <li key="Grilla" class="list-group-item">
+          <li key="Grilla" >
             <Link to="/RGrilla">RGrilla</Link>
           </li>
 
-          <li key="Reducer Test" class="list-group-item">
+          <li key="Reducer Test" >
             <Link to="/TestSocialReducer">TestSocialReducer</Link>
           </li>
 
-          <li key="CountryCapitalGame" class="list-group-item">
+          <li key="CountryCapitalGame" >
             <Link to="/CountryCapitalGame">CountryCapitalGame</Link>
           </li>
 
-          <li key="FlexObjectScreen" class="list-group-item">
+          <li key="FlexObjectScreen" >
             <Link to="/FlexObjectScreen">FlexObjectScreen</Link>
           </li>
 
-          <li key="ListaProductos" class="list-group-item">
+          <li key="ListaProductos" >
             <Link to="/ListaProductos">ListaProductos</Link>
           </li>
 
         </ul>
 
+
+<Saludar></Saludar>
+
+
+
+
         <Switch>
+
+          <Route path="/Home">
+            
+          </Route>
+
+          <Route path="/Saludar">
+            <h3>Prueba Saludar</h3>
+            <Saludar nombre="Ale" edad="20"></Saludar>
+          </Route>
+
           <Route path="/rGrilla">
+
             <button key="btnFindTest" id="btnFindTest" onClick={FindDogs}>
               Ver Perros Test
             </button>
@@ -135,22 +140,16 @@ function App() {
               isLoading={isCargando}
               ConfigurationId="id"
             />
+
           </Route>
 
           <Route path="/GrillaCompletaPrueba">
             <GrillaCompleta></GrillaCompleta>
           </Route>
 
-          <Route path="/topics">
-            <Topics />
-          </Route>
-
-          <Route path="/Saludar">
-            <Saludar nombre="Ale" edad="20"></Saludar>
-          </Route>
 
           <Route path="/ListaProductos">
-
+         
             <table>
               <tr>
                 <td>
@@ -173,7 +172,6 @@ function App() {
             <h2>FlexObjectScreen</h2>
             <FlexObjectScreen></FlexObjectScreen>
           </Route>
-
 
         </Switch>
       </div>
