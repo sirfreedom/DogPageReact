@@ -26,6 +26,15 @@ export const FindDogs = async value => {
   return data;
 };
 
+async function fetchData(){
+  const res = await fetch("https://swapi.co/api/planets/");
+  var data;
+  res.json()
+  .then(res => data = res.results)
+  .catch(err => console.log(err));
+  return data;
+}
+
 export const getUsuario = (sUser, sPass) => {
   let jsonuser = JSON.stringify(
     '[{"id":1,"user":"a","pass":"a"},{"id":2,"user":"b","pass":"b"},{"id":3,"user":"c","pass":"c" }]"'

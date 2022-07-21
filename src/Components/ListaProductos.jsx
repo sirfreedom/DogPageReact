@@ -3,11 +3,12 @@ import {ListAll} from './Helpers';
 import {Button} from 'react-bootstrap/';
 import Alert from 'react-bootstrap/Alert';
 
-
 export const ListaProductos = () => {
   const [dogs, setDogs] = useState([]);
   const [dogFilter,setDogFilter] = useState([]);
   const [Wait,setWait] = useState(false);
+  const [Contador,setContador] = useState(0);
+
 
 
   useEffect(() => {
@@ -20,16 +21,29 @@ export const ListaProductos = () => {
 
   }, []);
 
+
+  const Test = () => {
+    setContador(Contador +1);
+  }
+
+
   const Filter = (text) => 
   {
       (text.lenght > 1) &&
       setDogFilter(dogs.filter(d => d.name.toLowerCase().includes(text.toLowerCase())));
   } 
 
+
   return (
     <>
     <h1> Productos de seleccion </h1>
+    <br></br>
+    <button key="btn" onClick={Test}    > Test </button>
 
+    <label> {Contador}</label>
+
+
+    <br></br>
     {!Wait &&
     <div>
    <Alert variant="success">

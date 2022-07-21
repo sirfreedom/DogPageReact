@@ -106,12 +106,6 @@ function App() {
 
         </ul>
 
-
-<Saludar></Saludar>
-
-
-
-
         <Switch>
 
           <Route path="/Home">
@@ -147,13 +141,12 @@ function App() {
             <GrillaCompleta></GrillaCompleta>
           </Route>
 
-
           <Route path="/ListaProductos">
          
             <table>
               <tr>
                 <td>
-                  <ListaProductos></ListaProductos>
+                    <ListaProductos ></ListaProductos>
                 </td>
                 <td>
                     <CarritoCompra ></CarritoCompra>
