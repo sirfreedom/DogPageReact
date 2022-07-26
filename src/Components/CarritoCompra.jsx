@@ -13,7 +13,12 @@ const CarritoCompra = props => {
   return (
     <>
 
-    Hola
+
+    Carrito de compras vacio.
+    
+
+
+
     </>
   );
 };

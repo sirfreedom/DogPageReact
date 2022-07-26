@@ -5,13 +5,10 @@ import Card from './Card';
 function ModalEdicion(props) {
 
 
-
-
   const Save = () => {
     const tnombre = document.getElementById('tnombre');
-    props.cbGuardarPerro({...props.dog, name: tnombre.value}); //lodash.clone(dog)
+    props.cbGuardarPerro({...props.dog, name: tnombre.value}); 
   };
-
 
 
   return (

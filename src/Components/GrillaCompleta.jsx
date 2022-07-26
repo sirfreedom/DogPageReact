@@ -12,8 +12,6 @@ const GrillaCompleta = () => {
   const [query, setQuery] = useState('');
   const [dog, setDog] = useState([]);
   
-
-
   const GridEdit = id => {
     GetDog(id).then(oDog => {
       setDog(oDog);

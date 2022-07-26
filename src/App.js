@@ -10,11 +10,13 @@ import FlexObjectScreen from './Components/FlexObjectScreen';
 import ListaProductos from './Components/ListaProductos';
 import CarritoCompra from './Components/CarritoCompra';
 import RGrid from './Components/RGrid';
+import ListaTareas from './Components/ListaTareas';
 
 
 function App() {
   const [Dogs, setDogs] = useState([]);
   const [isCargando, setIsCargando] = useState(false);
+  const [Shop,setShop] = useState([]);
 
   function FindDogs() {
     setIsCargando(true);
@@ -104,12 +106,15 @@ function App() {
             <Link to="/ListaProductos">ListaProductos</Link>
           </li>
 
+          <li key="ListaTareas" >
+             <Link to="/ListaTareas"> Lista de Tareas</Link> 
+          </li>
         </ul>
 
         <Switch>
 
           <Route path="/Home">
-            
+              <Home></Home>
           </Route>
 
           <Route path="/Saludar">
@@ -146,7 +151,7 @@ function App() {
             <table>
               <tr>
                 <td>
-                    <ListaProductos ></ListaProductos>
+                    <ListaProductos carrito={Shop} > </ListaProductos>
                 </td>
                 <td>
                     <CarritoCompra ></CarritoCompra>
@@ -165,6 +170,12 @@ function App() {
             <h2>FlexObjectScreen</h2>
             <FlexObjectScreen></FlexObjectScreen>
           </Route>
+
+        <Route path="/ListaTareas" >
+            <h2> Lista de Tareas </h2>
+            <ListaTareas></ListaTareas>
+        </Route>
+
 
         </Switch>
       </div>

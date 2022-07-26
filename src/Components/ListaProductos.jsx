@@ -8,7 +8,7 @@ export const ListaProductos = () => {
   const [dogFilter,setDogFilter] = useState([]);
   const [Wait,setWait] = useState(false);
   const [Contador,setContador] = useState(0);
-
+  const [Shop,setShop] = useState([]);
 
 
   useEffect(() => {
@@ -26,7 +26,6 @@ export const ListaProductos = () => {
     setContador(Contador +1);
   }
 
-
   const Filter = (text) => 
   {
       (text.lenght > 1) &&
@@ -38,10 +37,9 @@ export const ListaProductos = () => {
     <>
     <h1> Productos de seleccion </h1>
     <br></br>
-    <button key="btn" onClick={Test}    > Test </button>
+    <button key="btn" onClick={Test} > Test </button>
 
-    <label> {Contador}</label>
-
+    <label> {Contador} </label>
 
     <br></br>
     {!Wait &&
@@ -67,10 +65,10 @@ export const ListaProductos = () => {
     <option value="">--Please choose an option--</option>
 
     {dogFilter.map((row, rox) => {
-                        return (
-                          <option value={row.id} > {row.name} </option>
-                        );
-                      })}
+       return (
+      <option value={row.id} > {row.name} </option>
+     );
+     })}
 
     </select>
 
