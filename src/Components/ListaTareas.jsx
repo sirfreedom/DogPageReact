@@ -6,14 +6,29 @@ const txtTaskRef = useRef();
 
 const [tasks, dispatch ] = useReducer( (state = [], action) => 
 {
+    let newState = [];
+    let indexDelete = 0;
+    let returnState = [];
+
+    newState = [...state];
+
     switch(action.type)
     {
         case 'add': 
             return [...state, { id: action.id, tittle: action.tittle }]
         case 'del':
             debugger;
-            return state;
-                //state.filter((task, idx) => task.id == action.id).indexof()
+            indexDelete = newState.findIndex(x => x.id == action.id);
+            newState.splice(indexDelete, 0, action.tittle);
+            for(let i = 0; i < newState.length;i++) 
+            { 
+                if (newState[i] != undefined ) 
+                { 
+                    returnState.push(state[i]);
+                }  
+            }
+            returnState.pop(); 
+            return returnState;
         default:
             return state;
     }

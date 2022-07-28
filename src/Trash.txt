@@ -67,3 +67,7 @@ https://www.npmjs.com/package/jspdf-autotable
     }
     return sReturn;
   }
+
+
+      
+ 
