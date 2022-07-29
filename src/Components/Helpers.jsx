@@ -1,3 +1,4 @@
+
 export const ListAll = async () => {
   const url = 'https://api.thedogapi.com/v1/breeds';
   const res = await fetch(url);
@@ -45,4 +46,16 @@ export const getUsuario = (sUser, sPass) => {
   return b;
 };
 
-//
+function getStorage(key, defaultValue) {
+  const saved = localStorage.getItem(key);
+  const initial = JSON.parse(saved);
+  return initial || defaultValue;
+}
+
+function setStorage(key, value)
+{
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+
+
