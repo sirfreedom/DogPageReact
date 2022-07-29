@@ -1,19 +1,11 @@
-import React, {Fragment, useCallback, useState} from 'react';
-
-
-
-useEffect(() => {
-
-
-}, []);
+import React from 'react';
 
 
 
 const Login = props => {
   return (
-    <Fragment>
+    <>
       <br></br>
-
       <table>
         <tr>
           <td>
@@ -26,7 +18,7 @@ const Login = props => {
           </td>
         </tr>
       </table>
-    </Fragment>
+    </>
   );
 };
 
