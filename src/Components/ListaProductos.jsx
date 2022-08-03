@@ -7,7 +7,7 @@ export const ListaProductos = () => {
   const [dogs, setDogs] = useState([]);
   const [dogFilter,setDogFilter] = useState([]);
   const [Wait,setWait] = useState(false);
-  const [Contador,setContador] = useState(0);
+  const [Counter,setCounter] = useState(0);
   const [Shop,setShop] = useState([]);
 
 
@@ -23,7 +23,7 @@ export const ListaProductos = () => {
 
 
   const Test = () => {
-    setContador(Contador +1);
+    setCounter(Counter +1);
   }
 
   const Filter = (text) => 
@@ -39,7 +39,7 @@ export const ListaProductos = () => {
     <br></br>
     <button key="btn" onClick={Test} > Test </button>
 
-    <label> {Contador} </label>
+    <label> {Counter} </label>
 
     <br></br>
     {!Wait &&
