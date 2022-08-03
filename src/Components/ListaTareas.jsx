@@ -17,9 +17,10 @@ const [tasks, dispatch ] = useReducer( (state = [], action) =>
         case 'add': 
             return [...state, { id: action.id, tittle: action.tittle }]
         case 'del':
-            debugger;
-            indexDelete = newState.findIndex(x => x.id == action.id);
-            newState.splice(indexDelete, 0, action.tittle);
+            indexDelete = newState.findIndex(x => x.id == action.id); // find the index which was deleted
+            newState.splice(indexDelete, 0, action.tittle);  // splice, mark the item as undefined
+            
+            // add to new list items which have not been marked as undefined
             for(let i = 0; i < newState.length;i++) 
             { 
                 if (newState[i] != undefined ) 
@@ -27,7 +28,9 @@ const [tasks, dispatch ] = useReducer( (state = [], action) =>
                     returnState.push(state[i]);
                 }  
             }
-            returnState.pop(); 
+            // the list has one item as undefined, so it must delete this.
+
+            returnState.pop(); // this line is deleting last item
             return returnState;
         default:
             return state;
