@@ -20,13 +20,13 @@ function App() {
 
   function FindDogs() {
     setIsCargando(true);
-
     ListAll().then(lDog => {
       setDogs(lDog);
       setIsCargando(false);
     });
   }
-  
+
+ 
   useEffect(() => {
 
     ListAll().then(lDog => {
@@ -68,6 +68,7 @@ function App() {
 
   return (
     <>
+    
 
     <Router>
 
@@ -88,10 +89,6 @@ function App() {
 
           <li key="Grilla" >
             <Link to="/RGrilla">RGrilla</Link>
-          </li>
-
-          <li key="Reducer Test" >
-            <Link to="/TestSocialReducer">TestSocialReducer</Link>
           </li>
 
           <li key="CountryCapitalGame" >
@@ -118,7 +115,8 @@ function App() {
           </Route>
 
           <Route path="/Saludar">
-            <h3>Prueba Saludar</h3>
+            
+            <h3>Prueba Saludar </h3>
             <Saludar nombre="Ale" edad="20"></Saludar>
           </Route>
 
