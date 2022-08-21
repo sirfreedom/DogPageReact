@@ -17,6 +17,7 @@ function App() {
   const [Dogs, setDogs] = useState([]);
   const [isCargando, setIsCargando] = useState(false);
   const [Shop,setShop] = useState([]);
+  const [DogId,setDogId] = useState(0);
 
   function FindDogs() {
     setIsCargando(true);
@@ -34,7 +35,17 @@ function App() {
     });
 
   }, []);
-  
+
+
+
+  useEffect(() => {
+
+ console.log(DogId);
+
+  }, [DogId]);
+
+
+
 
   function Home() {
     return (
@@ -149,10 +160,10 @@ function App() {
             <table>
               <tr>
                 <td>
-                    <ListaProductos carrito={Shop} > </ListaProductos>
+                    <ListaProductos key="lProductos" carrito={Shop} SelectId={id => setDogId(id)} > </ListaProductos>
                 </td>
                 <td>
-                    <CarritoCompra ></CarritoCompra>
+                    <CarritoCompra DogId={DogId} ></CarritoCompra>
                 </td>
               </tr>
             </table>
