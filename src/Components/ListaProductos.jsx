@@ -3,13 +3,11 @@ import {ListAll} from './Helpers';
 import {Button} from 'react-bootstrap/';
 import Alert from 'react-bootstrap/Alert';
 
-export const ListaProductos = () => {
+export const ListaProductos = (props) => {
   const [dogs, setDogs] = useState([]);
   const [dogFilter,setDogFilter] = useState([]);
   const [Wait,setWait] = useState(false);
-  const [Counter,setCounter] = useState(0);
-  const [Shop,setShop] = useState([]);
-
+  const [DogId,setDogId] = useState(0);
 
   useEffect(() => {
 
@@ -21,27 +19,29 @@ export const ListaProductos = () => {
 
   }, []);
 
-
-  const Test = () => {
-    setCounter(Counter +1);
-  }
-
   const Filter = (text) => 
   {
-      (text.lenght > 1) &&
+      (text.length > 1) &&
       setDogFilter(dogs.filter(d => d.name.toLowerCase().includes(text.toLowerCase())));
+      (text.length == 0) && setDogFilter(dogs);
   } 
 
+  const dllPets_onChange = (id) => 
+  {
+    setDogId(id);
+  }
+
+  const btnSelect_onClick = () => 
+  {
+    setDogId(document.getElementById("ddlPets").value);
+    props.SelectId(DogId);
+  }
 
   return (
     <>
     <h1> Productos de seleccion </h1>
     <br></br>
-    <button key="btn" onClick={Test} > Test </button>
 
-    <label> {Counter} </label>
-
-    <br></br>
     {!Wait &&
     <div>
    <Alert variant="success">
@@ -57,62 +57,30 @@ export const ListaProductos = () => {
     }
 
     {Wait && 
-    <div   > 
+    <div > 
     Choice your Product 
     <input type="text" onChange={e => Filter(e.target.value)} />
-
-    <select name="pets" id="pet-select">
+        
+    <select name="dllPets" id="ddlPets" onChange={e => dllPets_onChange(e.target.value)}>
     <option value="">--Please choose an option--</option>
 
     {dogFilter.map((row, rox) => {
        return (
-      <option value={row.id} > {row.name} </option>
-     );
+          <option value={row.id} > {row.name} </option>
+        );
      })}
 
     </select>
 
-    <Button id="btnSelect" key="btnSelect" > Select </Button>
+    <Button id="btnSelect" key="btnSelect" onClick={btnSelect_onClick} > Select </Button>
+
     </div>
     }
     </>
 
   )}
 
-
 export default ListaProductos
 
 
 
-
-
-/*
-const categorias = useSelector((state) => state.categorias);
-const productos = useSelector((state) => state.productos).filter(
-  (producto) => producto.idCategoria === categoria.id
-);
-
-
-  const handleSelectCategoria = (e) => {
-    setCategoria(
-      categorias.find((categoria) => categoria.id === e.target.value)
-    );
-  };
-
-
-  return (
-    <>
-      <label htmlFor="categoria">Categoría: </label>
-      <select name="categoria" onChange={handleSelectCategoria}>
-        {categorias.map((categoria) => (
-          <option key={categoria.id} value={categoria.id}>
-            {categoria.nombre}
-          </option>
-        ))}
-      </select>
-      <FormularioAgregarProducto categoria={categoria} />
-     
-    </>
-  );
-};
-*/
