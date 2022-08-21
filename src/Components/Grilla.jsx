@@ -2,7 +2,6 @@ import React, {fragment, useState} from 'react';
 
 const GrillaEvent = user => {
   console.log('hola mundo');
-
   console.log(user.nombre);
 };
 
@@ -13,6 +12,7 @@ const Grilla = () => {
   );
 
   return (
+    <>
     <div>
       <table>
         <thead>
@@ -37,6 +37,7 @@ const Grilla = () => {
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 
