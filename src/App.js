@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import GrillaCompleta from './Components/GrillaCompleta';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import {ListAll} from './Components/Helpers';
+import {GetDog} from './Components/Helpers';
 import React, {useState,useEffect} from 'react';
 import CountryCapitalGame from './Components/CountryCapitalGame';
 import Saludar from './Components/Saludar';
@@ -12,12 +13,14 @@ import CarritoCompra from './Components/CarritoCompra';
 import RGrid from './Components/RGrid';
 import ListaTareas from './Components/ListaTareas';
 import Login from './Components/Login';
+import Card from './Components/Card';
 
 function App() {
   const [Dogs, setDogs] = useState([]);
   const [isCargando, setIsCargando] = useState(false);
-  const [Shop,setShop] = useState([]);
   const [DogId,setDogId] = useState(0);
+  const [Dog,setDog] = useState();
+
 
   function FindDogs() {
     setIsCargando(true);
@@ -27,8 +30,7 @@ function App() {
     });
   }
 
- 
-  useEffect(() => {
+   useEffect(() => {
 
     ListAll().then(lDog => {
       setDogs(lDog);
@@ -37,14 +39,12 @@ function App() {
   }, []);
 
 
-
-  useEffect(() => {
-
- console.log(DogId);
+ useEffect(() => {
+  GetDog(DogId).then(oDog => {
+    setDog(oDog);
+  });
 
   }, [DogId]);
-
-
 
 
   function Home() {
@@ -79,7 +79,6 @@ function App() {
 
   return (
     <>
-    
 
     <Router>
 
@@ -160,9 +159,14 @@ function App() {
             <table>
               <tr>
                 <td>
-                    <ListaProductos key="lProductos" carrito={Shop} SelectId={id => setDogId(id)} > </ListaProductos>
+                    <ListaProductos key="lProductos" SelectId={id => setDogId(id)} > </ListaProductos>
                 </td>
                 <td>
+                   <Card key="Card" dog={Dog} href="#"></Card>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2">
                     <CarritoCompra DogId={DogId} ></CarritoCompra>
                 </td>
               </tr>
