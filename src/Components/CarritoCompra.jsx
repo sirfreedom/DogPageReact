@@ -3,8 +3,11 @@ import React ,{useEffect} from 'react';
 
 const CarritoCompra = props => {
 
-  useEffect(() => {
-    //console.log("paso useefect");
+  useEffect(() => 
+  {
+
+
+    
   }, [props.DogId]);
 
 
