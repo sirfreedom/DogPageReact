@@ -10,6 +10,7 @@ const Card = ({dog}) => {
   const [CaracterDog,setCaracterDog] = useState('');
   const [LifeSpanDog, setLifeSpanDog] = useState('');
 
+
   useEffect(() => 
   {
         
@@ -42,8 +43,8 @@ const Card = ({dog}) => {
           </td>
         </tr>
         <tr>
-          <td >
-            <img width="80%" height="80%" src={(imgDog === '') ? '' : (imgDog) } className={(imgDog === '') ? 'imgDog' : '' } alt="Dogs" />
+          <td className="TableCell" align='Center' >
+            <img width="300px" height="300px" src={(imgDog === '') ? '' : (imgDog) } className={(imgDog === '') ? 'imgDog' : '' } alt="Dogs" />
           </td>
         </tr>
         <tr>
