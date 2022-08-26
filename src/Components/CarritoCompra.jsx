@@ -1,12 +1,15 @@
 import React ,{useEffect} from 'react';
 
 
-const CarritoCompra = props => {
+const CarritoCompra = props => 
+{
+
+
+
+
 
   useEffect(() => 
   {
-
-
     
   }, [props.DogId]);
 
@@ -17,6 +20,12 @@ const CarritoCompra = props => {
       <a>
         {props.DogId}
       </a>
+
+
+
+
+
+
 
     </>
   );
