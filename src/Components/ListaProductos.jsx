@@ -28,7 +28,7 @@ export const ListaProductos = (props) => {
 
   const dllPets_onChange = (id) => 
   {
-    setDogId(id);
+      setDogId(id);
   }
 
   const btnSelect_onClick = () => 

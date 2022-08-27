@@ -1,23 +1,26 @@
 import React,{useState}from 'react';
 import {Switch, Case, Default} from 'react-if';
+import {Button} from 'react-bootstrap/';
 
 const Saludar = props => {
     
   const [User, setUser] = useState([]);
 
-  const btnOk_Submit = (event) => {
-    event.preventDefault();
+  const btnOk_Submit = () => {
 
+    debugger;
 
-    console.log
+    setUser
     (
       { 
-        username: event.target["txtName"].value,
-        userage: event.target["txtAge"].value,
-        usercar: event.target["ddlCar"].value 
+        username: document.getElementById("txtName").value,
+        userage: document.getElementById("txtAge").value,
+        usercar: document.getElementById("ddlCar").value 
       }
     )
+    console.log(User);
   }
+
 
   return (
     <>
@@ -37,7 +40,6 @@ const Saludar = props => {
         </Default>
       </Switch>
 
-    <form onSubmit={btnOk_Submit}>
 
     <table className='Table' align="Center" width="50%" >
       <tr>
@@ -47,6 +49,7 @@ const Saludar = props => {
         </label>
         </td>
       </tr>
+
       <tr>
         <td className='TableCell'>
         <label>Enter your age:
@@ -54,6 +57,7 @@ const Saludar = props => {
         </label>
         </td>
       </tr>
+
       <tr>
         <td className='TableCell'>
           <label >Select Your Car 
@@ -65,17 +69,15 @@ const Saludar = props => {
            </label>
         </td>
       </tr>
+
       <tr>
         <td align='right' className='TableCell' >
-            <input id="btnOK" type="submit" />
-        </td>
+            <Button id="btnOk" onClick={btnOk_Submit} > Save Form </Button>
+         </td>
       </tr>
+
     </table>
 
-        
-    </form>
-
-      
     </>
   );
 };
