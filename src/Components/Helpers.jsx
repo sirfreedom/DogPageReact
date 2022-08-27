@@ -1,8 +1,15 @@
 
 export const ListAll = async () => {
   const url = 'https://api.thedogapi.com/v1/breeds';
-  const res = await fetch(url);
-  const data = await res.json();
+  let data;
+  let res;
+  try{
+  res = await fetch(url);
+  data = await res.json();
+  }
+  catch(e){
+    throw e;
+  }
   return data;
 };
 

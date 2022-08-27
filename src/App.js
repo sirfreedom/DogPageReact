@@ -1,9 +1,12 @@
 import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import GrillaCompleta from './Components/GrillaCompleta';
+import {Button} from 'react-bootstrap/';
+import React, {useState,useEffect} from 'react';
+
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import {ListAll} from './Components/Helpers';
-import React, {useState,useEffect} from 'react';
+import {GetDog} from './Components/Helpers';
+
 import CountryCapitalGame from './Components/CountryCapitalGame';
 import Saludar from './Components/Saludar';
 import FlexObjectScreen from './Components/FlexObjectScreen';
@@ -12,39 +15,52 @@ import CarritoCompra from './Components/CarritoCompra';
 import RGrid from './Components/RGrid';
 import ListaTareas from './Components/ListaTareas';
 import Login from './Components/Login';
+import Card from './Components/Card';
+import GrillaCompleta from './Components/GrillaCompleta';
+import ModalForm from './Components/ModalForm';
+
 
 function App() {
   const [Dogs, setDogs] = useState([]);
   const [isCargando, setIsCargando] = useState(false);
-  const [Shop,setShop] = useState([]);
   const [DogId,setDogId] = useState(0);
+  const [Dog,setDog] = useState();
+  const [modalEdit, setModalEdit] = useState(false); // Para el popup de ModalForm
 
-  function FindDogs() {
+
+const FindDogs = () => {
     setIsCargando(true);
     ListAll().then(lDog => {
       setDogs(lDog);
       setIsCargando(false);
     });
   }
+  
+  
+  const OpenModalForm = () => {
+  //...
+    setModalEdit(true);
+  };
 
- 
-  useEffect(() => {
+  const CloseModalForm = () => 
+  {
+    //...
+    setModalEdit(false);
+  }
 
+
+ useEffect(() => {
     ListAll().then(lDog => {
       setDogs(lDog);
     });
-
   }, []);
 
-
-
   useEffect(() => {
-
- console.log(DogId);
+  GetDog(DogId).then(oDog => {
+    setDog(oDog);
+  });
 
   }, [DogId]);
-
-
 
 
   function Home() {
@@ -77,9 +93,13 @@ function App() {
     }
   ];
 
+
   return (
     <>
-    
+
+    <div> 
+      <ModalForm show={modalEdit} onHide={() => setModalEdit(false)} />
+    </div>
 
     <Router>
 
@@ -117,6 +137,10 @@ function App() {
           <li key="ListaTareas" >
              <Link to="/ListaTareas"> Lista de Tareas</Link> 
           </li>
+
+          <li>
+            <Link to="/PopUpForm"> Pop up Form </Link>
+          </li>
         </ul>
 
         <Switch>
@@ -129,6 +153,7 @@ function App() {
             
             <h3>Prueba Saludar </h3>
             <Saludar nombre="Ale" edad="20"></Saludar>
+
           </Route>
 
           <Route path="/rGrilla">
@@ -160,9 +185,14 @@ function App() {
             <table>
               <tr>
                 <td>
-                    <ListaProductos key="lProductos" carrito={Shop} SelectId={id => setDogId(id)} > </ListaProductos>
+                    <ListaProductos key="lProductos" SelectId={id => setDogId(id)} > </ListaProductos>
                 </td>
                 <td>
+                   <Card key="Card" dog={Dog} href="#"></Card>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2">
                     <CarritoCompra DogId={DogId} ></CarritoCompra>
                 </td>
               </tr>
@@ -185,6 +215,11 @@ function App() {
             <ListaTareas></ListaTareas>
         </Route>
 
+        <Route path="/PopUpForm">
+            <h2> Show Popup Form </h2>
+            <Button onClick={() => OpenModalForm()}> Show </Button>
+        </Route>
+      
 
         </Switch>
       </div>

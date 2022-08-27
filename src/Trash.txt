@@ -68,6 +68,27 @@ https://www.npmjs.com/package/jspdf-autotable
     return sReturn;
   }
 
+/*
+(Dog !== undefined) || (Dog.reference_image_id !== undefined) ? <a> Empty Picture </a> 
+        : (<img width="80%" height="80%" src={'https://cdn2.thedogapi.com/images/' + Dog.reference_image_id + '.jpg'}
+        alt="Dogs" />)
+*/
 
-      
- 
+
+      (Dog.reference_image_id !== undefined) ? '/img/undefined.jpg' : 'https://cdn2.thedogapi.com/images/' + Dog.reference_image_id + '.jpg'
+
+
+       {
+
+<If condition={Dog.reference_image_id === undefined}>
+<Then>
+  <a>
+          Empty
+          </a>
+  </Then>
+<Else>
+<img width="80%" height="80%" src={'https://cdn2.thedogapi.com/images/' + Dog.reference_image_id + '.jpg'} alt="Dogs" />
+</Else>
+</If>
+
+}
