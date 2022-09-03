@@ -92,3 +92,20 @@ https://www.npmjs.com/package/jspdf-autotable
 </If>
 
 }
+
+
+   <datalist id="ds" >
+        <option value="Prueba1" ></option>
+        <option value="Prueba2" ></option>
+        <option value="Prueba3" ></option>
+        <option value="Prueba4" ></option>
+        <option value="Alejandro" ></option>
+      </datalist>
+
+      <label>
+        Carrito 
+        <input list="ds"> </input>
+      </label>
+
+
+   

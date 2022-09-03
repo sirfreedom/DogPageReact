@@ -16,7 +16,12 @@ const CarritoCompra = props =>
 
   return (
     <>
-   
+
+
+
+
+
+
       <a>
         {props.DogId}
       </a>

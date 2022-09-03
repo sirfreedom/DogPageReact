@@ -1,3 +1,7 @@
+import { useContext,createContext } from "react";
+
+export const UserContext = createContext();
+
 
 export const ListAll = async () => {
   const url = 'https://api.thedogapi.com/v1/breeds';
@@ -5,41 +9,61 @@ export const ListAll = async () => {
   let res;
   try{
   res = await fetch(url);
-  data = await res.json();
+  data = await res.json().catch(err => console.log(err));
   }
-  catch(e){
-    throw e;
+  catch(ex){
+    throw ex;
   }
   return data;
 };
 
 export const Prueba = async () => {
   const url = 'https://api.thedogapi.com/v1/breeds';
-  const res = await fetch(url);
-  const data = await res.json();
+  let data;
+  let res;
+  try
+  {
+  res = await fetch(url);
+  data = await res.json().catch(err => console.log(err));
+  }
+  catch(ex){
+      throw ex;
+  }
   return data;
 };
 
 export const GetDog = async id => {
-  const url = 'https://api.thedogapi.com/v1/breeds/' + id;
-  const res = await fetch(url);
-  const data = await res.json();
+  let url = 'https://api.thedogapi.com/v1/breeds/' + id;
+  let res;
+  let data;
+  try{
+  res = await fetch(url);
+  data = await res.json().catch(err => console.log(err));
+  }
+  catch(ex){
+    throw ex;
+  }
   return data;
 };
 
 export const FindDogs = async value => {
-  const url = 'https://api.thecatapi.com/v1/breeds/search?q=' + value;
-  const res = await fetch(url);
-  const data = await res.json();
+  let url = 'https://api.thecatapi.com/v1/breeds/search?q=' + value;
+  let res;
+  let data;
+  try {
+  res = await fetch(url);
+  data = await res.json().catch(err => console.log(err));
+  }
+  catch(ex){
+    throw ex;
+  }
   return data;
 };
 
 async function fetchData(){
   const res = await fetch("https://swapi.co/api/planets/");
   var data;
-  res.json()
-  .then(res => data = res.results)
-  .catch(err => console.log(err));
+  res.json().then(res => data = res.results).catch(err => console.log(err));
   return data;
 }
 
