@@ -3,7 +3,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Button} from 'react-bootstrap/';
 import React, {useState,useEffect,createContext} from 'react';
 import { UserContext } from './Components/Helpers';
+import {UserProvider} from './Components/Helpers';
 
+ 
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import {ListAll} from './Components/Helpers';
 import {GetDog} from './Components/Helpers';
@@ -21,17 +23,14 @@ import GrillaCompleta from './Components/GrillaCompleta';
 import ModalForm from './Components/ModalForm';
 
 
-
-
 function App() {
   const [Dogs, setDogs] = useState([]);
   const [isCargando, setIsCargando] = useState(false);
   const [DogId,setDogId] = useState(0);
   const [Dog,setDog] = useState();
   const [modalEdit, setModalEdit] = useState(false); // Para el popup de ModalForm
-  const [User, setUser] = useState("Ale");
+  const [User, setUser] = useState(".");
 
-  
 
 const FindDogs = () => {
     setIsCargando(true);
@@ -103,7 +102,7 @@ const FindDogs = () => {
     <>
 
     <div> 
-      <ModalForm show={modalEdit} onHide={() => setModalEdit(false)} />
+      <ModalForm show={modalEdit} onHide={() => CloseModalForm()} />
     </div>
 
     <Router>
@@ -149,12 +148,12 @@ const FindDogs = () => {
         </ul>
 
         <Switch>
-        <UserContext.Provider value={User}>
 
           <Route path="/Login">
-          
-            <h1>{`Hello ${User}!`}</h1>
+
+          <UserProvider value={User}>
             <Login></Login>
+          </UserProvider>
 
           </Route>
 
@@ -228,8 +227,7 @@ const FindDogs = () => {
             <h2> Show Popup Form </h2>
             <Button onClick={() => OpenModalForm()}> Show </Button>
         </Route>
-
-        </UserContext.Provider>
+     
 
         </Switch>
       </div>

@@ -1,37 +1,43 @@
-import React, { useEffect, useState, useContext  } from "react";
+import React, { useEffect } from "react";
 import {Button} from 'react-bootstrap/';
-import { UserContext } from "./Helpers";
+import { useUserContext,useUserChangeContext } from "./Helpers";
 
 const Login = props => {
 
-  const [user, setUser] =  useContext(UserContext);  
+  const user =  useUserContext(); 
+  const UserChangePass = useUserChangeContext();
 
   useEffect(() => {
 
   }, []);
 
-  const Save = () => {
 
+  const Save = () =>
+  {
+    let vName;
+    vName = document.getElementById("txtUsuario").value;
+    console.log(vName);
+    UserChangePass(vName);
   }
+
 
   return (
     <>
-      <br></br>
       <table align="center">
         <tr>
           <td>
             <label>
-              el usuario es
+              el usuario es 
             </label>
             <label>
-                {user}
+                {' ' + user}
             </label>
-            <input id="txtUsuario" className="Text" key="txtUsuario" value={user} type="text"></input>
+            <input id="txtUsuario" className="Text" key="txtUsuario"  type="text"></input>
           </td>
         </tr>
         <tr>
           <td align="right">
-              <Button onClick={() => Save()}>Save</Button>
+              <Button onClick={Save}>Save</Button>
           </td>
         </tr>
       </table>

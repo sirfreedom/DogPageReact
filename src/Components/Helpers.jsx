@@ -1,18 +1,45 @@
-import { useContext,createContext } from "react";
+import { useState,createContext,useContext } from "react";
 
 export const UserContext = createContext();
+export const UserChangeContext = createContext();
 
+export const UserProvider = (props) => {
+
+const [user,setUser] = useState(".");
+
+const ChangePass = (name) => {
+setUser(name);
+}
+
+/* { name: n, pass: p});  */
+
+return (
+  <UserContext.Provider  value={user}>
+      <UserChangeContext.Provider value={ChangePass} >
+          {props.children}
+      </UserChangeContext.Provider>
+  </UserContext.Provider>
+);
+}
+
+export function useUserContext() {
+  return useContext(UserContext);
+}
+
+export function useUserChangeContext () {
+  return useContext(UserChangeContext);
+}
 
 export const ListAll = async () => {
   const url = 'https://api.thedogapi.com/v1/breeds';
-  let data;
+  let data = [];
   let res;
   try{
   res = await fetch(url);
   data = await res.json().catch(err => console.log(err));
   }
   catch(ex){
-    throw ex;
+    console.log(ex);
   }
   return data;
 };
@@ -27,7 +54,7 @@ export const Prueba = async () => {
   data = await res.json().catch(err => console.log(err));
   }
   catch(ex){
-      throw ex;
+    console.log(ex);
   }
   return data;
 };
@@ -35,13 +62,13 @@ export const Prueba = async () => {
 export const GetDog = async id => {
   let url = 'https://api.thedogapi.com/v1/breeds/' + id;
   let res;
-  let data;
+  let data = [];
   try{
   res = await fetch(url);
   data = await res.json().catch(err => console.log(err));
   }
   catch(ex){
-    throw ex;
+    console.log(ex);
   }
   return data;
 };
@@ -49,23 +76,16 @@ export const GetDog = async id => {
 export const FindDogs = async value => {
   let url = 'https://api.thecatapi.com/v1/breeds/search?q=' + value;
   let res;
-  let data;
+  let data = [];
   try {
   res = await fetch(url);
   data = await res.json().catch(err => console.log(err));
   }
   catch(ex){
-    throw ex;
+    console.log(ex);
   }
   return data;
 };
-
-async function fetchData(){
-  const res = await fetch("https://swapi.co/api/planets/");
-  var data;
-  res.json().then(res => data = res.results).catch(err => console.log(err));
-  return data;
-}
 
 export const getUsuario = (sUser, sPass) => {
   let jsonuser = JSON.stringify(
@@ -77,13 +97,16 @@ export const getUsuario = (sUser, sPass) => {
   return b;
 };
 
-function getStorage(key, defaultValue) {
+
+
+
+export const getStorage = (key, defaultValue) => {
   const saved = localStorage.getItem(key);
   const initial = JSON.parse(saved);
   return initial || defaultValue;
 }
 
-function setStorage(key, value)
+export const setStorage = (key, value) =>
 {
   localStorage.setItem(key, JSON.stringify(value));
 }
