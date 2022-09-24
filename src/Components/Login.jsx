@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import {Button} from 'react-bootstrap/';
+import React,{useState } from "react";
 import { useUserContext,useUserChangeContext } from "./Helpers";
 
 const Login = props => {
@@ -7,40 +6,60 @@ const Login = props => {
   const user =  useUserContext(); 
   const UserChangePass = useUserChangeContext();
 
-  useEffect(() => {
-
-  }, []);
-
+  const [Mail,setMail] = useState("");
+  const [Pass,setPass] = useState("");
 
   const Save = () =>
   {
-    let vName;
-    vName = document.getElementById("txtUsuario").value;
-    console.log(vName);
-    UserChangePass(vName);
+    setMail(document.getElementById("txtEmail").value);
+    setPass(document.getElementById("txtPass").value);
+
+    console.log(Mail);
+    UserChangePass(Pass);
   }
 
 
   return (
     <>
-      <table align="center">
-        <tr>
-          <td>
-            <label>
-              el usuario es 
-            </label>
-            <label>
-                {' ' + user}
-            </label>
-            <input id="txtUsuario" className="Text" key="txtUsuario"  type="text"></input>
-          </td>
-        </tr>
-        <tr>
-          <td align="right">
-              <Button onClick={Save}>Save</Button>
-          </td>
-        </tr>
-      </table>
+
+      <div className="LoginContenedor">
+        <div className="LoginDiv"> 
+
+            <div className="Auth-form-container">
+            <form className="Auth-form">
+              <div className="Auth-form-content">
+                <h3 className="Auth-form-title">Sign In</h3>
+                <div className="form-group mt-3">
+                  <label>Email address</label>
+                  <input id="txtEmail" key="txtEmail"
+                    type="email"
+                    className="form-control mt-1"
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div className="form-group mt-3">
+                  <label>Password</label>
+                  <input id="txtPass" key="txtPass"
+                    type="password" 
+                    className="form-control mt-1"
+                    placeholder="Enter password"
+                  />
+                </div>
+                <div className="d-grid gap-2 mt-3">
+                  <button type="button"  onClick={Save} className="btn btn-primary">
+                    Save
+                  </button>
+                </div>
+                <p className="forgot-password text-right mt-2">
+                  Forgot <a href="#">password?</a>
+                </p>
+              </div>
+            </form>
+            </div>
+
+        </div>
+      </div>
+
     </>
   );
 };
