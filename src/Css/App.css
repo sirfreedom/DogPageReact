@@ -7,30 +7,31 @@
   pointer-events: none;
 }
 
-
+/*
 .LoginContenedor
 {
-  height: 100vh;
+  height: 60vh;
+  width:  40vh;
   display: flex;        
   justify-content: center;
 }
 
 .LoginDiv{
   width: 30%;       
-  height: 60%;
+  height: 50%;
   position: absolute;
-  top:40%;
-  left: 45%;           
+  top: 10%;
+  left: 10%;           
   margin-top: -100px;
   margin-left: -100px;       
 }
-
+*/
 .Auth-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 95vw;
+  height: 95vh;
 }
 
 .Auth-form {
@@ -52,7 +53,7 @@
   margin-bottom: 1em;
   font-size: 24px;
   color: rgb(34, 34, 34);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 label {

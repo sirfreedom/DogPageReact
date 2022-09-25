@@ -15,18 +15,16 @@ const Login = props => {
     setPass(document.getElementById("txtPass").value);
 
     console.log(Mail);
-    UserChangePass(Pass);
+    UserChangePass({ name: Mail, pass: Pass} );
   }
 
 
   return (
     <>
 
-      <div className="LoginContenedor">
-        <div className="LoginDiv"> 
 
-            <div className="Auth-form-container">
-            <form className="Auth-form">
+<div className="Auth-form-container">
+        <div className="Auth-form">
               <div className="Auth-form-content">
                 <h3 className="Auth-form-title">Sign In</h3>
                 <div className="form-group mt-3">
@@ -54,11 +52,11 @@ const Login = props => {
                   Forgot <a href="#">password?</a>
                 </p>
               </div>
-            </form>
+            </div>
+   
+
             </div>
 
-        </div>
-      </div>
 
     </>
   );

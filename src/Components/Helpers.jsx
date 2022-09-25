@@ -5,13 +5,13 @@ export const UserChangeContext = createContext();
 
 export const UserProvider = (props) => {
 
-const [user,setUser] = useState(".");
+const [user,setUser] = useState({ name: '', pass: ''});;
 
-const ChangePass = (name) => {
-setUser(name);
+const ChangePass = (jsonuser) => 
+{
+    setUser(jsonuser);
 }
 
-/* { name: n, pass: p});  */
 
 return (
   <UserContext.Provider  value={user}>
