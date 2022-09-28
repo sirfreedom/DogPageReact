@@ -3,18 +3,20 @@ import { useState,createContext,useContext } from "react";
 export const UserContext = createContext();
 export const UserChangeContext = createContext();
 
+
 export const UserProvider = (props) => {
 
-const [user,setUser] = useState({ name: '', pass: ''});;
+const [User,setUser] = useState([{ mail: '.', pass: '.'}]);
 
 const ChangePass = (jsonuser) => 
 {
     setUser(jsonuser);
+    console.log("Funcion ChangePass");
+    console.log(jsonuser);
 }
 
-
 return (
-  <UserContext.Provider  value={user}>
+  <UserContext.Provider  value={User}>
       <UserChangeContext.Provider value={ChangePass} >
           {props.children}
       </UserChangeContext.Provider>

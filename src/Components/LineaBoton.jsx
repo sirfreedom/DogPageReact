@@ -1,14 +1,10 @@
-import React, { Fragment } from 'react'
-
-
-
-
+import React from 'react'
 
 
 const LineaBoton = () => {
 
     return (
-        <fragment>
+        <>
 
 <div className="p-3 mb-2 bg-primary text-white">.bg-primary</div>
 <div className="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
@@ -21,7 +17,7 @@ const LineaBoton = () => {
 <div className="p-3 mb-2 bg-white text-dark">.bg-white</div>
 <div className="p-3 mb-2 bg-transparent text-dark">.bg-transparent</div>
                
-        </fragment>
+        </>
     );
 }
 

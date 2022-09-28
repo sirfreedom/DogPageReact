@@ -3,21 +3,28 @@ import { useUserContext,useUserChangeContext } from "./Helpers";
 
 const Login = props => {
 
-  const user =  useUserContext(); 
+  const UserLogin =  useUserContext(); 
   const UserChangePass = useUserChangeContext();
 
-  const [Mail,setMail] = useState("");
-  const [Pass,setPass] = useState("");
+  const [Mail,setMail] = useState(".");
+  const [Pass,setPass] = useState(".");
+
 
   const Save = () =>
   {
     setMail(document.getElementById("txtEmail").value);
     setPass(document.getElementById("txtPass").value);
 
-    console.log(Mail);
-    UserChangePass({ name: Mail, pass: Pass} );
-  }
 
+
+    if(Mail != "" && Pass != "" )
+    {
+       UserChangePass([{ mail: Mail, pass: Pass}]);
+       //console.log("Save");
+       //console.log(UserLogin);
+    }
+
+  }
 
   return (
     <>

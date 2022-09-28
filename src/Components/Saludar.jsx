@@ -1,9 +1,20 @@
-import React,{useState}from 'react';
+import React,{useState,useEffect}from 'react';
 import {Switch, Case, Default} from 'react-if';
+import { useUserContext} from "./Helpers";
 
 const Saludar = props => {
+
+  const UserLogin = useUserContext(); 
     
   const [User, setUser] = useState([]);
+
+  useEffect( () => 
+  {
+      console.log("useEffect Saludar");
+      debugger;
+      console.log(UserLogin);
+  },[]);
+
 
   const btnOk_Submit = (event) => {
     event.preventDefault();
@@ -17,8 +28,6 @@ const Saludar = props => {
       }
     )
 
-    console.log(User);
-
   }
 
   return (
@@ -26,6 +35,9 @@ const Saludar = props => {
       <hr />
       <p> hola mundo {props.nombre} </p>
       <br></br>
+      <p>
+        
+      </p>
 
       <Switch>
         <Case condition={16 >= props.edad}>
