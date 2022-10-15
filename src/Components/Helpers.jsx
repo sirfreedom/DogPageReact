@@ -61,6 +61,27 @@ export const Prueba = async () => {
   return data;
 };
 
+
+
+export const InsertComment = () => 
+{
+const url = 'https://docs.thedogapi.com/api-reference/votes/votes-post';
+
+const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    //body: JSON.stringify({ title: 'Manzana' })
+    body: JSON.stringify({"name": "manzana turquoise", "year": 2022, "color": "#53B0AE"})
+    //
+};
+
+fetch('https://reqres.in/api/posts', requestOptions)
+    .then(response => response.json())
+    .then(data => console.log(data.id));
+
+};
+
+
 export const GetDog = async id => {
   let url = 'https://api.thedogapi.com/v1/breeds/' + id;
   let res;
@@ -112,6 +133,8 @@ export const setStorage = (key, value) =>
 {
   localStorage.setItem(key, JSON.stringify(value));
 }
+
+
 
 
 

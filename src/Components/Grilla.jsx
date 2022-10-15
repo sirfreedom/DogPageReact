@@ -14,7 +14,7 @@ const Grilla = () => {
   return (
     <>
     <div>
-      <table>
+      <table key="tGrilla">
         <thead>
           <tr>
             <td>comando</td>

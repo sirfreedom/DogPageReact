@@ -1,5 +1,6 @@
 import React,{useState } from "react";
 import { useUserContext,useUserChangeContext } from "./Helpers";
+import {InsertComment} from './Helpers';
 
 const Login = props => {
 
@@ -14,8 +15,8 @@ const Login = props => {
   {
     setMail(document.getElementById("txtEmail").value);
     setPass(document.getElementById("txtPass").value);
-
-
+    
+    InsertComment();
 
     if(Mail != "" && Pass != "" )
     {
@@ -23,6 +24,10 @@ const Login = props => {
        //console.log("Save");
        //console.log(UserLogin);
     }
+
+   
+
+
 
   }
 
@@ -64,6 +69,7 @@ const Login = props => {
 
             </div>
 
+         
 
     </>
   );

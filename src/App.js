@@ -2,7 +2,6 @@ import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Button} from 'react-bootstrap/';
 import React, {useState,useEffect,createContext} from 'react';
-import { UserContext } from './Components/Helpers';
 import {UserProvider} from './Components/Helpers';
 
  
@@ -11,7 +10,6 @@ import {ListAll} from './Components/Helpers';
 import {GetDog} from './Components/Helpers';
 
 import CountryCapitalGame from './Components/CountryCapitalGame';
-import Saludar from './Components/Saludar';
 import FlexObjectScreen from './Components/FlexObjectScreen';
 import ListaProductos from './Components/ListaProductos';
 import CarritoCompra from './Components/CarritoCompra';
@@ -114,10 +112,6 @@ const FindDogs = () => {
             <Link to="/Login">Login</Link>
           </li>
 
-          <li key="Saludar" >
-            <Link to="/Saludar">Saludar</Link>
-          </li>
-
           <li key="GrillaCompleta" >
             <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
           </li>
@@ -154,13 +148,6 @@ const FindDogs = () => {
           <UserProvider value={User}>
             <Login></Login>
           </UserProvider>
-
-          </Route>
-
-          <Route path="/Saludar">
-            
-            <h3>Prueba Saludar </h3>
-            <Saludar nombre="Ale" edad="20"></Saludar>
 
           </Route>
 
