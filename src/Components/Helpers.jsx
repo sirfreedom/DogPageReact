@@ -65,7 +65,7 @@ export const Prueba = async () => {
 
 export const InsertComment = () => 
 {
-const url = 'https://docs.thedogapi.com/api-reference/votes/votes-post';
+const url = 'https://reqres.in/api/posts';
 
 const requestOptions = {
     method: 'POST',
@@ -75,7 +75,7 @@ const requestOptions = {
     //
 };
 
-fetch('https://reqres.in/api/posts', requestOptions)
+fetch(url, requestOptions)
     .then(response => response.json())
     .then(data => console.log(data.id));
 

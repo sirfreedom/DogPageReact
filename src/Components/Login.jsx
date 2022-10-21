@@ -1,6 +1,6 @@
-import React,{useState } from "react";
+import React,{useState,useEffect } from "react";
 import { useUserContext,useUserChangeContext } from "./Helpers";
-import {InsertComment} from './Helpers';
+
 
 const Login = props => {
 
@@ -9,6 +9,14 @@ const Login = props => {
 
   const [Mail,setMail] = useState(".");
   const [Pass,setPass] = useState(".");
+ 
+  useEffect(() => 
+  {
+    console.log("Login");
+    console.log(UserLogin);
+
+
+  });
 
 
   const Save = () =>
@@ -16,18 +24,12 @@ const Login = props => {
     setMail(document.getElementById("txtEmail").value);
     setPass(document.getElementById("txtPass").value);
     
-    InsertComment();
-
     if(Mail != "" && Pass != "" )
     {
        UserChangePass([{ mail: Mail, pass: Pass}]);
-       //console.log("Save");
+       console.log("Save");
        //console.log(UserLogin);
     }
-
-   
-
-
 
   }
 
