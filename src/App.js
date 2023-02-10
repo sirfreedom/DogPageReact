@@ -19,6 +19,7 @@ import Login from './Components/Login';
 import Card from './Components/Card';
 import GrillaCompleta from './Components/GrillaCompleta';
 import ModalForm from './Components/ModalForm';
+import TestUsers from './Components/TestUsers';
 
 
 function App() {
@@ -139,6 +140,11 @@ const FindDogs = () => {
           <li>
             <Link to="/PopUpForm"> Pop up Form </Link>
           </li>
+
+          <li>
+            <Link to="/TestUsers"> Test Users </Link>
+          </li>
+
         </ul>
 
         <Switch>
@@ -214,7 +220,11 @@ const FindDogs = () => {
             <h2> Show Popup Form </h2>
             <Button onClick={() => OpenModalForm()}> Show </Button>
         </Route>
-     
+
+        <Route path="/TestUsers">
+            <h2> Test Users </h2>
+            <TestUsers></TestUsers>
+        </Route>
 
         </Switch>
       </div>
