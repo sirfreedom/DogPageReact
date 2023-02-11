@@ -1,15 +1,29 @@
 import { useEffect, useState } from "react";
 
-const jsonUser = "https://gist.githubusercontent.com/rubenCodeforges/ef1f0ce6a055bbb985c0848d8b0c04d5/raw/f91e3d0d2a6d14233fb8fd70c893821effbac5a6/users.json"
 
 const GrillaEvent = user => {
-    console.log('hola mundo');
-    console.log(user.nombre);
+    //console.log('hola mundo');
+    //console.log(user.name);
 };
 
-const TestUsers = () => {
 
-    const [isLoading, setIsLoading] = useState(true);
+const ListAll = async () => {
+  const url = 'https://raw.githubusercontent.com/sirfreedom/DogPageReact/main/user.json';
+  let data = [];
+  let res;
+  try{
+  res = await fetch(url, {'mode': 'no cors','headers': {'Access-Control-Allow-Origin': '*', } });
+  data = await res.json().catch(err => console.log(err));
+  }
+  catch(ex){
+    console.log(ex);
+  }
+  return data;
+};
+
+
+const TestUsers = () => {
+  
     const [filas, setFilas] = useState
     (
       [
@@ -24,7 +38,7 @@ const TestUsers = () => {
           'age': 31,
           'name': 'Lillian Burgess',
           'gender': 'female',
-        },
+        }/*,
         {
           'balance': '$2,820.18',
           'age': 34,
@@ -42,9 +56,22 @@ const TestUsers = () => {
           'age': 28,
           'name': 'Marsh Mccall',
           'gender': 'male',
-        }
+        }*/
       ]
     );
+  
+useEffect( () => {
+
+  ListAll().then(lUser => {
+    console.log("luser");
+    console.log(lUser);
+    //setFilas(lUser);
+  });
+  
+},[]);
+  
+  
+  
 
     return (
         <>
