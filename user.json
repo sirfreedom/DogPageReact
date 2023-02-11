@@ -9,24 +9,24 @@
           "balance": "$2,499.49",
           "age": 31,
           "name": "Lillian Burgess",
-          "gender": "female",
+          "gender": "female"
         },
         {
           "balance": "$2,820.18",
           "age": 34,
           "name": "Kristie Cole",
-          "gender": "female",
+          "gender": "female"
         },
         {
           "balance": "$3,277.32",
           "age": 30,
           "name": "Leonor Cross",
-          "gender": "female",
+          "gender": "female"
         },
         {
           "balance": "$1,972.47",
           "age": 28,
           "name": "Marsh Mccall",
-          "gender": "male",
+          "gender": "male"
         }
 ]
