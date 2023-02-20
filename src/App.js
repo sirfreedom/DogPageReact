@@ -20,7 +20,7 @@ import Card from './Components/Card';
 import GrillaCompleta from './Components/GrillaCompleta';
 import ModalForm from './Components/ModalForm';
 import TestUsers from './Components/TestUsers';
-
+import PlaySong from './Components/PlaySong';
 
 function App() {
   const [Dogs, setDogs] = useState([]);
@@ -145,6 +145,10 @@ const FindDogs = () => {
             <Link to="/TestUsers"> Test Users </Link>
           </li>
 
+          <li>
+            <Link to="/PlaySong"> PlaySong </Link> 
+          </li>
+          
         </ul>
 
         <Switch>
@@ -224,6 +228,11 @@ const FindDogs = () => {
         <Route path="/TestUsers">
             <h2> Test Users </h2>
             <TestUsers></TestUsers>
+        </Route>
+
+        <Route path="/PlaySong">
+            <h2> PlaySong </h2>
+            <PlaySong></PlaySong>
         </Route>
 
         </Switch>

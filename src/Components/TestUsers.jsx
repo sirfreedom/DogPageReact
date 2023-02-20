@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
 
-const GrillaEvent = value => {
-    //console.log('hola mundo');
-    //console.log(user.name);
+const GrillaEvent = (value) => {
+    console.log(value);
 };
 
 
@@ -40,8 +39,8 @@ const TestUsers = () => {
 useEffect( () => {
 
   ListAll().then(lUser => {
-    console.log("luser");
-    console.log(lUser);
+    //console.log("luser");
+    //console.log(lUser);
     setFilas(lUser);
   });
   
@@ -67,7 +66,7 @@ useEffect( () => {
             return (
               <tr>
                 <td>
-                  <button onClick={GrillaEvent(item)}> seleccionar </button>
+                  <button onClick={() => GrillaEvent(item)}> seleccionar </button>
                 </td>
                 <td>{item.balance}</td>
                 <td>{item.age}</td>
