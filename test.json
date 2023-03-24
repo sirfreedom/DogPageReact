@@ -1,5 +1,5 @@
 [{
-    "question": "Cul es la capital de Canad?",
+    "question": "Cual es la capital de Canada",
     "answers": [{
         "text": "Ottawa",
         "valid": true
@@ -15,7 +15,7 @@
     }]
 },
 {
-    "question": "Cul es el nombre completo de Albert Einstein?",
+    "question": "Cual es el nombre completo de Albert Einstein",
     "answers": [{
         "text": "Albert Einsten",
         "valid": false
@@ -31,7 +31,7 @@
     }]
 },
 {
-    "question": "En qu ao comenz la Segunda Guerra Mundial?",
+    "question": "En qu ao comenz la Segunda Guerra Mundial",
     "answers": [{
         "text": "1939",
         "valid": true
@@ -47,7 +47,7 @@
     }]
 },
 {
-    "question": "Cul es el pas ms grande del mundo?",
+    "question": "Cual es el pas ms grande del mundo",
     "answers": [{
         "text": "India",
         "valid": false
@@ -63,7 +63,7 @@
     }]
 },
 {
-    "question": "Cul ha sido la persona ms famosa de la historia?",
+    "question": "Cual ha sido la persona ms famosa de la historia",
     "answers": [{
         "text": "Adolf Hitler",
         "valid": false
@@ -79,7 +79,7 @@
     }]
 },
 {
-    "question": "Cul es el lugar ms alto del mundo?",
+    "question": "Cual es el lugar ms alto del mundo",
     "answers": [{
         "text": "Kilimanjaro",
         "valid": false
@@ -95,7 +95,7 @@
     }]
 },
 {
-    "question": "Quin escribi el famoso libro 'El Principito'?",
+    "question": "Quin escribi el famoso libro 'El Principito'",
     "answers": [{
         "text": "Jorge Luis Borges",
         "valid": false
@@ -111,7 +111,7 @@
     }]
 },
 {
-    "question": "Cul es el nombre de la moneda de Mxico?",
+    "question": "Cual es el nombre de la moneda de Mxico",
     "answers": [{
         "text": "Peso Colombiano",
         "valid": false
@@ -127,7 +127,7 @@
     }]
 },
 {
-    "question": "Cul es el pas ms poblado del mundo?",
+    "question": "Cual es el pas ms poblado del mundo",
     "answers": [{
         "text": "Estados Unidos",
         "valid": false
@@ -143,7 +143,7 @@
     }]
 },
 {
-    "question": "Cul es el lago ms grande del mundo?",
+    "question": "Cual es el lago ms grande del mundo",
     "answers": [{
         "text": "Lago Victoria",
         "valid": false
@@ -159,7 +159,7 @@
     }]
 },
 {
-    "question": "Cuntos planetas hay en el sistema solar?",
+    "question": "Cuntos planetas hay en el sistema solar",
     "answers": [{
         "text": "7",
         "valid": false
@@ -175,7 +175,7 @@
     }]
 },
 {
-    "question": "Cul es el edificio ms alto del mundo?",
+    "question": "Cual es el edificio ms alto del mundo",
     "answers": [{
         "text": "Burj Khalifa",
         "valid": true
@@ -191,7 +191,7 @@
     }]
 },
 {
-    "question": "Cul es la capital de Per?",
+    "question": "Cual es la capital de Per",
     "answers": [{
         "text": "Lima",
         "valid": true
@@ -207,7 +207,7 @@
     }]
 },
 {
-    "question": "Cul es el ro ms largo del mundo?",
+    "question": "Cual es el ro ms largo del mundo",
     "answers": [{
         "text": "Nilo",
         "valid": true
@@ -223,7 +223,7 @@
     }]
 },
 {
-    "question": "Cul es el idioma ms hablado en el mundo?",
+    "question": "Cual es el idioma ms hablado en el mundo",
     "answers": [{
         "text": "Hindi",
         "valid": false
@@ -239,7 +239,7 @@
     }]
 },
 {
-    "question": "Cul es el mayor ocano del mundo?",
+    "question": "Cual es el mayor ocano del mundo",
     "answers": [{
         "text": "Mar Mediterrneo",
         "valid": false
@@ -255,7 +255,7 @@
     }]
 },
 {
-    "question": "Quin descubri Amrica?",
+    "question": "Quin descubri Amrica",
     "answers": [{
         "text": "Cristbal Coln",
         "valid": true
@@ -271,7 +271,7 @@
     }]
 },
 {
-    "question": "Qu animal es el ms rpido del mundo?",
+    "question": "Qu animal es el ms rpido del mundo",
     "answers": [{
         "text": "Guepardo",
         "valid": true
@@ -287,7 +287,7 @@
     }]
 },
 {
-    "question": "Qu animal es el ms grande del mundo?",
+    "question": "Qu animal es el ms grande del mundo",
     "answers": [{
         "text": "Elefante",
         "valid": false
@@ -303,7 +303,7 @@
     }]
 },
 {
-    "question": "Cul es el pas ms pequeo del mundo?",
+    "question": "Cual es el pas ms pequeo del mundo",
     "answers": [{
         "text": "Mnaco",
         "valid": true
@@ -319,7 +319,7 @@
     }]
 },
 {
-    "question": "Cul es el ro ms corto del mundo?",
+    "question": "Cual es el ro ms corto del mundo",
     "answers": [{
         "text": "Ro Orinoco",
         "valid": false
@@ -335,7 +335,7 @@
     }]
 },
 {
-    "question": "Cul es el lugar ms seco del mundo?",
+    "question": "Cual es el lugar ms seco del mundo",
     "answers": [{
         "text": "Sahara",
         "valid": false
@@ -351,7 +351,7 @@
     }]
 },
 {
-    "question": "Cul es el animal ms antiguo del mundo?",
+    "question": "Cual es el animal ms antiguo del mundo",
     "answers": [{
         "text": "Rana",
         "valid": false
@@ -367,7 +367,7 @@
     }]
 },
 {
-    "question": "Cul es el animal ms inteligente?",
+    "question": "Cual es el animal ms inteligente",
     "answers": [{
         "text": "Elefante",
         "valid": false
@@ -383,7 +383,7 @@
     }]
 },
 {
-    "question": "Cul es el pas ms religioso del mundo?",
+    "question": "Cual es el pas ms religioso del mundo",
     "answers": [{
         "text": "India",
         "valid": true
@@ -399,7 +399,7 @@
     }]
 },
 {
-    "question": "Cul es el punto ms fro del planeta?",
+    "question": "Cual es el punto ms fro del planeta",
     "answers": [{
         "text": "Antrtida",
         "valid": true
@@ -415,7 +415,7 @@
     }]
 },
 {
-    "question": "Cul es el pas ms feliz del mundo?",
+    "question": "Cual es el pas ms feliz del mundo",
     "answers": [{
         "text": "Finlandia",
         "valid": true
@@ -431,7 +431,7 @@
     }]
 },
 {
-    "question": "Cul es el planeta ms grande del sistema solar?",
+    "question": "Cual es el planeta ms grande del sistema solar",
     "answers": [{
         "text": "Jpiter",
         "valid": true
@@ -447,7 +447,7 @@
     }]
 },
 {
-    "question": "Cul es el idioma oficial de Espaa?",
+    "question": "Cual es el idioma oficial de Espaa",
     "answers": [{
         "text": "Castellano",
         "valid": true
@@ -463,7 +463,7 @@
     }]
 },
 {
-    "question": "Cul es la ciudad ms grande de Europa?",
+    "question": "Cual es la ciudad ms grande de Europa",
     "answers": [{
         "text": "Londres",
         "valid": false
@@ -479,7 +479,7 @@
     }]
 },
 {
-    "question": "Cul es el animal ms grande del mundo?",
+    "question": "Cual es el animal ms grande del mundo",
     "answers": [{
         "text": "Rinoceronte",
         "valid": false
@@ -495,7 +495,7 @@
     }]
 },
 {
-    "question": "Cul es el pjaro ms grande del mundo?",
+    "question": "Cual es el pjaro ms grande del mundo",
     "answers": [{
         "text": "guila Imperial",
         "valid": false
@@ -511,7 +511,7 @@
     }]
 },
 {
-    "question": "Cul es la flor ms grande del mundo?",
+    "question": "Cual es la flor ms grande del mundo",
     "answers": [{
         "text": "Orqudea",
         "valid": false
@@ -527,7 +527,7 @@
     }]
 },
 {
-    "question": "Cul es el animal ms rpido en tierra?",
+    "question": "Cual es el animal ms rpido en tierra",
     "answers": [{
         "text": "Caballo",
         "valid": false
@@ -543,7 +543,7 @@
     }]
 },
 {
-    "question": "Qu es el elemento ms abundante en la corteza terrestre?",
+    "question": "Qu es el elemento ms abundante en la corteza terrestre",
     "answers": [{
         "text": "Hierro",
         "valid": false
@@ -559,7 +559,7 @@
     }]
 },
 {
-    "question": "Cul es el mayor desierto de frica?",
+    "question": "Cual es el mayor desierto de frica",
     "answers": [{
         "text": "Sahara",
         "valid": true
@@ -575,7 +575,7 @@
     }]
 },
 {
-    "question": "Cul es el animal ms antiguo que todava existe?",
+    "question": "Cual es el animal ms antiguo que todava existe",
     "answers": [{
         "text": "Cocodrilo",
         "valid": true
@@ -591,7 +591,7 @@
     }]
 },
 {
-    "question": "Cul es el animal terrestre ms grande del mundo?",
+    "question": "Cual es el animal terrestre ms grande del mundo",
     "answers": [{
         "text": "Elefante",
         "valid": true
@@ -607,7 +607,7 @@
     }]
 },
 {
-    "question": "Cul es el animal ms pequeo del mundo?",
+    "question": "Cual es el animal ms pequeo del mundo",
     "answers": [{
         "text": "Tortuga de Galpagos",
         "valid": false
@@ -623,7 +623,7 @@
     }]
 },
 {
-    "question": "Cul es el lago ms profundo del mundo?",
+    "question": "Cual es el lago ms profundo del mundo",
     "answers": [{
         "text": "Lago Baikal",
         "valid": true
@@ -639,7 +639,7 @@
     }]
 },
 {
-    "question": "Cul es el ro ms largo de Amrica?",
+    "question": "Cual es el ro ms largo de Amrica",
     "answers": [{
         "text": "Ro Orinoco",
         "valid": false
@@ -655,7 +655,7 @@
     }]
 },
 {
-    "question": "Cul es la isla ms grande del mundo?",
+    "question": "Cual es la isla ms grande del mundo",
     "answers": [{
         "text": "Java",
         "valid": false
@@ -671,7 +671,7 @@
     }]
 },
 {
-    "question": "Cul es el ro ms caudaloso del mundo?",
+    "question": "Cual es el ro ms caudaloso del mundo",
     "answers": [{
         "text": "Ro Congo",
         "valid": false
@@ -687,7 +687,7 @@
     }]
 },
 {
-    "question": "Cul es la montaa ms alta del mundo?",
+    "question": "Cual es la montaa ms alta del mundo",
     "answers": [{
         "text": "Monte Elbrus",
         "valid": false
