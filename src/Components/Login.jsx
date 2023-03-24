@@ -33,9 +33,8 @@ const Login = props => {
 
   }
 
-  return (
-    <>
-
+return (
+<>
 
 <div className="Auth-form-container">
         <div className="Auth-form">

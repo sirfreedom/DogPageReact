@@ -1,7 +1,7 @@
 import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Button} from 'react-bootstrap/';
-import React, {useState,useEffect,createContext} from 'react';
+import React, {useState,useEffect} from 'react';
 import {UserProvider} from './Components/Helpers';
 
  
@@ -21,6 +21,8 @@ import GrillaCompleta from './Components/GrillaCompleta';
 import ModalForm from './Components/ModalForm';
 import TestUsers from './Components/TestUsers';
 import PlaySong from './Components/PlaySong';
+import CitizenExam from './Components/CitizenExam';
+
 
 function App() {
   const [Dogs, setDogs] = useState([]);
@@ -148,6 +150,10 @@ const FindDogs = () => {
           <li>
             <Link to="/PlaySong"> PlaySong </Link> 
           </li>
+
+          <li>
+            <Link to="/CitizenExam"> Citizen Exam </Link> 
+          </li>
           
         </ul>
 
@@ -233,6 +239,11 @@ const FindDogs = () => {
         <Route path="/PlaySong">
             <h2> PlaySong </h2>
             <PlaySong></PlaySong>
+        </Route>
+
+        <Route path="/CitizenExam">
+            <h2> Citizen Exam </h2>
+            <CitizenExam></CitizenExam>
         </Route>
 
         </Switch>

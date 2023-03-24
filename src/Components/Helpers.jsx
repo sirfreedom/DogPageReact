@@ -62,6 +62,20 @@ export const Prueba = async () => {
 };
 
 
+export const CitizenTest = async () => {
+  let url = 'https://drive.google.com/file/d/1dVd5Rp6ceI2TJoBdEWkMPpv0BAld9rE9/view?usp=share_link';
+  let res;
+  let data = [];
+  try {
+  res = await fetch(url);
+  data = await res.json().catch(err => console.log(err));
+  }
+  catch(ex){
+    console.log(ex);
+  }
+  return data;
+}
+
 
 export const InsertComment = () => 
 {
