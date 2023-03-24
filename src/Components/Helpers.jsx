@@ -63,7 +63,7 @@ export const Prueba = async () => {
 
 
 export const CitizenTest = async () => {
-  let url = 'https://drive.google.com/file/d/1dVd5Rp6ceI2TJoBdEWkMPpv0BAld9rE9/view?usp=share_link';
+  let url = 'https://raw.githubusercontent.com/sirfreedom/DogPageReact/main/test.json';
   let res;
   let data = [];
   try {
