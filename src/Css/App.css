@@ -40,6 +40,19 @@ div {
   margin: 10px 0;
 }
 
+
+.respuestaValida {
+  background-color: #A6D2FF;
+  color: #c01717;
+  font-style: normal;
+  FONT-WEIGHT: bold;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+
+
+
 .Auth-form-container {
   display: flex;
   justify-content: center;

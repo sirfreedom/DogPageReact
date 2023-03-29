@@ -16,23 +16,21 @@ export const CitizenExam = () => {
     const ValidQuestion = () => 
     {
         var ls;
+        var lRespuesta;
         try
         {
+
             ls = document.getElementsByClassName('radio');
-
-
-            debugger;
+            lRespuesta = document.getElementsByClassName('respuesta');
 
             for (let i = 0; i < ls.length; i++)
             {
-                
-
-                if (ls[i].checked.toString() === ls[i].dataset.respuesta)
+                if (ls[i].dataset.respuesta === 'true' )
                 {
-                    //ls[i]
+                    lRespuesta[i].textContent = lRespuesta[i].textContent + "<------" 
                 }
-
                 ls[i].disabled = true;
+                lRespuesta[i].disabled = true;
             }
         }
         catch (e) {
@@ -72,8 +70,8 @@ export const CitizenExam = () => {
         return (
                     <div>
                         <p class="respuesta"> 
-                        <input className='Respuesta radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
-                        <label className='Respuesta' for={idAnswer} > {rowAnswer.text} </label>
+                        <input className='radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
+                        <label className='answer' for={idAnswer} > {rowAnswer.text} </label>
                         </p>
                     </div>
             );
