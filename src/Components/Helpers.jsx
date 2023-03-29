@@ -66,14 +66,32 @@ export const CitizenTest = async () => {
   let url = 'https://raw.githubusercontent.com/sirfreedom/DogPageReact/main/test.json';
   let res;
   let data = [];
+  let lIndex = [];
+  let lQuestion = [];
   try {
   res = await fetch(url);
   data = await res.json().catch(err => console.log(err));
+
+  while (lIndex.length < 25) 
+  {
+    let n;
+    n = Math.floor(Math.random() * (data.length - 0 + 1));
+ 
+    if (lIndex.indexOf(n) === -1 )
+    {
+       lIndex.push(n);
+    }
+  }
+
+  for (let i in lIndex) {
+    lQuestion.push(data[i]);
+  }
+
   }
   catch(ex){
     console.log(ex);
   }
-  return data;
+  return lQuestion;
 }
 
 

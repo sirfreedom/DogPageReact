@@ -7,25 +7,39 @@
   pointer-events: none;
 }
 
-/*
-.LoginContenedor
-{
-  height: 60vh;
-  width:  40vh;
-  display: flex;        
-  justify-content: center;
+
+body {
+  background-color: #a4acb3;
+  font-family: sans-serif;
 }
 
-.LoginDiv{
-  width: 30%;       
-  height: 50%;
-  position: absolute;
-  top: 10%;
-  left: 10%;           
-  margin-top: -100px;
-  margin-left: -100px;       
+div {
+  width: 70%;
+  margin: 0 auto;
 }
-*/
+
+.pregunta {
+  background-color: #0090C8;
+  color: #FFFFFF;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.numero {
+  background-color: #0090C8;
+  color: #FFFFFF;
+  padding: 0px;
+  font-size: 12px;
+  margin: 0px 0;
+}
+
+.respuesta {
+  background-color: #A6D2FF;
+  color: #000000;
+  padding: 10px;
+  margin: 10px 0;
+}
+
 .Auth-form-container {
   display: flex;
   justify-content: center;

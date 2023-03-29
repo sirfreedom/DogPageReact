@@ -1,20 +1,58 @@
+import '../Css/App.css';
 import React, { useState,useEffect } from "react";
 import {CitizenTest} from './Helpers';
+
 
 export const CitizenExam = () => {
     
     const [Test, setTest] = useState([]);
 
-     useEffect(() => {
+    useEffect(() => {
         CitizenTest().then(lTest => {
           setTest(lTest);
         });
     }, []);
 
-      return (
+    const ValidQuestion = () => 
+    {
+        var ls;
+        try
+        {
+            ls = document.getElementsByClassName('radio');
+
+
+            debugger;
+
+            for (let i = 0; i < ls.length; i++)
+            {
+                
+
+                if (ls[i].checked.toString() === ls[i].dataset.respuesta)
+                {
+                    //ls[i]
+                }
+
+                ls[i].disabled = true;
+            }
+        }
+        catch (e) {
+            alert(e.message);
+        }
+
+
+        //document.querySelector('input[className = Respuesta]:checked').getAttribute('data-respuesta');
+
+        //var checkboxes = document.getElementsByClassName("Respuesta");
+        debugger;
+
+        //const radioButtons = form.elements.map(element => { return <input type="radio" name={element.name} key={element.id} />;  });
+
+
+
+    }
+
+    return (
         <>
-        <h1> Questionario </h1>
-        <br></br>
 
         {Test.map((rowQuestion, idQuestion) => 
         {
@@ -23,31 +61,31 @@ export const CitizenExam = () => {
         <fieldset>
 
         <legend>
-            {rowQuestion.question}
+            <p className="pregunta"> {rowQuestion.question} ?. 
+            <a className='numero'> Pregunta nº {idQuestion+1} 
+            </a>  
+            </p>
         </legend>
 
         {rowQuestion.answers.map((rowAnswer, idAnswer) => 
         {
         return (
-                <>
                     <div>
-                        <input type="checkbox" id={idAnswer} name={idAnswer}  ></input>
-                        <label for={idAnswer} > {rowAnswer.text} </label>
+                        <p class="respuesta"> 
+                        <input className='Respuesta radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
+                        <label className='Respuesta' for={idAnswer} > {rowAnswer.text} </label>
+                        </p>
                     </div>
-                </>
             );
         })}
-
+        <br></br>
         </fieldset>
-
         );
         })}
-        
 
-
-
+        <button onClick={ValidQuestion}> seleccionar </button>
         </>
     
       )}
-    
+
     export default CitizenExam
