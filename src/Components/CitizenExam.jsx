@@ -16,41 +16,32 @@ export const CitizenExam = () => {
     const ValidQuestion = () => 
     {
         var ls;
-        var lRespuesta;
         try
         {
-
             ls = document.getElementsByClassName('radio');
-            lRespuesta = document.getElementsByClassName('respuesta');
-
+ 
             for (let i = 0; i < ls.length; i++)
             {
-                if (ls[i].checked.toString() === 'false' &&  ls[i].dataset.respuesta === 'true' )
-                {
-                    lRespuesta[i].textContent = lRespuesta[i].textContent + "<------" 
-                }
                 ls[i].disabled = true;
-                lRespuesta[i].disabled = true;
+                if (ls[i].checked.toString() === "false" &&  ls[i].dataset.respuesta === "true" )
+                {
+                    debugger;
+                }
             }
         }
         catch (e) {
             alert(e.message);
         }
-
-
         //document.querySelector('input[className = Respuesta]:checked').getAttribute('data-respuesta');
-
         //var checkboxes = document.getElementsByClassName("Respuesta");
-        debugger;
-
         //const radioButtons = form.elements.map(element => { return <input type="radio" name={element.name} key={element.id} />;  });
-
-
-
     }
 
     return (
         <>
+
+        <input type="radio" className='respuesta"'  ></input>
+
 
         {Test.map((rowQuestion, idQuestion) => 
         {
@@ -68,12 +59,12 @@ export const CitizenExam = () => {
         {rowQuestion.answers.map((rowAnswer, idAnswer) => 
         {
         return (
-                    <div>
-                        <p class="respuesta"> 
-                        <input className='radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
-                        <label className='answer' for={idAnswer} > {rowAnswer.text} </label>
-                        </p>
-                    </div>
+                <div>
+                    <p class="respuesta"> 
+                       <input className='radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
+                       <label className='answer' for={idAnswer} > {rowAnswer.text} </label>
+                    </p>
+                </div>
             );
         })}
         <br></br>

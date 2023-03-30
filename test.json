@@ -1,368 +1,368 @@
 [{
-    "question": "Cual es la capital de Canada 1",
+    "question": "A 1",
     "answers": [{
-        "text": "Ottawa *",
+        "text": "a1 *",
         "valid": true
     }, {
-        "text": "Toronto",
+        "text": "a2",
         "valid": false
     }, {
-        "text": "Montreal",
+        "text": "a3",
         "valid": false
     }, {
-        "text": "Vancouver",
+        "text": "a4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el nombre completo de Albert Einstein 2",
+    "question": "B 2",
     "answers": [{
-        "text": "Manzana",
+        "text": "b1",
         "valid": false
     }, {
-        "text": "Albert Hofmann",
+        "text": "b2",
         "valid": false
     }, {
-        "text": "Albert Einstein *",
+        "text": "b3 *",
         "valid": true
     }, {
-        "text": "Albert Schopenhauer",
+        "text": "b4",
         "valid": false
     }]
 },
 {
-    "question": "En qu ao comenz la Segunda Guerra Mundial 3",
+    "question": "C 3",
     "answers": [{
-        "text": "1939 *",
+        "text": "c1 *",
         "valid": true
     }, {
-        "text": "1941",
+        "text": "c2",
         "valid": false
     }, {
-        "text": "1935",
+        "text": "c3",
         "valid": false
     }, {
-        "text": "1944",
+        "text": "c4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el pas ms grande del mundo 4",
+    "question": "D 4",
     "answers": [{
-        "text": "India",
+        "text": "d1",
         "valid": false
     }, {
-        "text": "Estados Unidos",
+        "text": "d2",
         "valid": false
     }, {
-        "text": "Rusia *",
+        "text": "d4 *",
         "valid": true
     }, {
-        "text": "China",
+        "text": "d5",
         "valid": false
     }]
 },
 {
-    "question": "Cual ha sido la persona ms famosa de la historia 5",
+    "question": "E 5",
     "answers": [{
-        "text": "Adolf Hitler",
+        "text": "e1",
         "valid": false
     }, {
-        "text": "Julio Csar",
+        "text": "e2",
         "valid": false
     }, {
-        "text": "Napolen Bonaparte",
+        "text": "e3",
         "valid": false
     }, {
-        "text": "Jesucristo *",
+        "text": "e5 *",
         "valid": true
     }]
 },
 {
-    "question": "Cual es el lugar ms alto del mundo 6",
+    "question": "F 6",
     "answers": [{
-        "text": "Kilimanjaro",
+        "text": "f1",
         "valid": false
     }, {
-        "text": "Mont Everest *",
+        "text": "f2 *",
         "valid": true
     }, {
-        "text": "Makalu",
+        "text": "f3",
         "valid": false
     }, {
-        "text": "K2",
+        "text": "f4",
         "valid": false
     }]
 },
 {
-    "question": "Quin escribi el famoso libro 'El Principito' 7",
+    "question": "G 7",
     "answers": [{
-        "text": "Jorge Luis Borges",
+        "text": "g1",
         "valid": false
     }, {
-        "text": "Ernest Hemingway",
+        "text": "g2",
         "valid": false
     }, {
-        "text": "Antoine de Saint-Exupry *",
+        "text": "g3 *",
         "valid": true
     }, {
-        "text": "Franz Kafka",
+        "text": "g4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el nombre de la moneda de Mxico 8",
+    "question": "H 8",
     "answers": [{
-        "text": "Peso Colombiano",
+        "text": "h1",
         "valid": false
     }, {
-        "text": "Peso Mexicano *",
+        "text": "h2 *",
         "valid": true
     }, {
-        "text": "Euro",
+        "text": "h3",
         "valid": false
     }, {
-        "text": "Dlar estadounidense",
+        "text": "h4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el pas ms poblado del mundo 9",
+    "question": "I 9",
     "answers": [{
-        "text": "Estados Unidos",
+        "text": "i1",
         "valid": false
     }, {
-        "text": "India *",
+        "text": "i2 *",
         "valid": true
     }, {
-        "text": "Pakistn",
+        "text": "i3",
         "valid": false
     }, {
-        "text": "China",
+        "text": "i4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el lago ms grande del mundo 10",
+    "question": "J 10",
     "answers": [{
-        "text": "Lago Victoria",
+        "text": "j1",
         "valid": false
     }, {
-        "text": "Lago Tanganyika",
+        "text": "j2",
         "valid": false
     }, {
-        "text": "Lago Michigan",
+        "text": "j3",
         "valid": false
     }, {
-        "text": "Lago Superior *",
+        "text": "j4 *",
         "valid": true
     }]
 },
 {
-    "question": "Cuntos planetas hay en el sistema solar 11",
+    "question": "K 11",
     "answers": [{
-        "text": "7",
+        "text": "k1",
         "valid": false
     }, {
-        "text": "9",
+        "text": "k2",
         "valid": false
     }, {
-        "text": "8 *",
+        "text": "k3 *",
         "valid": true
     }, {
-        "text": "10",
+        "text": "k4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el edificio ms alto del mundo 12",
+    "question": "L 12",
     "answers": [{
-        "text": "Burj Khalifa *",
+        "text": "l1 *",
         "valid": true
     }, {
-        "text": "Shanghai Tower",
+        "text": "l2",
         "valid": false
     }, {
-        "text": "Empire State Building",
+        "text": "l3",
         "valid": false
     }, {
-        "text": "Taipei 101",
+        "text": "l4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es la capital de Per 13",
+    "question": "M 13",
     "answers": [{
-        "text": "Lima *",
+        "text": "m1 *",
         "valid": true
     }, {
-        "text": "Cuzco",
+        "text": "m2",
         "valid": false
     }, {
-        "text": "Arequipa",
+        "text": "m3",
         "valid": false
     }, {
-        "text": "Trujillo",
+        "text": "m4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el ro ms largo del mundo 14",
+    "question": "N 14",
     "answers": [{
-        "text": "Nilo *",
+        "text": "n1 *",
         "valid": true
     }, {
-        "text": "Amazonas",
+        "text": "n2",
         "valid": false
     }, {
-        "text": "Mississippi",
+        "text": "n3",
         "valid": false
     }, {
-        "text": "Ro de la Plata",
+        "text": "n4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el idioma ms hablado en el mundo 15",
+    "question": "O 15",
     "answers": [{
-        "text": "Hindi",
+        "text": "o1",
         "valid": false
     }, {
-        "text": "Espaol",
+        "text": "o2",
         "valid": false
     }, {
-        "text": "Ingls",
+        "text": "o3",
         "valid": false
     }, {
-        "text": "Mandarn *",
+        "text": "o4 *",
         "valid": true
     }]
 },
 {
-    "question": "Cual es el mayor ocano del mundo 16",
+    "question": "P 16",
     "answers": [{
-        "text": "Mar Mediterrneo",
+        "text": "p1",
         "valid": false
     }, {
-        "text": "rtico *",
+        "text": "p2 *",
         "valid": true
     }, {
-        "text": "Atlntico",
+        "text": "p3",
         "valid": false
     }, {
-        "text": "Pacfico",
+        "text": "p4",
         "valid": false
     }]
 },
 {
-    "question": "Quin descubri Amrica 17",
+    "question": "Q 17",
     "answers": [{
-        "text": "Cristbal Coln *",
+        "text": "q1 *",
         "valid": true
     }, {
-        "text": "Amerigo Vespucci",
+        "text": "q2",
         "valid": false
     }, {
-        "text": "Ferdinand Magellan",
+        "text": "q3",
         "valid": false
     }, {
-        "text": "Vasco de Gama",
+        "text": "q4",
         "valid": false
     }]
 },
 {
-    "question": "Qu animal es el ms rpido del mundo 18",
+    "question": "R 18",
     "answers": [{
-        "text": "Guepardo *",
+        "text": "r1 *",
         "valid": true
     }, {
-        "text": "Jaguar",
+        "text": "r2",
         "valid": false
     }, {
-        "text": "Len",
+        "text": "r3",
         "valid": false
     }, {
-        "text": "Tigre",
+        "text": "r4",
         "valid": false
     }]
 },
 {
-    "question": "Qu animal es el ms grande del mundo 19",
+    "question": "S 19",
     "answers": [{
-        "text": "Elefante",
+        "text": "s1",
         "valid": false
     }, {
-        "text": "Ballena Azul *",
+        "text": "s2 *",
         "valid": true
     }, {
-        "text": "Rinoceronte",
+        "text": "s3",
         "valid": false
     }, {
-        "text": "Cocodrilo",
+        "text": "s4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el pas ms pequeo del mundo 20",
+    "question": "T 20",
     "answers": [{
-        "text": "Mnaco *",
+        "text": "t1 *",
         "valid": true
     }, {
-        "text": "Vaticano",
+        "text": "t2",
         "valid": false
     }, {
-        "text": "Liechtenstein",
+        "text": "t3",
         "valid": false
     }, {
-        "text": "San Marino",
+        "text": "t4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el ro ms corto del mundo 21",
+    "question": "X 21",
     "answers": [{
-        "text": "Ro Orinoco",
+        "text": "x1",
         "valid": false
     }, {
-        "text": "Ro Nilo",
+        "text": "x2",
         "valid": false
     }, {
-        "text": "Ro Amazonas",
+        "text": "x3",
         "valid": false
     }, {
-        "text": "Ro Roe *",
+        "text": "x4 *",
         "valid": true
     }]
 },
 {
-    "question": "Cual es el lugar ms seco del mundo 22",
+    "question": "Y 22",
     "answers": [{
-        "text": "Sahara",
+        "text": "y1",
         "valid": false
     }, {
-        "text": "Gobi *",
+        "text": "y2 *",
         "valid": true
     }, {
-        "text": "Atacama",
+        "text": "y3",
         "valid": false
     }, {
-        "text": "Kalahari",
+        "text": "y4",
         "valid": false
     }]
 },
 {
-    "question": "Cual es el animal ms antiguo del mundo 23",
+    "question": "Z 23",
     "answers": [{
-        "text": "Rana",
+        "text": "z1",
         "valid": false
     }, {
-        "text": "Tortuga *",
+        "text": "z2 *",
         "valid": true
     }, {
-        "text": "Cocodrilo",
+        "text": "z3",
         "valid": false
     }, {
-        "text": "Lagarto",
+        "text": "z4",
         "valid": false
     }]
 },
