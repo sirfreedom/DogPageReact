@@ -25,7 +25,7 @@ export const CitizenExam = () => {
 
             for (let i = 0; i < ls.length; i++)
             {
-                if (ls[i].dataset.respuesta === 'true' )
+                if (ls[i].checked.toString() === 'false' &&  ls[i].dataset.respuesta === 'true' )
                 {
                     lRespuesta[i].textContent = lRespuesta[i].textContent + "<------" 
                 }
