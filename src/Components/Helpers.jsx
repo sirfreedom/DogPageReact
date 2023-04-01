@@ -72,7 +72,7 @@ export const CitizenTest = async () => {
   res = await fetch(url);
   data = await res.json().catch(err => console.log(err));
 
-  while (lIndex.length < 5) 
+  while (lIndex.length <= 25) 
   {
     let n;
     n = Math.floor(Math.random() * (data.length - 0 + 1));

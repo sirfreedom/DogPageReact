@@ -2,7 +2,6 @@ import '../Css/App.css';
 import React, { useState,useEffect } from "react";
 import {CitizenTest} from './Helpers';
 
-
 export const CitizenExam = () => {
     
     const [Test, setTest] = useState([]);
@@ -16,6 +15,7 @@ export const CitizenExam = () => {
     const ValidQuestion = () => 
     {
         var ls;
+        var iCorrectAnwers = 0;
         try
         {
             ls = document.getElementsByClassName('radio');
@@ -23,11 +23,14 @@ export const CitizenExam = () => {
             for (let i = 0; i < ls.length; i++)
             {
                 ls[i].disabled = true;
-                if (ls[i].checked.toString() === "false" &&  ls[i].dataset.respuesta === "true" )
+                if (ls[i].checked.toString() === "true" &&  ls[i].dataset.respuesta === "true" )
                 {
-                    debugger;
+                    iCorrectAnwers++;
                 }
             }
+
+            alert(iCorrectAnwers);
+
         }
         catch (e) {
             alert(e.message);
@@ -39,9 +42,6 @@ export const CitizenExam = () => {
 
     return (
         <>
-
-        <input type="radio" className='respuesta"'  ></input>
-
 
         {Test.map((rowQuestion, idQuestion) => 
         {
