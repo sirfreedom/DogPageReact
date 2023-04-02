@@ -1,6 +1,8 @@
 import '../Css/App.css';
 import React, { useState,useEffect } from "react";
 import {CitizenTest} from './Helpers';
+import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
 
 export const CitizenExam = () => {
     
@@ -40,26 +42,29 @@ export const CitizenExam = () => {
         //const radioButtons = form.elements.map(element => { return <input type="radio" name={element.name} key={element.id} />;  });
     }
 
-    return (
-        <>
+return (
+<>
 
-        {Test.map((rowQuestion, idQuestion) => 
+
+
+<Accordion defaultActiveKey="0">
+
+      
+      {Test.map((rowQuestion, idQuestion) => 
         {
         return (
+        <Accordion.Item eventKey={idQuestion}>
 
-        <fieldset>
+        <Accordion.Header>
+            {rowQuestion.question} ?.      #{idQuestion+1}
+        </Accordion.Header>
 
-        <legend>
-            <p className="pregunta"> {rowQuestion.question} ?. 
-            <a className='numero'> Pregunta nº {idQuestion+1} 
-            </a>  
-            </p>
-        </legend>
+        <Accordion.Body>
 
         {rowQuestion.answers.map((rowAnswer, idAnswer) => 
         {
         return (
-                <div>
+                <div aling="center">
                     <p class="respuesta"> 
                        <input className='radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
                        <label className='answer' for={idAnswer} > {rowAnswer.text} </label>
@@ -67,14 +72,21 @@ export const CitizenExam = () => {
                 </div>
             );
         })}
-        <br></br>
-        </fieldset>
-        );
-        })}
+        </Accordion.Body>
+      </Accordion.Item>
+      
+      );
+     })}
 
-        <button onClick={ValidQuestion}> seleccionar </button>
-        </>
+    </Accordion>
+
+    <Button variant="success" onClick={ValidQuestion} > Completar el Examen </Button>{' '}
+
+    <br></br>
+    <br></br>
+
+    </>
     
-      )}
+    )}
 
     export default CitizenExam

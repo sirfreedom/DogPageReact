@@ -5,6 +5,9 @@ import React, { useState } from 'react'
 //import Card from './Components/Card';
 //import { GetDog } from './Components/Helpers';
 
+
+npm install react-bootstrap bootstrap
+
 /*
 <Row className="mx-0">
   <Button variant="primary">Button #1</Button>
@@ -108,4 +111,32 @@ https://www.npmjs.com/package/jspdf-autotable
       </label>
 
 
+      {Test.map((rowQuestion, idQuestion) => 
+        {
+        return (
+
+        <fieldset>
+
+        <legend>
+            <p className="pregunta"> {rowQuestion.question} ?. 
+            <a className='numero'> Pregunta nº {idQuestion+1} 
+            </a>  
+            </p>
+        </legend>
+
+        {rowQuestion.answers.map((rowAnswer, idAnswer) => 
+        {
+        return (
+                <div>
+                    <p class="respuesta"> 
+                       <input className='radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
+                       <label className='answer' for={idAnswer} > {rowAnswer.text} </label>
+                    </p>
+                </div>
+            );
+        })}
+        <br></br>
+        </fieldset>
+        );
+        })}
    
