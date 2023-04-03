@@ -1,4 +1,4 @@
-import React, {fragment, useState} from 'react';
+import React, {useState} from 'react';
 
 const GrillaEvent = user => {
   console.log('hola mundo');
@@ -6,7 +6,8 @@ const GrillaEvent = user => {
 };
 
 const Grilla = () => {
-  const [filas, setFilas] = useState(
+  const [filas, setFilas] = useState
+  (
     [{nombre: 'rodrigo', apellido: 'perez'}],
     [{nombre: 'pepe', apellido: 'gomez'}]
   );

@@ -242,7 +242,6 @@ const FindDogs = () => {
         </Route>
 
         <Route path="/CitizenExam">
-            <h2> Citizen Exam </h2>
             <CitizenExam></CitizenExam>
         </Route>
 
