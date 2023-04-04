@@ -4,6 +4,7 @@ import {CitizenTest} from './Helpers';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { TabContainer } from 'react-bootstrap';
 
 export const CitizenExam = () => {
     
@@ -81,13 +82,40 @@ return (
 
 <Accordion defaultActiveKey="0">
       
-      {Test.map((rowQuestion, idQuestion) => 
+      {Test.map((rowQuestion, indexQuestion) => 
         {
         return (
-        <Accordion.Item eventKey={idQuestion}>
+        <Accordion.Item eventKey={indexQuestion}>
 
         <Accordion.Header>
-            {rowQuestion.question} ?. #{idQuestion+1}
+        
+        <table width="100%">
+          <tr>
+             <td width="2%" >
+              
+                {rowQuestion.level === 3 && (
+                <div class="cuadradoNivelAlto"></div>
+                )}
+
+                 {rowQuestion.level === 2 && (
+                <div class="cuadradoNivelMedio"></div>
+                )}
+
+                {rowQuestion.level === 1 && (
+                <div class="cuadradoNivelBajo"></div>
+                )}
+
+             </td>
+             <td width="98%">
+             <strong>
+             #{indexQuestion+1}
+             {'. '}
+             {rowQuestion.question} 
+            </strong>
+             </td>
+          </tr>
+        </table>
+
         </Accordion.Header>
 
         <Accordion.Body>
@@ -97,7 +125,7 @@ return (
         return (
                 <div >
                     <p class="respuesta"> 
-                       <input className='radio' type="radio" id={idAnswer} name={idQuestion} radioGroup={idQuestion}  data-respuesta={rowAnswer.valid} ></input>
+                       <input className='radio' type="radio" id={idAnswer} name={indexQuestion} radioGroup={indexQuestion}  data-respuesta={rowAnswer.valid} ></input>
                        <label className='answer' for={idAnswer} > {rowAnswer.text} </label>
                        {ShowValid && rowAnswer.valid &&(
                        <img
@@ -141,17 +169,62 @@ return (
         <Modal.Header closeButton>
           <Modal.Title>Bienvenido al examen CCSE 2023 PRUEBA NACIONALIDAD ESPAÑOLA</Modal.Title>
         </Modal.Header>
-        <Modal.Body> El examen consta de 25 preguntas totalmente aleatorias, obtenidas de unas 300 
-            que son tomadas en el examen, para poder aprobar el examen debe tener 15 preguntas 
-            bien contestadas, las cuales solo seran en forma de opciones.
-            <br>
-            </br>
-            de esta forma se le tomara el examen para la nacionalidad Española.
-            <br>
-            </br>
-            Este examen es a modo de prueba para saber sus conocimientos y poder practicar para estar mas preprado.
-            Suerte...
-            </Modal.Body>
+        <Modal.Body> 
+          <div>
+          <table>
+            <tr>
+              <td width="2%" >
+
+              </td>
+              <td>
+                El examen consta de 25 preguntas totalmente aleatorias, obtenidas de unas 300 
+                que son tomadas en el examen real, para poder aprobar el examen debe tener 15 preguntas 
+                respondidas de forma correcta.
+                de esta forma se le tomara el examen para la nacionalidad Española.
+                puede elegir preguntas :
+              </td>
+            </tr>
+            <tr>
+              <td width="2%" ></td> 
+              <td>
+                <strong>
+                  Random 
+                </strong>
+                son elegidas al azar de 300 preguntas
+              </td>
+            </tr>
+            <tr>
+              <td width="2%" ></td>
+              <td>
+                <strong>
+                Nivel Basico 
+                </strong>
+                 Son seleccionadas para que sean deducibles, muchas requieren que haya vivido un tiempo considerable en españa.
+              </td>
+            </tr>
+            <tr>
+              <td width="2%" ></td>
+              <td>
+                <strong>
+                 Nivel Intermedio 
+                </strong>
+               son seleccionadas pero requieren un poco mas de cultura general de España.
+              </td>
+            </tr>
+            <tr>
+              <td width="2%" ></td>
+              <td>
+                <strong>
+                  Nivel Avanzado 
+                </strong>
+                 son seleccionadas y requieren un compromiso y haber indagado en cuestiones historicas, geograficas y culturales del Pais.
+              </td>
+            </tr>
+          </table>
+          Este examen es a modo de prueba para saber sus conocimientos y poder practicar para estar mas preprado.
+          Suerte...
+          </div>
+           </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleWelcomeClose}>
             Empezar el Examen
