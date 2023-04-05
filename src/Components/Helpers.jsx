@@ -62,15 +62,41 @@ export const Prueba = async () => {
 };
 
 
-export const CitizenTest = async () => {
+export const CitizenTest = async (id) => {
   let url = 'https://raw.githubusercontent.com/sirfreedom/DogPageReact/main/test.json';
   let res;
   let data = [];
+  let tempdata = [];
+
   let lIndex = [];
   let lQuestion = [];
   try {
   res = await fetch(url);
-  data = await res.json().catch(err => console.log(err));
+  tempdata = await res.json().catch(err => console.log(err));
+
+  
+
+  if (id === 0){
+    data = tempdata;
+  }
+
+
+  data.forEach(function(item) {
+
+    debugger;
+
+    if (item.level === undefined ){
+      debugger;
+    }
+
+
+  }); 
+
+
+
+  if (id > 0 ){
+    data = tempdata.filter(x => x.level == id);    
+  }
 
   while (lIndex.length <= 25) 
   {

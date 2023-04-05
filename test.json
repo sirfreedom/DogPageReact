@@ -262,8 +262,8 @@
 },
 {
     "question": "Como se aprobó la Constitucion",
-    "level": 2,
     "cod": "1018",
+    "level": 2,
     "answers": [{
         "text": "Por ley",
         "valid": false
@@ -277,8 +277,8 @@
 },
 {
     "question": "Como se llama la ley mas importante de cada comunidad autonoma",
-    "level": 3,
     "cod": "1019",
+    "level": 3,
     "answers": [{
         "text": "Estatuto de Autonomia",
         "valid": true
@@ -292,8 +292,8 @@
 },
 {
     "question": "Las instalaciones culturales y deportivas publicas son competencia del ...",
-    "level": 2,
     "cod": "1020",
+    "level": 2,
     "answers": [{
         "text": "Ayuntamiento",
         "valid": true
@@ -307,8 +307,8 @@
 },
 {
     "question": "Quien dirige la administracion militar de España",
-    "level": 3,
     "cod": "1021",
+    "level": 3,
     "answers": [{
         "text": "Los ayuntamientos",
         "valid": false
@@ -322,8 +322,8 @@
 },
 {
     "question": "Que hay en las islas Baleares, en vez de diputaciones",
-    "level": 3,
     "cod": "1022",
+    "level": 3,
     "answers": [{
         "text": "Cabildos",
         "valid": false
@@ -337,8 +337,8 @@
 },
 {
     "question": "Que ciudad tiene mas habitantes",
-    "level": 3,
     "cod": "1023",
+    "level": 3,
     "answers": [{
         "text": "Sevilla",
         "valid": false
@@ -352,8 +352,8 @@
 },
 {
     "question": "A cual de estas organizaiones internacionales pertenece España",
-    "level": 1,
     "cod": "1024",
+    "level": 1,
     "answers": [{
         "text": "Organizacion del tratado del Atlantico Norte (OTAN)",
         "valid": true
@@ -367,8 +367,8 @@
 },
 {
     "question": "El Congreso de los diputados y el Senado constituyen el poder...",
-    "level": 1,
     "cod": "1025",
+    "level": 1,
     "answers": [{
         "text": "Ejecutivo",
         "valid": false
@@ -382,8 +382,8 @@
 },
 {
     "question": "Cuantos colores tiene la bandera española",
-    "level": 1,
     "cod": "1026",
+    "level": 1,
     "answers": [{
         "text": "2",
         "valid": true
@@ -397,8 +397,8 @@
 },
 {
     "question": "Cuantas comunidades autonomas hay en España",
-    "level": 2,
     "cod": "1027",
+    "level": 2,
     "answers": [{
         "text": "8",
         "valid": false
@@ -412,8 +412,8 @@
 },
 {
     "question": "Los colores de la bandera española son...",
-    "level": 1,
     "cod": "1028",
+    "level": 1,
     "answers": [{
         "text": "Blanco y Rojo",
         "valid": false
@@ -427,8 +427,8 @@
 },
 {
     "question": "Donde esta la sede del Gobierno de España",
-    "level": 2,
     "cod": "1029",
+    "level": 2,
     "answers": [{
         "text": "En Madrid",
         "valid": true
@@ -445,8 +445,8 @@
 },
 {
     "question": "La bandera azul con 12 estrellas amarillas en el circulo es la bandera de...",
-    "level": 1,
     "cod": "1030",
+    "level": 1,
     "answers": [{
         "text": "La Union Europea",
         "valid": true
@@ -460,8 +460,8 @@
 },
 {
     "question": "En España hay elecciones generales cada...",
-    "level": 1,
     "cod": "1031",
+    "level": 1,
     "answers": [{
         "text": "Cuatro años",
         "valid": true
@@ -475,8 +475,8 @@
 },
 {
     "question": "Que lengua es oficial en el Pais Vasco",
-    "level": 3,
     "cod": "1032",
+    "level": 3,
     "answers": [{
         "text": "El Bable",
         "valid": false
@@ -493,8 +493,8 @@
 },
 {
     "question": "Todos los españoles tienen el deber de conocer la lengua...",
-    "level": 2,
     "cod": "1033",
+    "level": 2,
     "answers": [{
         "text": "autonomica del Estado",
         "valid": false
@@ -508,8 +508,8 @@
 },
 {
     "question": "Cual de estas opciones es una lenguaa co-Oficial en alguna comunidad autonoma",
-    "level": 2,
     "cod": "1034",
+    "level": 2,
     "answers": [{
         "text": "El Catalan",
         "valid": true
@@ -523,8 +523,8 @@
 },
 {
     "question": "Las instituciones de una comunidad autonoma son la asamblea legislativa, el consejo de gobierno y...",
-    "level": 3,
     "cod": "1035",
+    "level": 3,
     "answers": [{
         "text": "La diputacion",
         "valid": false
@@ -538,8 +538,8 @@
 },
 {
     "question": "Cual de estas opciones es una lengua Co-Oficial en alguna comunidad autonoma",
-    "level": 2,
     "cod": "1036",
+    "level": 2,
     "answers": [{
         "text": "El gallego",
         "valid": true
@@ -553,8 +553,8 @@
 },
 {
     "question": "Que institucion tiene como fin la promocion de la enseñanza de la lengua española y la difusion de la cultura en español",
-    "level": 2,
     "cod": "1037",
+    "level": 2,
     "answers": [{
         "text": "El Instituto Nacional de Administracion Publica",
         "valid": false
@@ -568,8 +568,8 @@
 },
 {
     "question": "Cual de los siguientes organismos trabaja para conseguir la normalizacion linguistica",
-    "level": 2,
     "cod": "1038",
+    "level": 2,
     "answers": [{
         "text": "El instituto Ramon Llull",
         "valid": false
@@ -583,8 +583,8 @@
 },
 {
     "question": "Donde vive el presidente del Gobierno",
-    "level": 3,
     "cod": "1039",
+    "level": 3,
     "answers": [{
         "text": "En el Palacio Real",
         "valid": false
@@ -598,8 +598,8 @@
 },
 {
     "question": "Cual de los siguientes cuerpos forma parte de las Fuerzas Armadas de España",
-    "level": 2,
     "cod": "1040",
+    "level": 2,
     "answers": [{
         "text": "La Policia Foral",
         "valid": false
@@ -613,8 +613,8 @@
 },
 {
     "question": "Quienes forman parte del Gobierno",
-    "level": 2,
     "cod": "1041",
+    "level": 2,
     "answers": [{
         "text": "Los Ministros",
         "valid": true
@@ -628,8 +628,8 @@
 },
 {
     "question": "España es un ...",
-    "level": 1,
     "cod": "1042",
+    "level": 1,
     "answers": [{
         "text": "Estado social y democratico de Derecho",
         "valid": true
@@ -643,8 +643,8 @@
 },
 {
     "question": "Quien era/es presidente del Gobierno en el 2022",
-    "level": 1,
     "cod": "1043",
+    "level": 1,
     "answers": [{
         "text": "Mariano Rajoy",
         "valid": false
@@ -658,8 +658,8 @@
 },
 {
     "question": "Que titulo tiene la futura reina, Hija del rey",
-    "level": 2,
     "cod": "1044",
+    "level": 2,
     "answers": [{
         "text": "Princesa de Asturias",
         "valid": true
@@ -673,8 +673,8 @@
 },
 {
     "question": "Con que rey se restaura la democracia en España despues del regimen de Franco",
-    "level": 3,
     "cod": "1045",
+    "level": 3,
     "answers": [{
         "text": "Con Carlos III",
         "valid": false
@@ -689,8 +689,8 @@
 ,
 {
     "question": "En que año se aprobo la Constitucion española",
-    "level": 3,
     "cod": "1046",
+    "level": 3,
     "answers": [{
         "text": "En 1957",
         "valid": false
@@ -705,8 +705,8 @@
 ,
 {
     "question": "Cuantas comunidades autonomas tienen su propia bandera",
-    "level": 2,
     "cod": "1047",
+    "level": 2,
     "answers": [{
         "text": "Ninguna",
         "valid": false
@@ -721,8 +721,8 @@
 ,
 {
     "question": "Cuantas veces ha presidido España el Consejo de la Union Europea",
-    "level": 3,
     "cod": "1048",
+    "level": 3,
     "answers": [{
         "text": "Dos veces",
         "valid": false
@@ -737,8 +737,8 @@
 ,
 {
     "question": "Cuantas veces ha reformado España su Constitucion para adaptarse a las decisiones y directivas europeas",
-    "level": 3,
     "cod": "1049",
+    "level": 3,
     "answers": [{
         "text": "Ninguna",
         "valid": false
@@ -752,8 +752,8 @@
 },
 {
     "question": "A cual de estas organizaciones internacionales pertenece España",
-    "level": 1,
     "cod": "1050",
+    "level": 1,
     "answers": [{
         "text": "Al Mercado Comun del Sur (Mercosur)",
         "valid": false
@@ -767,8 +767,8 @@
 },
 {
     "question": "En la organizacion de la Administracion se distinguen tres niveles central, autonomica y...",
-    "level": 2,
     "cod": "1051",
+    "level": 2,
     "answers": [{
         "text": "estatal",
         "valid": false
@@ -782,8 +782,8 @@
 },
 {
     "question": "El poder legislativo corresponde",
-    "level": 2,
     "cod": "1052",
+    "level": 2,
     "answers": [{
         "text": "al presidente y los ministros",
         "valid": false
@@ -797,8 +797,8 @@
 },
 {
     "question": "Donde vive el rey",
-    "level": 2,
     "cod": "1053",
+    "level": 2,
     "answers": [{
         "text": "En el palacio de la Moneda",
         "valid": false
@@ -812,8 +812,8 @@
 },
 {
     "question": "El nombre oficial del parlamento español es...",
-    "level": 2,
     "cod": "1054",
+    "level": 2,
     "answers": [{
         "text": "Cortes Generales",
         "valid": true
@@ -827,8 +827,8 @@
 },
 {
     "question": "El Gobierno esta formado por el presidente,uno o mas vicepresidentes y los ...",
-    "level": 3,
     "cod": "1055",
+    "level": 3,
     "answers": [{
         "text": "Consejales",
         "valid": false
@@ -842,8 +842,8 @@
 },
 {
     "question": "Quien puede reinar en España",
-    "level": 1,
     "cod": "1056",
+    "level": 1,
     "answers": [{
         "text": "Solo los hombres",
         "valid": false
@@ -857,8 +857,8 @@
 },
 {
     "question": "Al poder legislativo le corresponde...",
-    "level": 1,
     "cod": "1057",
+    "level": 1,
     "answers": [{
         "text": "crear empleo",
         "valid": false
@@ -872,8 +872,8 @@
 },
 {
     "question": "Quien es la tercera autoridad del Estado despues del rey y el presidente del Gobierno",
-    "level": 2,
     "cod": "1058",
+    "level": 2,
     "answers": [{
         "text": "El Presidente del Senado",
         "valid": false
@@ -887,8 +887,8 @@
 },
 {
     "question": "Que lengua co-oficial se habla en las islas Baleares",
-    "level": 3,
     "cod": "1059",
+    "level": 3,
     "answers": [{
         "text": "Gallego",
         "valid": false
@@ -902,8 +902,8 @@
 },
 {
     "question": "La Constitucion defiende valores tales como la libertad, igualdad, el pluralismo politico y ...",
-    "level": 1,
     "cod": "1060",
+    "level": 1,
     "answers": [{
         "text": "La justicia",
         "valid": true
@@ -917,8 +917,8 @@
 },
 {
     "question": "Cuantos kilometros cuadrados tiene España mas o menos",
-    "level": 2,
     "cod": "1061",
+    "level": 2,
     "answers": [{
         "text": "100.000 km^2",
         "valid": false
@@ -932,8 +932,8 @@
 },
 {
     "question": "Cuantos millones de habitantes tiene España, hasta el ultimo censo",
-    "level": 2,
     "cod": "1062",
+    "level": 2,
     "answers": [{
         "text": "35 millones",
         "valid": false
@@ -947,8 +947,8 @@
 },
 {
     "question": "Cual de estos es un organo consultivo del Gobierno de España",
-    "level": 3,
     "cod": "1063",
+    "level": 3,
     "answers": [{
         "text": "El Parlamento Europeo",
         "valid": false
@@ -962,8 +962,8 @@
 },
 {
     "question": "Quien dirige la politica interior y exterior de España",
-    "level": 3,
     "cod": "1064",
+    "level": 3,
     "answers": [{
         "text": "El Rey",
         "valid": false
@@ -977,8 +977,8 @@
 },
 {
     "question": "El Defensor del pueblo depende de...",
-    "level": 2,
     "cod": "1065",
+    "level": 2,
     "answers": [{
         "text": "el Consejo de Ministros",
         "valid": false
@@ -1277,8 +1277,8 @@
 },
 {
     "question": "En España el voto en las elecciones es ...",
-    "level": 1,
     "cod": "1085",
+    "level": 1,
     "answers": [{
         "text": "un derecho",
         "valid": true
@@ -1292,8 +1292,8 @@
 },
 {
     "question": "Quien vigila el trafico en las carreteras",
-    "level": 2,
     "cod": "1086",
+    "level": 2,
     "answers": [{
         "text": "Guardia Civil",
         "valid": true
@@ -1322,8 +1322,8 @@
 },
 {
     "question": "Donde se publican las leyes nacionales",
-    "level": 2,
     "cod": "1088",
+    "level": 2,
     "answers": [{
         "text": "En el boletin del instituto Nacional de Estadistica (INE)",
         "valid": false
@@ -1712,8 +1712,8 @@
 },
 {
     "question": "Quien controla la gestion financiera del Estado",
-    "level": 2,
     "cod": "1114",
+    "level": 2,
     "answers": [{
         "text": "El banco de España",
         "valid": false
@@ -3707,8 +3707,8 @@
 },
 {
     "question": "El Bachilleraro en España",
-    "level": 1,
     "cod": "5038",
+    "level": 1,
     "answers": [{
         "text": "es obligatorio",
         "valid": false
@@ -3752,8 +3752,8 @@
 },
 {
     "question": "Los colegios publicos",
-    "level": 1,
     "cod": "5041",
+    "level": 1,
     "answers": [{
         "text": "pueden decidir su numero de plazas",
         "valid": false
@@ -3767,8 +3767,8 @@
 },
 {
     "question": "Cual de estos puertos es una de los principales de España",
-    "level": 2,
     "cod": "5042",
+    "level": 2,
     "answers": [{
         "text": "Tenerife",
         "valid": false
@@ -3782,8 +3782,8 @@
 },
 {
     "question": "Un colegio concertado es un colegio privado que...",
-    "level": 1,
     "cod": "5043",
+    "level": 1,
     "answers": [{
         "text": "recibe dinero de la Administracion",
         "valid": true
@@ -3797,8 +3797,8 @@
 },
 {
     "question": "España exporta productos principalmente a paises...",
-    "level": 1,
     "cod": "5044",
+    "level": 1,
     "answers": [{
         "text": "de HispanoAmerica",
         "valid": false
@@ -3812,8 +3812,8 @@
 },
 {
     "question": "Las bibliotecas publicas son gratuitas para...",
-    "level": 1,
     "cod": "5045",
+    "level": 1,
     "answers": [{
         "text": "Todos",
         "valid": true
@@ -3827,8 +3827,8 @@
 },
 {
     "question": "Cual de estos productos exporta España mas que importa",
-    "level": 1,
     "cod": "5046",
+    "level": 1,
     "answers": [{
         "text": "Gas",
         "valid": false
@@ -3842,8 +3842,8 @@
 },
 {
     "question": "Una persona mayor de 18 años puede obtener el titulo de Graduado en Educacion Secundaria Obligatoria en ...",
-    "level": 2,
     "cod": "5047",
+    "level": 2,
     "answers": [{
         "text": "un Centro de Educacion de Personas Adultas",
         "valid": true
@@ -3857,8 +3857,8 @@
 },
 {
     "question": "La formacion profesional",
-    "level": 2,
     "cod": "5048",
+    "level": 2,
     "answers": [{
         "text": "es para mayores de 25 años",
         "valid": false
@@ -3872,8 +3872,8 @@
 },
 {
     "question": "Adonde vamos para ver al medico de la familia o al pediatra",
-    "level": 1,
     "cod": "5049",
+    "level": 1,
     "answers": [{
         "text": "Al hospital",
         "valid": false
@@ -3887,8 +3887,8 @@
 },
 {
     "question": "Para cuantos años vale la tarjeta sanitaria europea",
-    "level": 1,
     "cod": "5050",
+    "level": 1,
     "answers": [{
         "text": "Para un año",
         "valid": false
@@ -3902,8 +3902,8 @@
 },
 {
     "question": "A que hora se cena normalmente en España",
-    "level": 1,
     "cod": "5051",
+    "level": 1,
     "answers": [{
         "text": "A las 18 h",
         "valid": false
@@ -3932,8 +3932,8 @@
 },
 {
     "question": "Cual es un periodico deportivo",
-    "level": 2,
     "cod": "5053",
+    "level": 2,
     "answers": [{
         "text": "ABC",
         "valid": false
@@ -3947,8 +3947,8 @@
 },
 {
     "question": "Donde se venden sellos y tabaco",
-    "level": 1,
     "cod": "5054",
+    "level": 1,
     "answers": [{
         "text": "En el quiosco",
         "valid": false
