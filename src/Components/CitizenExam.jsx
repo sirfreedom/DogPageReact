@@ -10,7 +10,8 @@ export const CitizenExam = () => {
     const [Test, setTest] = useState([]);
     const [ShowValid,setShowValid] = useState(false);
     const [CorrectAnwers,setCorrectAnwers] = useState(0);
-
+    const [DisableAnwers, setDisableAnwers] = useState(false);
+  
     const [ShowWelcome, setShowWelcome] = useState(false);
     const handleWelcomeClose = () => setShowWelcome(false);
 
@@ -18,10 +19,10 @@ export const CitizenExam = () => {
     const handleFinishAnswerClose = () => setShowFinishAnswer(false);
 
     useEffect(() => {
-        CitizenTest(0).then(lTest => {
-          setTest(lTest);
-          setShowWelcome(true);
-        });
+        //CitizenTest(0).then(lTest => {
+        //  setTest(lTest);
+        //});
+        setShowWelcome(true);
     }, []);
 
     const ValidQuestion = () => 
@@ -31,45 +32,34 @@ export const CitizenExam = () => {
         try
         {
             ls = document.getElementsByClassName('radio');
- 
+
             for (let i = 0; i < ls.length; i++)
             {
-                ls[i].disabled = true;
                 if (ls[i].checked.toString() === "true" &&  ls[i].dataset.respuesta === "true" )
                 {
                     iCorrectAnwers++;
                 }
             }
-
             setCorrectAnwers(iCorrectAnwers);
             setShowValid(true);
             setShowFinishAnswer(true);
+            setDisableAnwers(true);
         }
         catch (e) {
             alert(e.message);
         }
-        //document.querySelector('input[className = Respuesta]:checked').getAttribute('data-respuesta');
-        //var checkboxes = document.getElementsByClassName("Respuesta");
-        //const radioButtons = form.elements.map(element => { return <input type="radio" name={element.name} key={element.id} />;  });
     }
 
     const NewForm = (iLevel) => {
-        var ls;
-
+  
         CitizenTest(iLevel).then(lTest => {
             setTest(lTest);
-            setCorrectAnwers(0);
-            setShowValid(false);
         });
-
-        ls = document.getElementsByClassName('radio');
- 
-        for (let i = 0; i < ls.length; i++)
-        {
-            ls[i].disabled = false;
-        }
+        setCorrectAnwers(0);
+        setShowValid(false);
+        setDisableAnwers(false);
+        setShowWelcome(false);
     }
-
 
 return (
 <>
@@ -78,34 +68,6 @@ return (
 <h2> Bienvenido al examen CCSE 2023 NACIONALIDAD ESPAÑOLA </h2>
 <br></br>
 
-<table align="center" width="80%">
-  <tr>
-        <td colSpan="9" align="center" >
-          <strong>
-            Nivel de preguntas
-          </strong>
-        </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>
-        <Button variant="secondary" onClick={() => NewForm(0)} > Random </Button>{' '}
-    </td>
-    <td></td>
-    <td>
-       <Button variant="success" onClick={() => NewForm(1)} >Nivel Facil</Button>{' '}
-    </td>
-    <td></td>
-    <td>
-       <Button variant="warning" onClick={() => NewForm(2)} >Nivel Medio </Button>{' '}
-    </td>
-    <td></td>
-    <td>
-       <Button variant="danger" onClick={() => NewForm(3)} >Nivel Avanzado</Button>{' '}
-    </td>
-    <td></td>
-  </tr>
-</table>
 <br>
 </br>
 
@@ -154,7 +116,7 @@ return (
         return (
                 <div >
                     <p class="respuesta"> 
-                       <input className='radio' type="radio" id={idAnswer} name={indexQuestion} radioGroup={indexQuestion}  data-respuesta={rowAnswer.valid} ></input>
+                       <input className='radio' type="radio" id={idAnswer} name={indexQuestion} radioGroup={indexQuestion} disabled={DisableAnwers} data-respuesta={rowAnswer.valid} ></input>
                        &nbsp;
                        <label className='answer' for={idAnswer} > {rowAnswer.text} </label>
                        &nbsp;
@@ -193,7 +155,7 @@ return (
     )}
 
     {ShowValid &&(
-    <Button variant="primary" onClick={NewForm} > Iniciar un nuevo Examen </Button>
+    <Button variant="primary" onClick={ () => setShowWelcome(true)} > Iniciar un nuevo Examen </Button>
     )}
 
       <Modal key="mWelcome" show={ShowWelcome} onHide={handleWelcomeClose}>
@@ -215,11 +177,42 @@ return (
               </td>
             </tr>
           </table>
+          
+
           Este examen es a modo de prueba para saber sus conocimientos y poder practicar para estar mas preprado.
           Suerte...
           </div>
          </Modal.Body>
          <Modal.Footer>
+         <table align="center" width="80%">
+  <tr>
+        <td colSpan="9" align="center" >
+          <strong>
+            Nivel de preguntas
+          </strong>
+        </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+        <Button variant="secondary" onClick={() => NewForm(0)} > Random </Button>{' '}
+    </td>
+    <td></td>
+    <td>
+       <Button variant="success" onClick={() => NewForm(1)} >Nivel Facil</Button>{' '}
+    </td>
+    <td></td>
+    <td>
+       <Button variant="warning" onClick={() => NewForm(2)} >Nivel Medio </Button>{' '}
+    </td>
+    <td></td>
+    <td>
+       <Button variant="danger" onClick={() => NewForm(3)} >Nivel Avanzado</Button>{' '}
+    </td>
+    <td></td>
+  </tr>
+</table>
+
           <Button variant="secondary" onClick={handleWelcomeClose}>
             Empezar el Examen
           </Button>

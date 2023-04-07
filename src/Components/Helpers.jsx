@@ -74,25 +74,9 @@ export const CitizenTest = async (id) => {
   res = await fetch(url);
   tempdata = await res.json().catch(err => console.log(err));
 
-  
-
   if (id === 0){
     data = tempdata;
   }
-
-
-  data.forEach(function(item) {
-
-    debugger;
-
-    if (item.level === undefined ){
-      debugger;
-    }
-
-
-  }); 
-
-
 
   if (id > 0 ){
     data = tempdata.filter(x => x.level == id);    
@@ -136,7 +120,6 @@ const requestOptions = {
 fetch(url, requestOptions)
     .then(response => response.json())
     .then(data => console.log(data.id));
-
 };
 
 
