@@ -11,6 +11,7 @@ export const CitizenExam = () => {
     const [ShowValid,setShowValid] = useState(false);
     const [CorrectAnwers,setCorrectAnwers] = useState(0);
     const [DisableAnwers, setDisableAnwers] = useState(false);
+    const [IsSelectQuestion,setIsSelectQuestion] = useState(false);
   
     const [ShowWelcome, setShowWelcome] = useState(false);
     const handleWelcomeClose = () => setShowWelcome(false);
@@ -19,9 +20,6 @@ export const CitizenExam = () => {
     const handleFinishAnswerClose = () => setShowFinishAnswer(false);
 
     useEffect(() => {
-        //CitizenTest(0).then(lTest => {
-        //  setTest(lTest);
-        //});
         setShowWelcome(true);
     }, []);
 
@@ -44,6 +42,7 @@ export const CitizenExam = () => {
             setShowValid(true);
             setShowFinishAnswer(true);
             setDisableAnwers(true);
+            setIsSelectQuestion(false);
         }
         catch (e) {
             alert(e.message);
@@ -59,6 +58,7 @@ export const CitizenExam = () => {
         setShowValid(false);
         setDisableAnwers(false);
         setShowWelcome(false);
+        setIsSelectQuestion(true);
     }
 
 return (
@@ -150,11 +150,11 @@ return (
 
     </Accordion>
 
-    {!ShowValid &&(
+    {IsSelectQuestion && !ShowValid &&(
     <Button variant="success" onClick={ValidQuestion} > Completar el Examen </Button>
     )}
 
-    {ShowValid &&(
+    { !IsSelectQuestion  &&  (
     <Button variant="primary" onClick={ () => setShowWelcome(true)} > Iniciar un nuevo Examen </Button>
     )}
 
@@ -177,8 +177,6 @@ return (
               </td>
             </tr>
           </table>
-          
-
           Este examen es a modo de prueba para saber sus conocimientos y poder practicar para estar mas preprado.
           Suerte...
           </div>
@@ -213,9 +211,7 @@ return (
   </tr>
 </table>
 
-          <Button variant="secondary" onClick={handleWelcomeClose}>
-            Empezar el Examen
-          </Button>
+
         </Modal.Footer>
       </Modal>
 
@@ -231,28 +227,27 @@ return (
             </br>
             Podes ver las respuestas correctas en cada pregunta.
             <br></br>
+            
+            { (CorrectAnwers > 23 ) && (  
+                <a> 
+                    Oye tio.!!.. tu eres mas español que el JAMON !! que haces tu aqui ?.. 
+                </a>
+            ) }
 
-            { (CorrectAnwers => 15) && (  
+            { (CorrectAnwers >= 15) && (  
                 <a> Felicitaciones!!! has aprobado el examen con exito.
                     Aun asi te aconsejo que pruebes unas veces mas para tener todo mucho mas claro.
                 </a>
             ) }
 
             { (CorrectAnwers < 5) && (  
-                <a> No has aprobado el examen.. necesitas estudiar mucho. pero ANIMO.. con tiempo y estudio
-                    no dudo que mejoraras.
+                <a> No has aprobado el examen.. :-/ necesitas estudiar mucho. pero ANIMO.. con tiempo y estudio
+                    no dudo que mejoraras.!
                 </a>
             ) }
 
             { (CorrectAnwers < 10 && CorrectAnwers > 5 ) && (  
                 <a> No has aprobado el examen.. necesitas estudiar un poquito mas.. 
-                    una vez mas.. y estas...
-                </a>
-            ) }
-
-            { (CorrectAnwers < 15 && CorrectAnwers > 10 ) && (  
-                <a> No has aprobado el examen.. Pero estuviste MUY MUY Cerca 
-                    necesitas estudiar un poquito mas.. 
                     una vez mas.. y estas...
                 </a>
             ) }
