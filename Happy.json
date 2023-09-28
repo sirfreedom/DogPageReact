@@ -1,0 +1,445 @@
+{
+  "lHappy": [
+    {
+      "nombre": "Pepe Jefe",
+      "upn": "P_JEFE",
+      "fecha": "05/09/1980",
+      "departamento": "Finanzas",
+      "faltanDias": "-23",
+      "idSuperior": "",
+      "id": 1
+    },
+    {
+      "nombre": "Juan Dias",
+      "upn": "J_DIAS",
+      "fecha": "03/07/1980",
+      "departamento": "Sistemas",
+      "faltanDias": "-87",
+      "idSuperior": "",
+      "id": 2
+    },
+    {
+      "nombre": "Juan Perez",
+      "upn": "J_PEREZ",
+      "fecha": "15/01/1990",
+      "departamento": "Rrhh",
+      "faltanDias": "-256",
+      "idSuperior": "",
+      "id": 3
+    },
+    {
+      "nombre": "Pedro Lopez",
+      "upn": "P_LOPEZ",
+      "fecha": "10/06/1993",
+      "departamento": "Finanzas",
+      "faltanDias": "-110",
+      "idSuperior": "1",
+      "id": 4
+    },
+    {
+      "nombre": "Laura Martinez",
+      "upn": "L_MARTINEZ",
+      "fecha": "28/02/1998",
+      "departamento": "Finanzas",
+      "faltanDias": "-212",
+      "idSuperior": "2",
+      "id": 5
+    },
+    {
+      "nombre": "Ana Sánchez",
+      "upn": "A_SÁNCHEZ",
+      "fecha": "07/10/1992",
+      "departamento": "Rrhh",
+      "faltanDias": "9",
+      "idSuperior": "3",
+      "id": 6
+    },
+    {
+      "nombre": "Luis Torres",
+      "upn": "L_TORRES",
+      "fecha": "12/12/1984",
+      "departamento": "Finanzas",
+      "faltanDias": "75",
+      "idSuperior": "1",
+      "id": 7
+    },
+    {
+      "nombre": "Javier Hernandez",
+      "upn": "J_HERNANDEZ",
+      "fecha": "18/09/1991",
+      "departamento": "Sistemas",
+      "faltanDias": "-10",
+      "idSuperior": "2",
+      "id": 8
+    },
+    {
+      "nombre": "Lucía Romero",
+      "upn": "L_ROMERO",
+      "fecha": "30/06/1988",
+      "departamento": "Rrhh",
+      "faltanDias": "-90",
+      "idSuperior": "3",
+      "id": 9
+    },
+    {
+      "nombre": "Elena Ortega",
+      "upn": "E_ORTEGA",
+      "fecha": "29/09/1993",
+      "departamento": "Finanzas",
+      "faltanDias": "1",
+      "idSuperior": "1",
+      "id": 10
+    },
+    {
+      "nombre": "Alejandro Rojas",
+      "upn": "A_ROJAS",
+      "fecha": "23/10/1987",
+      "departamento": "Sistemas",
+      "faltanDias": "25",
+      "idSuperior": "2",
+      "id": 11
+    },
+    {
+      "nombre": "Andrés Cruz",
+      "upn": "A_CRUZ",
+      "fecha": "31/08/1992",
+      "departamento": "Rrhh",
+      "faltanDias": "-28",
+      "idSuperior": "3",
+      "id": 12
+    },
+    {
+      "nombre": "Carolina Gomez",
+      "upn": "C_GOMEZ",
+      "fecha": "14/10/1986",
+      "departamento": "Finanzas",
+      "faltanDias": "16",
+      "idSuperior": "1",
+      "id": 13
+    },
+    {
+      "nombre": "Isabel Silva",
+      "upn": "I_SILVA",
+      "fecha": "03/10/1992",
+      "departamento": "Sistemas",
+      "faltanDias": "5",
+      "idSuperior": "2",
+      "id": 14
+    },
+    {
+      "nombre": "Sergio Vega",
+      "upn": "S_VEGA",
+      "fecha": "16/07/1988",
+      "departamento": "Rrhh",
+      "faltanDias": "-74",
+      "idSuperior": "3",
+      "id": 15
+    },
+    {
+      "nombre": "Hugo Morales",
+      "upn": "H_MORALES",
+      "fecha": "24/11/1991",
+      "departamento": "Finanzas",
+      "faltanDias": "57",
+      "idSuperior": "1",
+      "id": 16
+    },
+    {
+      "nombre": "Natalia Castañeda",
+      "upn": "N_CASTAÑEDA",
+      "fecha": "09/09/1986",
+      "departamento": "Sistemas",
+      "faltanDias": "-19",
+      "idSuperior": "2",
+      "id": 17
+    },
+    {
+      "nombre": "Susana Pacheco",
+      "upn": "S_PACHECO",
+      "fecha": "22/10/1992",
+      "departamento": "Rrhh",
+      "faltanDias": "24",
+      "idSuperior": "3",
+      "id": 18
+    },
+    {
+      "nombre": "Fernando Rios",
+      "upn": "F_RIOS",
+      "fecha": "30/09/1987",
+      "departamento": "Finanzas",
+      "faltanDias": "2",
+      "idSuperior": "1",
+      "id": 19
+    },
+    {
+      "nombre": "Ricardo Santos",
+      "upn": "R_SANTOS",
+      "fecha": "12/03/1993",
+      "departamento": "Sistemas",
+      "faltanDias": "-200",
+      "idSuperior": "2",
+      "id": 20
+    },
+    {
+      "nombre": "Carmen Guerrero",
+      "upn": "C_GUERRERO",
+      "fecha": "07/12/1985",
+      "departamento": "Rrhh",
+      "faltanDias": "70",
+      "idSuperior": "3",
+      "id": 21
+    },
+    {
+      "nombre": "María González",
+      "upn": "M_GONZÁLEZ",
+      "fecha": "20/11/1985",
+      "departamento": "Finanzas",
+      "faltanDias": "53",
+      "idSuperior": "1",
+      "id": 22
+    },
+    {
+      "nombre": "Pedro Lopez",
+      "upn": "P_LOPEZ",
+      "fecha": "10/06/1993",
+      "departamento": "Sistemas",
+      "faltanDias": "-110",
+      "idSuperior": "2",
+      "id": 23
+    },
+    {
+      "nombre": "Laura Martinez",
+      "upn": "L_MARTINEZ",
+      "fecha": "28/02/1998",
+      "departamento": "Rrhh",
+      "faltanDias": "-212",
+      "idSuperior": "3",
+      "id": 24
+    },
+    {
+      "nombre": "Carlos Rodriguez",
+      "upn": "C_RODRIGUEZ",
+      "fecha": "05/09/1987",
+      "departamento": "Finanzas",
+      "faltanDias": "-23",
+      "idSuperior": "1",
+      "id": 25
+    },
+    {
+      "nombre": "Ana Sanchez",
+      "upn": "A_SANCHEZ",
+      "fecha": "07/10/1992",
+      "departamento": "Sistemas",
+      "faltanDias": "9",
+      "idSuperior": "2",
+      "id": 26
+    },
+    {
+      "nombre": "Luis Torres",
+      "upn": "L_TORRES",
+      "fecha": "12/12/1984",
+      "departamento": "Rrhh",
+      "faltanDias": "75",
+      "idSuperior": "3",
+      "id": 27
+    },
+    {
+      "nombre": "Marta Diaz",
+      "upn": "M_DIAZ",
+      "fecha": "25/05/1995",
+      "departamento": "Finanzas",
+      "faltanDias": "-126",
+      "idSuperior": "1",
+      "id": 28
+    },
+    {
+      "nombre": "Javier Hernandez",
+      "upn": "J_HERNANDEZ",
+      "fecha": "18/09/1991",
+      "departamento": "Sistemas",
+      "faltanDias": "-10",
+      "idSuperior": "2",
+      "id": 29
+    },
+    {
+      "nombre": "Lucía Romero",
+      "upn": "L_ROMERO",
+      "fecha": "28/09/1988",
+      "departamento": "Rrhh",
+      "faltanDias": "0",
+      "idSuperior": "3",
+      "id": 30
+    },
+    {
+      "nombre": "Diego Vargas",
+      "upn": "D_VARGAS",
+      "fecha": "05/04/1997",
+      "departamento": "Finanzas",
+      "faltanDias": "-176",
+      "idSuperior": "1",
+      "id": 31
+    },
+    {
+      "nombre": "Elena Ortega",
+      "upn": "E_ORTEGA",
+      "fecha": "08/11/1993",
+      "departamento": "Sistemas",
+      "faltanDias": "41",
+      "idSuperior": "2",
+      "id": 32
+    },
+    {
+      "nombre": "Alejandro Rojas",
+      "upn": "A_ROJAS",
+      "fecha": "23/07/1987",
+      "departamento": "Rrhh",
+      "faltanDias": "-67",
+      "idSuperior": "3",
+      "id": 33
+    },
+    {
+      "nombre": "Valeria Navarro",
+      "upn": "V_NAVARRO",
+      "fecha": "19/12/1999",
+      "departamento": "Finanzas",
+      "faltanDias": "82",
+      "idSuperior": "1",
+      "id": 34
+    },
+    {
+      "nombre": "Andrés Cruz",
+      "upn": "A_CRUZ",
+      "fecha": "31/08/1992",
+      "departamento": "Sistemas",
+      "faltanDias": "-28",
+      "idSuperior": "42",
+      "id": 35
+    },
+    {
+      "nombre": "Carolina Gomez",
+      "upn": "C_GOMEZ",
+      "fecha": "14/05/1986",
+      "departamento": "Rrhh",
+      "faltanDias": "-137",
+      "idSuperior": "37",
+      "id": 36
+    },
+    {
+      "nombre": "Roberto Mendoza",
+      "upn": "R_MENDOZA",
+      "fecha": "27/06/1996",
+      "departamento": "Finanzas",
+      "faltanDias": "-93",
+      "idSuperior": "35",
+      "id": 37
+    },
+    {
+      "nombre": "Isabel Silva",
+      "upn": "I_SILVA",
+      "fecha": "03/10/1992",
+      "departamento": "Sistemas",
+      "faltanDias": "5",
+      "idSuperior": "37",
+      "id": 38
+    },
+    {
+      "nombre": "Sergio Vega",
+      "upn": "S_VEGA",
+      "fecha": "16/07/1988",
+      "departamento": "Rrhh",
+      "faltanDias": "-74",
+      "idSuperior": "37",
+      "id": 39
+    },
+    {
+      "nombre": "Daniela Fuentes",
+      "upn": "D_FUENTES",
+      "fecha": "01/12/1997",
+      "departamento": "Finanzas",
+      "faltanDias": "64",
+      "idSuperior": "37",
+      "id": 40
+    },
+    {
+      "nombre": "Hugo Morales",
+      "upn": "H_MORALES",
+      "fecha": "24/11/1991",
+      "departamento": "Sistemas",
+      "faltanDias": "57",
+      "idSuperior": "40",
+      "id": 41
+    },
+    {
+      "nombre": "Natalia Castañeda",
+      "upn": "N_CASTAÑEDA",
+      "fecha": "09/09/1986",
+      "departamento": "Rrhh",
+      "faltanDias": "-19",
+      "idSuperior": "40",
+      "id": 42
+    },
+    {
+      "nombre": "Gabriel Soto",
+      "upn": "G_SOTO",
+      "fecha": "17/03/1995",
+      "departamento": "Finanzas",
+      "faltanDias": "-195",
+      "idSuperior": "40",
+      "id": 43
+    },
+    {
+      "nombre": "Susana Pacheco",
+      "upn": "S_PACHECO",
+      "fecha": "22/07/1992",
+      "departamento": "Sistemas",
+      "faltanDias": "-68",
+      "idSuperior": "31",
+      "id": 44
+    },
+    {
+      "nombre": "Fernando Ríos",
+      "upn": "F_RÍOS",
+      "fecha": "25/08/1987",
+      "departamento": "Rrhh",
+      "faltanDias": "-34",
+      "idSuperior": "40",
+      "id": 45
+    },
+    {
+      "nombre": "Paola Barrera",
+      "upn": "P_BARRERA",
+      "fecha": "29/11/1998",
+      "departamento": "Finanzas",
+      "faltanDias": "62",
+      "idSuperior": "43",
+      "id": 46
+    },
+    {
+      "nombre": "Ricardo Santos",
+      "upn": "R_SANTOS",
+      "fecha": "12/03/1993",
+      "departamento": "Sistemas",
+      "faltanDias": "-200",
+      "idSuperior": "43",
+      "id": 47
+    },
+    {
+      "nombre": "Carmen Guerrero",
+      "upn": "C_GUERRERO",
+      "fecha": "07/12/1985",
+      "departamento": "Rrhh",
+      "faltanDias": "70",
+      "idSuperior": "37",
+      "id": 48
+    },
+    {
+      "nombre": "Oscar Delgado",
+      "upn": "O_DELGADO",
+      "fecha": "02/06/1996",
+      "departamento": "Finanzas",
+      "faltanDias": "-118",
+      "idSuperior": "40",
+      "id": 49
+    }
+  ]
+}
