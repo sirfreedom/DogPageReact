@@ -1,12 +1,8 @@
-import React ,{useEffect} from 'react';
+import React ,{useEffect} from 'react'
 
 
 const CarritoCompra = props => 
 {
-
-
-
-
 
   useEffect(() => 
   {
@@ -16,21 +12,9 @@ const CarritoCompra = props =>
 
   return (
     <>
-
-
-
-
-
-
-      <a>
+      <a key={'a' + Math.random().toString() } href='' id='a' alt="a" >
         {props.DogId}
       </a>
-
-
-
-
-
-
 
     </>
   );

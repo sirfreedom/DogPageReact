@@ -1,11 +1,8 @@
-import React,{useState,useEffect } from "react";
-import { useUserContext,useUserChangeContext } from "./Helpers";
+import React,{useState,useEffect } from 'react'
+
 
 
 const Login = props => {
-
-  const UserLogin =  useUserContext(); 
-  const UserChangePass = useUserChangeContext();
 
   const [Mail,setMail] = useState(".");
   const [Pass,setPass] = useState(".");
@@ -13,7 +10,7 @@ const Login = props => {
   useEffect(() => 
   {
     console.log("Login");
-    console.log(UserLogin);
+
 
 
   });
@@ -24,12 +21,7 @@ const Login = props => {
     setMail(document.getElementById("txtEmail").value);
     setPass(document.getElementById("txtPass").value);
     
-    if(Mail != "" && Pass != "" )
-    {
-       UserChangePass([{ mail: Mail, pass: Pass}]);
-       console.log("Save");
-       //console.log(UserLogin);
-    }
+
 
   }
 

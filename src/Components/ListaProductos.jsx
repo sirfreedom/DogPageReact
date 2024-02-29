@@ -1,7 +1,7 @@
-import React, { useState,useEffect } from "react";
-import {ListAll} from './Helpers';
-import {Button} from 'react-bootstrap/';
-import Alert from 'react-bootstrap/Alert';
+import React, { useState,useEffect } from 'react'
+import {ListAll} from './Helpers'
+import {Button} from 'react-bootstrap/'
+import Alert from 'react-bootstrap/Alert'
 
 export const ListaProductos = (props) => {
   const [dogs, setDogs] = useState([]);
@@ -23,7 +23,7 @@ export const ListaProductos = (props) => {
   {
       (text.length > 1) &&
       setDogFilter(dogs.filter(d => d.name.toLowerCase().includes(text.toLowerCase())));
-      (text.length == 0) && setDogFilter(dogs);
+      (text.length === 0) && setDogFilter(dogs);
   } 
 
   const dllPets_onChange = (id) => 

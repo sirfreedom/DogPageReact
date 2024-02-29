@@ -1,10 +1,9 @@
-import '../Css/RGrid.css';
-import React, {useCallback, useState} from 'react';
-import {useEffect} from 'react';
-import exportFromJSON from 'export-from-json';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-import * as lodash from 'lodash';
+import '../Css/RGrid.css'
+import React, {useCallback, useState, useEffect} from 'react'
+import exportFromJSON from 'export-from-json'
+import jsPDF from 'jspdf'
+import 'jspdf-autotable'
+import * as lodash from 'lodash'
 
 const RGrid = props => {
   const [Rows, setRows] = useState([]);
@@ -118,21 +117,23 @@ const RGrid = props => {
   }, [Rows, rowsPerPage, CalculatePages]);
 
   return (
-    <div>
+    <div >
       {props.isLoading ? (
         <h2>
           <img
+            alt="imgLoading"
             className="imgLoading"
             title="Loading..."
             border="0"
             width="30px"
             height="30px"
+            key={'kimgLoding' + Math.random().toString() }
           ></img>
         </h2>
       ) : (
         <React.Fragment>
           {props?.Export && (
-            <span>
+            <span key={'span' + Math.random().toString()}>
               <button value="csv" className="btn-2" onClick={handleExportar}>
                 CSV
               </button>
@@ -149,7 +150,7 @@ const RGrid = props => {
               className="Select"
               name="ddlPages"
               id="ddlPages"
-              key="ddlPages"
+              key={'ddlPages' + Math.random().toString() }
               onChange={e => ddlPages_OnChange(e.target.value)}
             >
               <option value="10"> 10 </option>
@@ -159,27 +160,29 @@ const RGrid = props => {
               <option value="9999"> All </option>
             </select>
           </span>
-          <table width="100%" border="0" align="center">
-            <tr className="TrTittle">
-              <td className="TdTittle" align="center">
-                <a>{props.Tittle}</a>
+          <table width="100%" border="0" align="center" key={'tTittle' + Math.random().toString() } >
+            <tr className="TrTittle" key={'trTittle' + Math.random().toString() } >
+              <td className="TdTittle" align="center" key={'tdTittle' + Math.random().toString() } >
+                <a key={'aTittle' + Math.random().toString() } >{props.Tittle}</a>
               </td>
             </tr>
           </table>
-          <table className="Table" key="tgrid" width="100%" align="center">
-            <thead key="thead">
-              <tr key="trHead">
+          <table className="Table" key={'tgrid' + Math.random().toString() } width="100%" align="center">
+            <thead key={'thead' + Math.random().toString()}>
+              <tr key={'trHead' + Math.random().toString() }>
                 {props.columns.map((column, idx) => {
                   return (
-                    <th className="TableCellBold" width={column.WidthColumn}>
+                    <th className="TableCellBold" width={column.WidthColumn} key={'thHead' + idx }   >
                       {column.Tittle}{' '}
                       {column.Ordenable && (
                           <img
+                            alt="imgSortingAsc"
                             className="imgSortingAsc"
+                            key={'imgHead' + idx}
                             title="Sort Asc"
                             border="0"
-                            width="14px"
-                            height="14px"
+                            width="1%"
+                            height="1%"
                             onClick={e => HandlerOrderby(column.ColumnOrdenable, 'asc')}
                           ></img>
                       )}
@@ -187,36 +190,38 @@ const RGrid = props => {
                   );
                 })}
                 {props.ShowDelete && (
-                  <th width="1%" className="TableCellBold">
+                  <th width="1%" className="TableCellBold" key={'thAction' + Math.random().toString()}  >
                     Action
                   </th>
                 )}
               </tr>
             </thead>
-            <tbody>
+            <tbody key={'tbody' + Math.random().toString() }  >
               {Rows.map((row, idx) => {
                 if (
                   idx < actualPageIndex * rowsPerPage + 1 &&
                   idx >= actualPageIndex * rowsPerPage - rowsPerPage
                 ) {
                   return (
-                    <tr key={'tr' + idx}>
-                      {props.columns.map((column, colx) => {
+                    <tr key={'tr1' + Math.random().toString()  }>
+                      {props.columns.map((column, colx ) => {
                         return (
-                          <td className="TableCell" width={column.WidthColumn}>
+                          <td key={'td' + Math.random().toString() + colx.toString() } className="TableCell" width={column.WidthColumn}>
                             {column.Selector(row)}
                           </td>
                         );
                       })}
                       {props.ShowDelete && (
-                        <td className="TableCellBold" align="center">
-                          <a href="#" onClick={() => props.DeleteId(row.RowId)}>
+                        <td key={'td_delete' + Math.random().toString()} className="TableCellBold" align="center">
+                          <a key={'a_delete' + Math.random().toString()} href="#" onClick={() => props.DeleteId(row.RowId)}>
                             <img
+                              alt="imgDelete"
                               className="imgDelete"
                               title="Next"
                               border="0"
                               width="18px"
                               height="18px"
+                              key={'imgDelete' + Math.random().toString() }
                             ></img>
                           </a>
                         </td>
@@ -226,18 +231,20 @@ const RGrid = props => {
                 }
               })}
             </tbody>
-            <tfoot>
-              <tr key="trFoot">
+            <tfoot >
+              <tr key={'tr' + Math.random().toString() } >
                 <td
-                  key="tdFoot"
+                  key={'tdFoot' + Math.random().toString() }
                   align="right"
                   colSpan={props.columns.length + 1}
                   className="TableCellBold"
                 >
                   {EnabledPaging && (
-                    <div className="DivFooter">
+                    <div key="DivFooter" className="DivFooter" >
                       <a href="#" onClick={PrevPage}>
                         <img
+                          alt="imgPrev"
+                          key={'imgPrev' + Math.random().toString() }
                           className="imgPrev"
                           title="Next"
                           border="0"
@@ -251,6 +258,8 @@ const RGrid = props => {
                       </a>
                       <a href="#" onClick={NextPage}>
                         <img
+                          alt="imgNext"
+                          key={'imgNext' + Math.random().toString()}
                           className="imgNext"
                           title="Next"
                           border="0"

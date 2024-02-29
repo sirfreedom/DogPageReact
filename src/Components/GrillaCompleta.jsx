@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import {ListAll} from './Helpers';
-import {GetDog} from './Helpers';
-import {Button} from 'react-bootstrap/';
-import {useEffect} from 'react';
-import ModalEdicion from './ModalEdicion';
+import React, {useState,useEffect} from 'react'
+import {ListAll} from './Helpers'
+import {GetDog} from './Helpers'
+import {Button} from 'react-bootstrap/'
+import ModalEdicion from './ModalEdicion'
 
 
 const GrillaCompleta = () => {
   const [dogs, setDogs] = useState([]);
   const [modalEdit, setModalEdit] = useState(false);
-  const [query, setQuery] = useState('');
+  //const [query, setQuery] = useState('');
   const [dog, setDog] = useState([]);
   
   const GridEdit = id => {
@@ -20,7 +19,7 @@ const GrillaCompleta = () => {
   };
 
   const handleBuscador = e => {
-    setQuery(e.target.value);
+    //setQuery(e.target.value);
   };
 
   const SaveDog = perro => {

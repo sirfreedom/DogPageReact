@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import {Modal, Button} from 'react-bootstrap/';
+import React,{useState} from 'react'
+import {Modal, Button} from 'react-bootstrap/'
 
 function ModalForm(props) {
 
@@ -28,6 +28,7 @@ function ModalForm(props) {
         <Modal.Body className="show-grid">
 
       <table className='Table' align="Center" width="50%" >
+        <tbody>
       <tr>
         <td className='TableCell'>
         <label>Enter your name:
@@ -53,6 +54,7 @@ function ModalForm(props) {
                     </label>
                 </td>
           </tr>
+          </tbody>
         </table>
 
 

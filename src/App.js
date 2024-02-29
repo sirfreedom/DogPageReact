@@ -1,29 +1,24 @@
-import './Css/App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import {Button} from 'react-bootstrap/';
-import React, {useState,useEffect} from 'react';
-import {UserProvider} from './Components/Helpers';
+import './Css/App.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import {Button} from 'react-bootstrap/'
+import React, {useState,useEffect} from 'react'
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {ListAll} from './Components/Helpers'
+import {GetDog} from './Components/Helpers'
 
-
-import {ListAll} from './Components/Helpers';
-import {GetDog} from './Components/Helpers';
-
-import CountryCapitalGame from './Components/CountryCapitalGame';
-import FlexObjectScreen from './Components/FlexObjectScreen';
-import ListaProductos from './Components/ListaProductos';
-import CarritoCompra from './Components/CarritoCompra';
-import RGrid from './Components/RGrid';
-import ListaTareas from './Components/ListaTareas';
-import Login from './Components/Login';
-import Card from './Components/Card';
-import GrillaCompleta from './Components/GrillaCompleta';
-import ModalForm from './Components/ModalForm';
-import TestUsers from './Components/TestUsers';
-import PlaySong from './Components/PlaySong';
-import CitizenExam from './Components/CitizenExam';
-
+import CountryCapitalGame from './Components/CountryCapitalGame'
+import FlexObjectScreen from './Components/FlexObjectScreen'
+import ListaProductos from './Components/ListaProductos'
+import CarritoCompra from './Components/CarritoCompra'
+import RGrid from './Components/RGrid'
+import ListaTareas from './Components/ListaTareas'
+import Login from './Components/Login'
+import Card from './Components/Card'
+import GrillaCompleta from './Components/GrillaCompleta'
+import ModalForm from './Components/ModalForm'
+import PlaySong from './Components/PlaySong'
+import UploadFile from './Components/UploadFile'
 
 function App() {
   const [Dogs, setDogs] = useState([]);
@@ -31,7 +26,6 @@ function App() {
   const [DogId,setDogId] = useState(0);
   const [Dog,setDog] = useState();
   const [modalEdit, setModalEdit] = useState(false); // Para el popup de ModalForm
-  const [User, setUser] = useState(".");
 
 
 const FindDogs = () => {
@@ -145,26 +139,21 @@ const FindDogs = () => {
           </li>
 
           <li>
-            <Link to="/TestUsers"> Test Users </Link>
-          </li>
-
-          <li>
             <Link to="/PlaySong"> PlaySong </Link> 
           </li>
 
           <li>
-            <Link to="/CitizenExam"> Citizen Exam </Link> 
+            <Link to="/UploadFile"> Upload File </Link> 
           </li>
-          
+
         </ul>
 
         <Switch>
 
           <Route path="/Login">
 
-          <UserProvider value={User}>
             <Login></Login>
-          </UserProvider>
+
 
           </Route>
 
@@ -232,18 +221,13 @@ const FindDogs = () => {
             <Button onClick={() => OpenModalForm()}> Show </Button>
         </Route>
 
-        <Route path="/TestUsers">
-            <h2> Test Users </h2>
-            <TestUsers></TestUsers>
-        </Route>
-
         <Route path="/PlaySong">
             <h2> PlaySong </h2>
             <PlaySong></PlaySong>
         </Route>
 
-        <Route path="/CitizenExam">
-            <CitizenExam></CitizenExam>
+        <Route path="/UploadFile">
+            <UploadFile></UploadFile>
         </Route>
 
         </Switch>

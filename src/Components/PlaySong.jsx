@@ -1,4 +1,4 @@
-import React, {useRef,useState, useEffect} from 'react'
+import React, {useRef,useState} from 'react'
 
 
 const PlaySongs = () => {
@@ -37,16 +37,6 @@ const PlaySongs = () => {
       }
     ]
   );
-
-  //const currentTrack = SongList[0];
-
-
-  useEffect(() => 
-  {
-   
-
-}, []);
-
 
 
   const getTimeRemaining = (e) => {

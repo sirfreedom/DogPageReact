@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 
 const GrillaEvent = user => {
   console.log('hola mundo');
@@ -18,9 +18,9 @@ const Grilla = () => {
       <table key="tGrilla">
         <thead>
           <tr>
-            <td>comando</td>
-            <td>Nombre</td>
-            <td>Apellido</td>
+            <th>comando</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
           </tr>
         </thead>
         <tbody>

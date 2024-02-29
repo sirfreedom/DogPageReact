@@ -1,7 +1,6 @@
-import React,{useReducer,useRef} from 'react';
+import React,{useReducer,useRef} from 'react'
 
 const ListaTareas = () => {
-
 const txtTaskRef = useRef();
 
 const [tasks, dispatch ] = useReducer( (state = [], action) => 
@@ -17,13 +16,13 @@ const [tasks, dispatch ] = useReducer( (state = [], action) =>
         case 'add': 
             return [...state, { id: action.id, tittle: action.tittle }]
         case 'del':
-            indexDelete = newState.findIndex(x => x.id == action.id); // find the index which was deleted
+            indexDelete = newState.findIndex(x => x.id === action.id); // find the index which was deleted
             newState.splice(indexDelete, 0, action.tittle);  // splice, mark the item as undefined
             
             // add to new list items which have not been marked as undefined
             for(let i = 0; i < newState.length;i++) 
             { 
-                if (newState[i] != undefined ) 
+                if (newState[i] !== undefined ) 
                 { 
                     returnState.push(state[i]);
                 }  
@@ -68,7 +67,7 @@ return <>
     <div>
     
     <ul>
-    {tasks != undefined && tasks.map((row, idx) => {
+    {tasks !== undefined && tasks.map((row, idx) => {
         return (
             <li key={idx} >
             {row.tittle}

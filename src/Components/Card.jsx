@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useState} from 'react'
 
 const Card = ({dog}) => {
 
@@ -37,6 +37,13 @@ const Card = ({dog}) => {
   return (
   <>
       <table className="Table">
+        <thead>
+          <tr>
+            <td>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
         <tr>
           <td className="TableCell" aling="Center">
              <strong> Name : </strong>  {NameDog}
@@ -44,7 +51,7 @@ const Card = ({dog}) => {
         </tr>
         <tr>
           <td className="TableCell" align='Center' >
-            <img width="300px" height="300px" src={(imgDog === '') ? '' : (imgDog) } className={(imgDog === '') ? 'imgDog' : '' } alt="Dogs" />
+            <img alt="img" width="300px" height="300px" src={(imgDog === '') ? '' : (imgDog) } className={(imgDog === '') ? 'imgDog' : '' } alt="Dogs" />
           </td>
         </tr>
         <tr>
@@ -71,7 +78,13 @@ const Card = ({dog}) => {
            {LifeSpanDog} 
           </td>
         </tr>
-
+        </tbody>
+        <tfoot>
+          <tr>
+             <td>
+            </td>
+          </tr>
+        </tfoot>
       </table>
   </>
   
