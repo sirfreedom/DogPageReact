@@ -51,7 +51,7 @@ const Card = ({dog}) => {
         </tr>
         <tr>
           <td className="TableCell" align='Center' >
-            <img alt="img" width="300px" height="300px" src={(imgDog === '') ? '' : (imgDog) } className={(imgDog === '') ? 'imgDog' : '' } alt="Dogs" />
+            <img width="300px" height="300px" src={(imgDog === '') ? '' : (imgDog) } className={(imgDog === '') ? 'imgDog' : '' } alt="Dogs" />
           </td>
         </tr>
         <tr>
