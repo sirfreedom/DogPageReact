@@ -57,7 +57,7 @@ export const GetDog = async id => {
   let data = [];
   try{
 
-    if(id === '0')
+    if(id === 0)
     {
       return data;
     }
