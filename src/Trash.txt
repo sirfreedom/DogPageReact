@@ -140,3 +140,135 @@ https://www.npmjs.com/package/jspdf-autotable
         );
         })}
    
+
+
+
+          <ul >
+
+          <li key="Login"  > 
+            <Link to="/Login">Login</Link>
+          </li>
+
+          <li key="GrillaCompleta" >
+            <Link to="/GrillaCompletaPrueba"> Grilla Completa Dog Test </Link>
+          </li>
+
+          <li key="Grilla" >
+            <Link to="/RGrilla">RGrilla</Link>
+          </li>
+
+          <li key="CountryCapitalGame" >
+            <Link to="/CountryCapitalGame">CountryCapitalGame</Link>
+          </li>
+
+          <li key="FlexObjectScreen" >
+            <Link to="/FlexObjectScreen">FlexObjectScreen</Link>
+          </li>
+
+          <li key="ListaProductos" >
+            <Link to="/ListaProductos">ListaProductos</Link>
+          </li>
+
+          <li key="ListaTareas" >
+             <Link to="/ListaTareas"> Lista de Tareas</Link> 
+          </li>
+
+          <li>
+            <Link to="/PopUpForm"> Pop up Form </Link>
+          </li>
+
+          <li>
+            <Link to="/PlaySong"> PlaySong </Link> 
+          </li>
+
+          <li>
+            <Link to="/UploadFile"> Upload File </Link> 
+          </li>
+
+        </ul>
+
+        <Switch>
+
+          <Route path="/Login">
+
+            <Login></Login>
+
+
+          </Route>
+
+          <Route path="/rGrilla">
+
+            <button key="btnFindTest" id="btnFindTest" onClick={FindDogs}>
+              Ver Perros Test
+            </button>
+            <br></br>
+            <RGrid
+              key="RGrid"
+              Tittle="Grilla Dogs Test"
+              rows={Dogs}
+              columns={GrillaConfiguracion}
+              ShowDelete="true"
+              Export="true"
+              DeleteId={id => console.log(id)}
+              isLoading={isCargando}
+              ConfigurationId="id"
+            />
+
+          </Route>
+
+          <Route path="/GrillaCompletaPrueba">
+            <GrillaCompleta></GrillaCompleta>
+          </Route>
+
+          <Route path="/ListaProductos">
+         
+            <table>
+              <tr>
+                <td>
+                    <ListaProductos key="lProductos" SelectId={id => setDogId(id)} > </ListaProductos>
+                </td>
+                <td>
+                   <Card key="Card" dog={Dog} href="#"></Card>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="2">
+                    <CarritoCompra DogId={DogId} ></CarritoCompra>
+                </td>
+              </tr>
+            </table>
+
+          </Route>
+
+          <Route path="/CountryCapitalGame">
+            <h2>Capital Game</h2>
+            <CountryCapitalGame data={{Germany: 'Berlin', Azerbaijan: 'Baku'}}></CountryCapitalGame>
+          </Route>
+
+          <Route path="/FlexObjectScreen">
+            <h2>FlexObjectScreen</h2>
+            <FlexObjectScreen></FlexObjectScreen>
+          </Route>
+
+        <Route path="/ListaTareas" >
+            <h2> Lista de Tareas </h2>
+            <ListaTareas></ListaTareas>
+        </Route>
+
+        <Route path="/PopUpForm">
+            <h2> Show Popup Form </h2>
+            <Button onClick={() => OpenModalForm()}> Show </Button>
+        </Route>
+
+        <Route path="/PlaySong">
+            <h2> PlaySong </h2>
+            <PlaySong></PlaySong>
+        </Route>
+
+        <Route path="/UploadFile">
+            <UploadFile></UploadFile>
+        </Route>
+
+        </Switch>
+      </div>
+    </Router>
