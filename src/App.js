@@ -8,6 +8,7 @@ import PlaySong from "./Components/PlaySong";
 import Home from "./Components/Home";
 import LineaBoton from "./Components/LineaBoton";
 import NoPage from "./Components/NoPage";
+import FlexObjectScreen from "./Components/FlexObjectScreen";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="PlaySong" element={<PlaySong />} />
           <Route path="LineaBoton" element={<LineaBoton />} />
+          <Route path="FlexObjectScreen" element={<FlexObjectScreen />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
