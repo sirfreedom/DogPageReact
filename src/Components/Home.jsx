@@ -5,7 +5,7 @@ const Home = () => {
 
     return (
         <>
-            <a>home</a>
+            <a href='/#'>home</a>
         </>
     );
 }

@@ -6,9 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Components/Layout";
 import PlaySong from "./Components/PlaySong";
 import Home from "./Components/Home";
-import LineaBoton from "./Components/LineaBoton";
+import ListDogs from "./Components/ListDogs";
 import NoPage from "./Components/NoPage";
-import FlexObjectScreen from "./Components/FlexObjectScreen";
+import EditDog from './Components/EditDog';
 
 function App() {
 
@@ -20,8 +20,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="PlaySong" element={<PlaySong />} />
-          <Route path="LineaBoton" element={<LineaBoton />} />
-          <Route path="FlexObjectScreen" element={<FlexObjectScreen />} />
+          <Route path="ListDogs" element={<ListDogs />} />
+          <Route path="EditDog" element={<EditDog />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
