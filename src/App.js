@@ -9,6 +9,8 @@ import Home from "./Components/Home";
 import ListDogs from "./Components/ListDogs";
 import NoPage from "./Components/NoPage";
 import EditDog from './Components/EditDog';
+import Upload from './Components/UploadFile';
+import UploadCompress from './Components/UploadCompress';
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
           <Route path="PlaySong" element={<PlaySong />} />
           <Route path="ListDogs" element={<ListDogs />} />
           <Route path="EditDog" element={<EditDog />} />
+          <Route path="Upload" element={<Upload />} />
+          <Route path="UploadCompress" element={<UploadCompress />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

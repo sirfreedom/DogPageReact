@@ -1,4 +1,3 @@
-//import React, { useState} from 'react';
 import React from 'react';
 import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
@@ -7,11 +6,6 @@ import Dropzone from 'react-dropzone-uploader'
 const UploadFile = () => 
 {
   
-
-
-
-
-
   const toast = (innerHTML) => {
     const el = document.getElementById('toast')
     el.innerHTML = innerHTML
@@ -23,42 +17,25 @@ const UploadFile = () =>
   const getUploadParams = ({ file }) => {
     const body = new FormData()
     body.append('file', file)
-    return { url: 'https://localhost:54044/api/Quini/Upload', body }
+    return { url: 'https://sirfreedom.somee.com/api/File', body }
   }
 
   const handleChangeStatus = ({ meta, remove }, status) => {
-    if (status === 'headers_received') {
+    if (status === 'headers_received') 
+    {
       toast(`${meta.name} uploaded!`)
       remove()
-    } else if (status === 'aborted') {
+    } 
+    if (status === 'aborted') 
+    {
       toast(`${meta.name}, upload failed...`)
     }
   }
 
-
-/*
-    const getUploadParams = ({ file, meta }) => {
-      const body = new FormData()
-      body.append('file', file)
-      //return { url: 'https://www.hollidaypay.gearhostpreview.com/Home/Upload', body }
-
-      return { url: 'http://localhost:32312/Home/Upload', body }
-    }
-
-    // called every time a file's `status` changes
-    const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
-    
-    // receives array of files that are done uploading when submit button is clicked
-    const handleSubmit = (files) => { console.log(files.map(f => f.meta)) }
-*/
-
   return (
-    <div>
-      <a>
-      Manzana 
-      </a>
-      
-      <React.Fragment>
+    <>
+
+   <div>
       <div id="toast">Upload</div>
       <Dropzone
         getUploadParams={getUploadParams}
@@ -72,8 +49,9 @@ const UploadFile = () =>
           dropzoneActive: { borderColor: 'green' },
         }}
       />
-    </React.Fragment>
+    
     </div>
+    </>
   );
 };
 

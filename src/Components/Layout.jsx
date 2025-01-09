@@ -16,6 +16,16 @@ const Layout = () => {
           <li>
             <Link to="ListDogs">ListDogs</Link>
           </li>
+          <li>
+            <Link to="EditDog">EditDog</Link>
+          </li>
+          <li>
+            <Link to="Upload"> Upload </Link>
+          </li>
+          <li>
+            <Link to="UploadCompress" > Upload Compress </Link>
+          </li>
+
         </ul>
       </nav>
 

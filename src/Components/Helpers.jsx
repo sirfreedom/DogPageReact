@@ -28,7 +28,7 @@ export const FindDogs = async value => {
 };
 
 export const InsertComment = () => 
-  {
+{
   const url = 'https://reqres.in/api/posts';
   const requestOptions = {
       method: 'POST',
@@ -58,4 +58,19 @@ export const InsertComment = () =>
   };
 
 
+  export const insertImage = async (base64Image) => {
+    try {
+        const response = await fetch('https://sirfreedom.somee.com/api/File', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ imageText: base64Image }),
+        });
+        const data = await response.json();
+        console.log(data); // Maneja la respuesta de la API
+    } catch (error) {
+        console.error('Error al enviar la imagen:', error);
+    }
+};
   
