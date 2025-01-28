@@ -65,7 +65,7 @@ export const InsertComment = () =>
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ imageText: base64Image }),
+            body: JSON.stringify({ imagebase64: base64Image })
         });
         const data = await response.json();
         console.log(data); // Maneja la respuesta de la API

@@ -26,9 +26,7 @@ Resizer.imageFileResizer(
 function ImageResizer({ title, description, file }) {
   const [newImage, setNewImage] = useState();
 
-  const handleImage = (image) => {
-    setNewImage(image);
-  };
+
 
   useEffect(() => {
   
@@ -38,8 +36,8 @@ function ImageResizer({ title, description, file }) {
       try {
         Resizer.imageFileResizer(
           file,
-          1280,
-          720,
+          480,
+          480,
           "JPEG",
           50,
           0,
@@ -52,8 +50,8 @@ function ImageResizer({ title, description, file }) {
           (uri) => 
           {
               insertImage(uri);
-              console.log(uri);
-              //document.getElementById("txtTest").value = uri;
+              //console.log(uri);
+              //setImgtext(uri);
           },
           "base64",
           100,
@@ -67,7 +65,7 @@ function ImageResizer({ title, description, file }) {
   }, [file]);
 
   if (!newImage) {
-    return null;
+    return <></>;
   }
 
   return (

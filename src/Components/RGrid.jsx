@@ -6,17 +6,19 @@ import 'jspdf-autotable'
 import * as lodash from 'lodash'
 
 const RGrid = props => {
-  const [Rows, setRows] = useState([]);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [actualPageIndex, setActualPageIndex] = useState(1);
-  const [TotalPages, setTotalPages] = useState(0);
-  
+  const [Rows, setRows] = useState([]); //rows en general ya ordenadas
+  const [rowsPerPage, setRowsPerPage] = useState(10); //rows por pagina
+  const [actualPageIndex, setActualPageIndex] = useState(1); //en que pagina estoy
+  const [TotalPages, setTotalPages] = useState(0); // manejador de paginas
+  const [ColSpanGrid, setColSpanGrid] = useState(1); // seteo si existe las columnas edit y delete
+  const [UniqueOrdering,setUniqueOrdering] = useState(false); // necesito ordenar los rows una sola vez.
 
   const handleExportar = e => {
     const doc = new jsPDF();
     const fileName = (props.Tittle + '_' + new Date().toLocaleString('es-AR'))
       .replace(/[/]/gi, '')
       .replace(/[: ]/g, '');
+
     const data = Rows.map(fila =>
       props.columns.reduce((prev, columna) => {
         return {...prev, [columna.Tittle]: columna.Selector(fila)};
@@ -72,7 +74,8 @@ const RGrid = props => {
       setActualPageIndex(actualPageIndex + 1);
     }
   };
-
+  
+  //Load
   const CalculatePages = useCallback(() => {
     let cantidadFilas = 0;
     let iTotal = 0;
@@ -80,6 +83,7 @@ const RGrid = props => {
     if (Rows.length === 0) {
       return false;
     }
+
     cantidadFilas = Rows.length;
 
     //siempre redondea agregando uno, si sobra.
@@ -88,18 +92,54 @@ const RGrid = props => {
     setTotalPages(iTotal);
   }, [Rows, rowsPerPage]);
 
+
+  Object.prototype.renameProperty = function (oldName, newName) {
+    // no hacer nada si los nombre son iguales
+    if (oldName === newName) {
+      return this;
+    }
+    // Verificar si ya existe la propiedad con el nombre nuevo y evitar errores.
+    if (this.hasOwnProperty(oldName)) {
+      this[newName] = this[oldName];
+      //delete this[oldName]; // Elimina la columna que cambio, pero decidimos duplicarla.
+    }
+    return this;
+  };
+
+const setColSpan = () => {
+
+  if (props.ShowDelete && props.ShowEdit)
+    {
+      setColSpanGrid(3);
+    }
+
+    if ( (props.ShowDelete === true && props.ShowEdit === false) || (props.ShowDelete === false && props.ShowEdit === true) )
+    {
+      setColSpanGrid(2);
+    }
+}
+
+  //necesitamos cambiar el Id por un Id conocido por el control.
   const ChangeId = () => {
-    let sText;
     let oComplete;
-    try {
-      if (props.rows.length === 0) {
+    try 
+    {
+
+      if (props.rows.length === 0 || UniqueOrdering) {
         return;
       }
-      sText = JSON.stringify(props.rows);
-      sText = sText.replace('"' + props.ConfigurationId + '":', '"RowId":');
-      oComplete = JSON.parse(sText);
-      setRows(lodash.sortBy(oComplete, 'RowId'));
-    } catch (e) {
+
+      setUniqueOrdering(true);
+      oComplete = props.rows;
+
+      for (var item of oComplete) {
+        item.renameProperty(props.ConfigurationId, 'RowId');
+      }
+
+    setRows(lodash.sortBy(oComplete, 'RowId'));
+    
+    } catch (e)
+    {
       console.log(e.message);
     }
   };
@@ -109,7 +149,10 @@ const RGrid = props => {
   };
 
   useEffect(() => {
+
     ChangeId();
+    setColSpan();
+    
   }, [props.rows]);
 
   useEffect(() => {
@@ -145,8 +188,10 @@ const RGrid = props => {
               </button>
             </span>
           )}
+
           <span align="right">
             <select
+              value={rowsPerPage}
               className="Select"
               name="ddlPages"
               id="ddlPages"
@@ -160,14 +205,17 @@ const RGrid = props => {
               <option value="9999"> All </option>
             </select>
           </span>
-          <table width="100%" border="0" align="center" key={'tTittle' + Math.random().toString() } >
+
+          <table width={props?.TotalWidth} border="0" align="center" key={'tTittle' + Math.random().toString() } >
             <tr className="TrTittle" key={'trTittle' + Math.random().toString() } >
               <td className="TdTittle" align="center" key={'tdTittle' + Math.random().toString() } >
                 <a key={'aTittle' + Math.random().toString() } >{props.Tittle}</a>
               </td>
             </tr>
           </table>
-          <table className="Table" key={'tgrid' + Math.random().toString() } width="100%" align="center">
+
+          <table className="Table" key={'tgrid' + Math.random().toString() } width={props?.TotalWidth} align="center">
+          
             <thead key={'thead' + Math.random().toString()}>
               <tr key={'trHead' + Math.random().toString() }>
                 {props.columns.map((column, idx) => {
@@ -181,29 +229,48 @@ const RGrid = props => {
                             key={'imgHead' + idx}
                             title="Sort Asc"
                             border="0"
-                            width="1%"
-                            height="1%"
+                            width="5px"
+                            height="5px"
                             onClick={e => HandlerOrderby(column.ColumnOrdenable, 'asc')}
                           ></img>
                       )}
                     </th>
                   );
                 })}
+
                 {props.ShowDelete && (
-                  <th width="1%" className="TableCellBold" key={'thAction' + Math.random().toString()}  >
-                    Action
+                  <th width="1%" className="TableCellBold" key={'thActionDelete' + Math.random().toString()}  >
+                    Delete
                   </th>
                 )}
+
+                {props.ShowEdit && (
+                  <th width="1%" className="TableCellBold" key={'thActionEdit' + Math.random().toString()}  >
+                    Edit
+                  </th>
+                )}
+
+                { (props.ShowEdit || props.ShowDelete) && 
+                (
+                  <th width="1%" colSpan={ColSpanGrid} className="TableCellBold" key={'thActionSpace' + Math.random().toString()} >
+                  </th>
+                )}
+
               </tr>
             </thead>
+
             <tbody key={'tbody' + Math.random().toString() }  >
+
               {Rows.map((row, idx) => {
                 if (
                   idx < actualPageIndex * rowsPerPage + 1 &&
                   idx >= actualPageIndex * rowsPerPage - rowsPerPage
                 ) {
+
                   return (
+
                     <tr key={'tr1' + Math.random().toString()  }>
+                    
                       {props.columns.map((column, colx ) => {
                         return (
                           <td key={'td' + Math.random().toString() + colx.toString() } className="TableCell" width={column.WidthColumn}>
@@ -211,6 +278,7 @@ const RGrid = props => {
                           </td>
                         );
                       })}
+
                       {props.ShowDelete && (
                         <td key={'td_delete' + Math.random().toString()} className="TableCellBold" align="center">
                           <a key={'a_delete' + Math.random().toString()} href="#" onClick={() => props.DeleteId(row.RowId)}>
@@ -226,22 +294,44 @@ const RGrid = props => {
                           </a>
                         </td>
                       )}
+
+                    {props.ShowEdit && (
+                        <td key={'td_edit' + row.RowId.toString()} className="TableCellBold" align="center">
+                          <a key={'a_edit' + row.RowId.toString()} href='/#' onClick={() => props.EditId(row.RowId)}>
+                            <img
+                              alt="imgEdit"
+                              className="imgEdit"
+                              title="Next"
+                              border="0"
+                              width="18px"
+                              height="18px"
+                              value={row.RowId}
+                              key={'imgEdit' + row.RowId.toString() }
+                            ></img>
+                          </a>
+                        </td>
+                    )}
+                    { (props.ShowEdit || props.ShowDelete ) && (
+                      <td width="1%" colSpan={ColSpanGrid} className="TableCellBold" key={'thActionSpace' + Math.random().toString()} >
+                      </td>
+                    )}
                     </tr>
                   );
                 }
               })}
             </tbody>
+
             <tfoot >
               <tr key={'tr' + Math.random().toString() } >
                 <td
                   key={'tdFoot' + Math.random().toString() }
                   align="right"
-                  colSpan={props.columns.length + 1}
+                  colSpan={props.columns.length + ColSpanGrid }
                   className="TableCellBold"
                 >
                   {EnabledPaging && (
                     <div key="DivFooter" className="DivFooter" >
-                      <a href="#" onClick={PrevPage}>
+                      <a href="/#" onClick={PrevPage}>
                         <img
                           alt="imgPrev"
                           key={'imgPrev' + Math.random().toString() }
@@ -253,10 +343,9 @@ const RGrid = props => {
                         ></img>
                       </a>
                       <a>
-                        {' '}
-                        Page {actualPageIndex} / {TotalPages}{' '}
+                        {' '} Page {actualPageIndex} / {TotalPages}{' '}
                       </a>
-                      <a href="#" onClick={NextPage}>
+                      <a href="/#" onClick={NextPage}>
                         <img
                           alt="imgNext"
                           key={'imgNext' + Math.random().toString()}
