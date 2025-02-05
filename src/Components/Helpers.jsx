@@ -58,19 +58,50 @@ export const InsertComment = () =>
   };
 
 
-  export const insertImage = async (base64Image) => {
+  export const insertImage = async (base64Image) => 
+  {
+    var dataimage = {imagebase64: "manzana" };
     try {
-        const response = await fetch('https://sirfreedom.somee.com/api/File', {
+        const response = await fetch('https://sirfreedom.somee.com/api/File', 
+         {
             method: 'POST',
-            headers: {
+            mode: 'no-cors',
+            body:  JSON.stringify(dataimage),
+            headers: 
+            {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ imagebase64: base64Image })
+            }
+
         });
         const data = await response.json();
         console.log(data); // Maneja la respuesta de la API
     } catch (error) {
         console.error('Error al enviar la imagen:', error);
     }
+};
+
+
+export const enviarDatos = async () => {
+  const url = "https://sirfreedom.somee.com/api/File";
+
+  try {
+      const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "text/char" },
+          credentials: 'include',
+          mode: 'no-cors',
+          body: 'React POST Request Example',
+          //body: JSON.stringify({ imagebase64: 'React POST Request Example' }),
+          //body: JSON.stringify({ imagentext: 'email'  }),
+          
+      });
+
+      console.log(response);
+
+      const result = await response.json();
+      console.log('Datos enviados:', result);
+  } catch (error) {
+      console.error('Error:', error);
+  }
 };
   

@@ -17,7 +17,7 @@ const Layout = () => {
             <Link to="ListDogs">ListDogs</Link>
           </li>
           <li>
-            <Link to="EditDog">EditDog</Link>
+            <Link to="LineaBoton"> Linea Boton </Link>
           </li>
           <li>
             <Link to="Upload"> Upload </Link>

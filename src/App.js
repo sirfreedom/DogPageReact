@@ -8,9 +8,9 @@ import PlaySong from "./Components/PlaySong";
 import Home from "./Components/Home";
 import ListDogs from "./Components/ListDogs";
 import NoPage from "./Components/NoPage";
-import EditDog from './Components/EditDog';
 import Upload from './Components/UploadFile';
 import UploadCompress from './Components/UploadCompress';
+import LineaBoton from './Components/LineaBoton';
 
 function App() {
 
@@ -23,13 +23,14 @@ function App() {
           <Route index element={<Home />} />
           <Route path="PlaySong" element={<PlaySong />} />
           <Route path="ListDogs" element={<ListDogs />} />
-          <Route path="EditDog" element={<EditDog />} />
+          <Route path="LineaBoton" element={<LineaBoton />} />
           <Route path="Upload" element={<Upload />} />
           <Route path="UploadCompress" element={<UploadCompress />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
+
 
     </>
   );
