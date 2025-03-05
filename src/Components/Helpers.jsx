@@ -70,12 +70,13 @@ export const InsertComment = () =>
                 'Content-Type': 'application/json',
             }
         });
-        const data = await response.json();
-        console.log(data); // Maneja la respuesta de la API
+        console.log(response); // Maneja la respuesta de la API
     } catch (error) {
         console.error('Error al enviar la imagen:', error);
     }
 };
+
+
 
 
 export const enviarDatos = async () => {
