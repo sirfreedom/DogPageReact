@@ -1,4 +1,5 @@
 
+
 export const GetDog = async id => {
   let url = 'https://api.thedogapi.com/v1/breeds/' + id;
   let res;
@@ -33,9 +34,7 @@ export const InsertComment = () =>
   const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      //body: JSON.stringify({ title: 'Manzana' })
       body: JSON.stringify({"name": "manzana turquoise", "year": 2022, "color": "#53B0AE"})
-      //
   };
   fetch(url, requestOptions)
       .then(response => response.json())
@@ -60,18 +59,16 @@ export const InsertComment = () =>
 
   export const insertImage = async (base64Image) => 
   {
-    var dataimage = {imagebase64: "manzana" };
+    var dataimage = {imagetext: base64Image };
     try {
         const response = await fetch('https://sirfreedom.somee.com/api/File', 
          {
             method: 'POST',
-            mode: 'no-cors',
             body:  JSON.stringify(dataimage),
             headers: 
             {
                 'Content-Type': 'application/json',
             }
-
         });
         const data = await response.json();
         console.log(data); // Maneja la respuesta de la API
@@ -83,21 +80,18 @@ export const InsertComment = () =>
 
 export const enviarDatos = async () => {
   const url = "https://sirfreedom.somee.com/api/File";
-
+  let dataimage = {imagetext: "manzana111" };
   try {
       const response = await fetch(url, {
           method: "POST",
-          headers: { "Content-Type": "text/char" },
+          headers: 
+          {
+              'Content-Type': 'application/json',
+          },
           credentials: 'include',
-          mode: 'no-cors',
-          body: 'React POST Request Example',
-          //body: JSON.stringify({ imagebase64: 'React POST Request Example' }),
-          //body: JSON.stringify({ imagentext: 'email'  }),
-          
+          body: JSON.stringify(dataimage)
       });
-
       console.log(response);
-
       const result = await response.json();
       console.log('Datos enviados:', result);
   } catch (error) {

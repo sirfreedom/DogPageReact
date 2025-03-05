@@ -1,5 +1,4 @@
-import React, {useRef,useState} from 'react'
-
+import React, {useRef,useState, useEffect} from 'react'
 
 const PlaySongs = () => {
 
@@ -8,35 +7,64 @@ const PlaySongs = () => {
   const [timer, setTimer] = useState('00:00:00');
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [SongList, setSongList] = useState
-  (
-    [
-      {
-        "title": "Bohemian Rhapsody",
-        "author": "Queen",
-        "id": "1",
-        "time" : '00:00:40'
-      },
-      {
-        "title": "Stairway to Heaven",
-        "author": "Led Zeppelin",
-        "id": "2",
-        "time" : '00:00:30'
-      },
-      {
-        "title": "Smells Like Teen Spirit",
-        "author": "Nirvana",
-        "id": "3",
-        "time" : '00:00:23'
-      },
-      {
-        "title": "Hotel California",
-        "author": "Eagles",
-        "id": "4",
-        "time" : '00:00:35'
-      }
-    ]
-  );
+  const [SongList, setSongList] = useState([
+    {
+      "title": "test",
+      "author": "tets",
+      "id": "0",
+      "time" : '00:00:40'
+    }])
+
+
+  useEffect(() => {
+    Test();
+
+  }, []);
+
+
+
+
+    const Test = () => 
+    {
+
+setSongList
+      (
+        [
+          {
+            "title": "Bohemian Rhapsody",
+            "author": "Queen",
+            "id": "1",
+            "time" : '00:00:40'
+          },
+          {
+            "title": "Stairway to Heaven",
+            "author": "Led Zeppelin",
+            "id": "2",
+            "time" : '00:00:30'
+          },
+          {
+            "title": "Smells Like Teen Spirit",
+            "author": "Nirvana",
+            "id": "3",
+            "time" : '00:00:23'
+          },
+          {
+            "title": "Hotel California",
+            "author": "Eagles",
+            "id": "4",
+            "time" : '00:00:35'
+          }
+        ]
+      );
+
+      
+    };
+
+  
+
+
+
+
 
 
   const getTimeRemaining = (e) => {

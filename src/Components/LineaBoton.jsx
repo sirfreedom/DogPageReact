@@ -3,11 +3,9 @@ import {enviarDatos} from './Helpers'
 
 const LineaBoton = () => {
 
-
-
     const Test = () => 
     {
-        enviarDatos("insertado de test");
+        enviarDatos();
     };
 
 

@@ -93,7 +93,7 @@ const RGrid = props => {
   }, [Rows, rowsPerPage]);
 
 
-  Object.prototype.renameProperty = function (oldName, newName) {
+  Object.prototype.renameproperty = function (oldName, newName) {
     // no hacer nada si los nombre son iguales
     if (oldName === newName) {
       return this;
@@ -133,7 +133,7 @@ const setColSpan = () => {
       oComplete = props.rows;
 
       for (var item of oComplete) {
-        item.renameProperty(props.ConfigurationId, 'RowId');
+        item.renameproperty(props.ConfigurationId, 'RowId');
       }
 
     setRows(lodash.sortBy(oComplete, 'RowId'));

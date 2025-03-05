@@ -46,6 +46,10 @@ const ListDogs = () => {
     }
    
     useEffect(() => {
+
+      setDogId(0);
+      setModalEdit(false);
+
       ListAll().then(lDog => {
         setDogs(lDog);
       });
