@@ -10,15 +10,16 @@
     "bootstrap": "^5.2.3",
     "export-from-json": "^1.7.4",
     "image-blob-reduce": "^4.1.0",
-    "jspdf": "^3.0.0",
-    "jspdf-autotable": "^5.0.2",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.3",
     "lodash": "^4.17.21",
     "pretty-bytes": "^6.1.1",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.7.4",
+    "react-bootstrap": "^2.10.4",
     "react-dom": "^18.2.0",
     "react-dropzone-uploader": "^2.11.0",
     "react-image-file-resizer": "^0.4.8",
+    "react-native": "^0.73.4",
     "react-redux": "^9.1.0",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.22.1",
@@ -29,7 +30,7 @@
     "yarn": "^1.22.21"
   },
   "scripts": {
-    "start": "react-scripts start --reset-cache",
+    "start": "react-scripts --openssl-legacy-provider start --reset-cache",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -53,8 +54,6 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-react-html-attrs": "^3.0.5",
-    "mdb-react-ui-kit": "^9.0.0",
-    "webpack": "^5.96.1"
+    "babel-plugin-react-html-attrs": "^3.0.5"
   }
 }
