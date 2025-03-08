@@ -1,35 +1,46 @@
 import './Css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Layout from "./Components/Layout";
-import PlaySong from "./Components/PlaySong";
-import Home from "./Components/Home";
-import ListDogs from "./Components/ListDogs";
-import NoPage from "./Components/NoPage";
-import Upload from './Components/UploadFile';
-import UploadCompress from './Components/UploadCompress';
-import LineaBoton from './Components/LineaBoton';
+import React, { useState,useEffect } from "react";
+import TestExam from './Components/TestExam';
+import { getJasoWebToken} from './Components/Helpers';
 
 function App() {
 
+  const handleLogin = async () => {
+    let sResult = '';
+    let token = '';
+
+    token = localStorage.getItem('token');
+
+    if(token !== ''){
+      sResult = await getJasoWebToken("admin","1234");
+      localStorage.setItem('token', JSON.stringify(sResult));
+      console.log('get token');
+      console.log(sResult);
+    }
+    
+  }
+
+  useEffect(() => 
+  {
+    handleLogin();
+  }, []);
+
+
  return (
     <>
+      <div className='container' >
 
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="PlaySong" element={<PlaySong />} />
-          <Route path="ListDogs" element={<ListDogs />} />
-          <Route path="LineaBoton" element={<LineaBoton />} />
-          <Route path="Upload" element={<Upload />} />
-          <Route path="UploadCompress" element={<UploadCompress />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          <div className='row'>
+              <div className='col-12'>
+            
+                <TestExam></TestExam>
+
+              </div>
+          </div>
+
+      </div>        
+
 
 
     </>

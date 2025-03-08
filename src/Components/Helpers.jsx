@@ -1,102 +1,133 @@
 
-
-export const GetDog = async id => {
-  let url = 'https://api.thedogapi.com/v1/breeds/' + id;
-  let res;
-  let data = [];
-  try{
-  res = await fetch(url);
-  data = await res.json().catch(err => console.log(err));
-  }
-  catch(ex){
-    console.log(ex);
-  }
-  return data;
-};
-
-export const FindDogs = async value => {
-  let url = 'https://api.thecatapi.com/v1/breeds/search?q=' + value;
-  let res;
-  let data = [];
-  try {
-  res = await fetch(url);
-  data = await res.json().catch(err => console.log(err));
-  }
-  catch(ex){
-    console.log(ex);
-  }
-  return data;
-};
-
-export const InsertComment = () => 
+export const getQuestionLevels = async () =>
 {
-  const url = 'https://reqres.in/api/posts';
-  const requestOptions = {
+  let url = 'https://sirfreedom.somee.com/api/QuestionLevel?IdDependency=1';
+  let response;
+  let data = [];
+  let tempdata = [];
+  try 
+  {
+    response = await fetch(url);
+    tempdata = await response.json().catch(err => console.log(err));
+    data = tempdata.questionlevels;
+  }
+  catch(ex){
+    console.error('Error en get QuestionLevel',ex);
+  }
+  return data;
+}
+
+
+export const getMessagesFinalTest = async () =>
+{
+  let url = 'https://sirfreedom.somee.com/api/FinalTestMessage?IdDependency=1';
+  let response;
+  let data = [];
+  let tempdata = [];
+  try 
+  {
+    response = await fetch(url);
+    tempdata = await response.json().catch(err => console.log(err));
+    data = tempdata.finaltestmessage;
+  }
+  catch(ex){
+    console.error('Error en getMessageFinal',ex);
+  }
+  return data;
+}
+
+export const getSetting = async () =>
+{
+  let url = 'https://sirfreedom.somee.com/api/Setting?IdDependency=1';
+  let response;
+  let data = [];
+  let tempdata = [];
+  try 
+  {
+    response = await fetch(url);
+    tempdata = await response.json().catch(err => console.log(err));
+    data = tempdata.setting;
+  }
+  catch(ex){
+    console.error('Error en getSetting',ex);
+  }
+  return data;
+}
+
+
+export const getQuestions = async (codlevel) => 
+{
+  let url = 'https://sirfreedom.somee.com/api/Question?IdDependency=1&CodLevel='+ codlevel;
+  let response;
+  let data = [];
+  let tempdata = [];
+  try {
+  response = await fetch(url);
+  tempdata = await response.json().catch(err => console.log(err));
+  data = tempdata.questions; 
+  }
+  catch(ex){
+    console.error('Error en getQuestion',ex);
+  }
+  return data;
+}
+
+
+export const getJasoWebToken = async (user, pass) => 
+{
+  let data = [];
+  let token = '';
+  let response;
+  try 
+  {
+      response = await fetch('https://sirfreedom.somee.com/Account/login', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({"name": "manzana turquoise", "year": 2022, "color": "#53B0AE"})
-  };
-  fetch(url, requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data.id));
-  };
+      headers: 
+      {
+          'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        user: user,
+        pass: pass,
+      }),
+    });
 
-
-  export const ListAll = async () => {
-    const url = 'https://api.thedogapi.com/v1/breeds';
-    let data = [];
-    let res;
-    try{
-    res = await fetch(url);
-    data = await res.json().catch(err => console.log(err));
+    if (response.status == 200)
+    {
+      data = await response.json();
+      token = data.jwtToken;
     }
-    catch(ex){
-      console.log(ex);
+
+  } catch (ex) 
+  {
+    console.error('Error en getQuestion',ex);
+  }
+  return token;
+}
+
+
+export const getCredencials = async (token) => 
+  {
+    let data;
+    try 
+    {
+      data = await fetch('https://sirfreedom.somee.com/api/Values/jwt', 
+      {
+        headers: { Authorization: 'Bearer ' + token }
+      }).then(response => 
+      {
+        if (response.status != 200) 
+        {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      });
+
+    } 
+    catch (ex) 
+    {
+      console.error('Error en getQuestion',ex);
     }
     return data;
-  };
-
-
-  export const insertImage = async (base64Image) => 
-  {
-    var dataimage = {imagetext: base64Image };
-    try {
-        const response = await fetch('https://sirfreedom.somee.com/api/File', 
-         {
-            method: 'POST',
-            body:  JSON.stringify(dataimage),
-            headers: 
-            {
-                'Content-Type': 'application/json',
-            }
-        });
-        console.log(response); // Maneja la respuesta de la API
-    } catch (error) {
-        console.error('Error al enviar la imagen:', error);
-    }
-};
-
-
-
-
-export const enviarDatos = async () => {
-  const url = "https://sirfreedom.somee.com/api/File";
-  let dataimage = {imagetext: "manzana111" };
-  try {
-      const response = await fetch(url, {
-          method: "POST",
-          headers: 
-          {
-              'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-          body: JSON.stringify(dataimage)
-      });
-      console.log(response);
-      const result = await response.json();
-      console.log('Datos enviados:', result);
-  } catch (error) {
-      console.error('Error:', error);
   }
-};
-  
