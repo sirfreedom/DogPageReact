@@ -44,7 +44,14 @@ const ListDogs = () => {
         setIsCargando(false);
       });
     }
-   
+
+
+    const GridEdit = id => {
+      setModalEdit(true);
+      setDogId(id);
+    };
+  
+  
     useEffect(() => {
 
       setDogId(0);
@@ -76,8 +83,10 @@ const ListDogs = () => {
               rows={Dogs}
               columns={GrillaConfiguracion}
               ShowDelete="true"
+              ShowEdit="true"
               Export="true"
               DeleteId={id => console.log(id)}
+              EditId={id => GridEdit(id)}
               isLoading={isCargando}
               ConfigurationId="id"
             />
