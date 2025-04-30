@@ -1,4 +1,6 @@
 import React, {useRef,useState, useEffect} from 'react'
+import {Update} from './Helpers'
+
 
 const PlaySongs = () => {
 
@@ -22,6 +24,11 @@ const PlaySongs = () => {
   }, []);
 
 
+
+
+const Prueba = () => {
+  Update();
+}
 
 
     const Test = () => 
@@ -160,9 +167,17 @@ const getDeadTime = () => {
         <button className="player-btn" onClick={togglePlay}>
           {playing ? 'Stop' : 'Play'}
         </button>
+
         <button className="player-btn" onClick={nextTrack}>
           Next
         </button>
+
+        <button className="player-btn" onClick={Prueba}>
+          Test
+        </button>
+
+
+
       </div>
       <div className="music-list">
         {SongList.map((track, index) => (

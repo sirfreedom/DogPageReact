@@ -76,7 +76,27 @@ export const InsertComment = () =>
     }
 };
 
-
+export const Update = async () => {
+  const url = "http://sirfreedom.somee.com/api/File";
+  let dataimage = {imagetext: "manzana111" };
+  try {
+      const response = await fetch(url, {
+          method: "PUT",
+          headers: 
+          {
+              'Content-Type': 'application/json',
+          },
+          //credentials: 'include',
+          body: JSON.stringify(dataimage)
+      });
+      console.log(response);
+      const result = await response.json();
+      console.log('Datos enviados:', result);
+  } 
+  catch (error) {
+      console.error('Error:', error);
+  }
+};
 
 
 export const enviarDatos = async () => {
