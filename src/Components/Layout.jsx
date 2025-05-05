@@ -19,6 +19,9 @@ const Layout = () => {
           <li>
             <Link to="LineaBoton"> Linea Boton </Link>
           </li>
+          <li>
+            <Link to="TestComponent"> Test Component </Link>
+          </li>
         </ul>
       </nav>
 

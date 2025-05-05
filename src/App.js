@@ -9,6 +9,7 @@ import Home from "./Components/Home";
 import ListDogs from "./Components/ListDogs";
 import NoPage from "./Components/NoPage";
 import LineaBoton from './Components/LineaBoton';
+import TestComponent from './Components/TestComponent';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="PlaySong" element={<PlaySong />} />
           <Route path="ListDogs" element={<ListDogs />} />
           <Route path="LineaBoton" element={<LineaBoton />} />
+          <Route path="TestComponent" element={<TestComponent />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
