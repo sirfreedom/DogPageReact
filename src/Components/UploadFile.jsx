@@ -20,9 +20,9 @@ class UploadFile extends React.Component {
       // on reader load somthing...
       reader.onload = () => {
         // Make a fileInfo Object
-        console.log("Called", reader);
+        //console.log("Called", reader);
         baseURL = reader.result;
-        console.log(baseURL);
+        //console.log(baseURL);
         resolve(baseURL);
       };
       console.log(fileInfo);
@@ -39,9 +39,9 @@ class UploadFile extends React.Component {
     this.getBase64(file)
       .then(result => {
         file["base64"] = result;
-        console.log("File Is", file);
-
-        insertFile(file.base64);
+        //console.log("File Is", file);
+        //console.log(result);
+        insertFile(result);
 
         this.setState({
           base64URL: result,
