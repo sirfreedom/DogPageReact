@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react'
+import {insertFile} from './Helpers'
 
 class UploadFile extends React.Component {
   state = {
@@ -30,7 +31,7 @@ class UploadFile extends React.Component {
 
   handleFileInputChange = e => 
   {
-    console.log(e.target.files[0]);
+    //console.log(e.target.files[0]);
     let { file } = this.state;
 
     file = e.target.files[0];
@@ -39,6 +40,9 @@ class UploadFile extends React.Component {
       .then(result => {
         file["base64"] = result;
         console.log("File Is", file);
+
+        insertFile(file.base64);
+
         this.setState({
           base64URL: result,
           file
