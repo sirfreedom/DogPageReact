@@ -100,7 +100,7 @@ export const Update = async () => {
 
 
 export const enviarDatos = async () => {
-  const url = "https://sirfreedom.somee.com/api/File";
+  const url = "https://sircode.somee.com/api/File";
   let dataimage = {imagetext: "manzana111" };
   try {
       const response = await fetch(url, {
