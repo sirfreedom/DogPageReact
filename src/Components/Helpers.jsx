@@ -61,7 +61,7 @@ export const InsertComment = () =>
   {
     var dataimage = {imagetext: base64File };
     try {
-        const response = await fetch('https://sirfreedom.somee.com/api/File', 
+        const response = await fetch('https://sircode.somee.com/api/File', 
          {
             method: 'POST',
             body:  JSON.stringify(dataimage),
