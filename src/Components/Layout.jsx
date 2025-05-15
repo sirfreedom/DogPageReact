@@ -22,6 +22,12 @@ const Layout = () => {
           <li>
             <Link to="TestComponent"> Test Component </Link>
           </li>
+          <li>
+              <Link to="UploadFile"> UploadFile </Link>
+          </li>
+          <li>
+              <Link to="ImageResizer"> ImageResizer </Link>
+          </li>
         </ul>
       </nav>
 

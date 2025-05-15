@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Resizer from "react-image-file-resizer";
 import prettyBytes from "pretty-bytes";
-import {insertImage} from './Helpers'
-
+import {insertFile} from './Helpers'
 
 
 /*
@@ -49,7 +48,7 @@ function ImageResizer({ title, description, file }) {
             //});
           (uri) => 
           {
-              insertImage(uri);
+              insertFile(uri);
               //console.log(uri);
               //setImgtext(uri);
           },

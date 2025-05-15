@@ -57,9 +57,9 @@ export const InsertComment = () =>
   };
 
 
-  export const insertImage = async (base64Image) => 
+  export const insertFile = async (base64File) => 
   {
-    var dataimage = {imagetext: base64Image };
+    var dataimage = {imagetext: base64File };
     try {
         const response = await fetch('https://sirfreedom.somee.com/api/File', 
          {
